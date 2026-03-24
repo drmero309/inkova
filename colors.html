@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة الألوان - إنكوفا فليكسو</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* 🔥 NEW PREMIUM BACKGROUND */
+        .animated-bg {
+            background: linear-gradient(270deg, #F5EFE6, #C6A962, #1C1C1C, #C0C0C0, #FFFFFF);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .color-swatch {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.15);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+        }
+        
+        .color-swatch:hover .pantone-name {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #C6A962;
+            transform: scale(1.05);
+        }
+
+        /* 🔥 LOGO ANIMATION */
+        .logo {
+            transition: 0.4s;
+        }
+        .logo:hover {
+            transform: scale(1.1) rotate(8deg);
+        }
+
+        /* 🔥 ICON ANIMATION */
+        .icon-anim {
+            transition: 0.3s;
+        }
+        .icon-anim:hover {
+            transform: scale(1.2) rotate(10deg);
+            text-shadow: 0 0 10px #C6A962;
+        }
+    </style>
+</head>
+<body class="animated-bg min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-[#1C1C1C] text-[#F5EFE6] shadow-xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Inkova Logo" class="h-11 w-auto logo">
+                <div>
+                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
+                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+                </div>
+            </a>
+
+            <ul class="flex items-center gap-8 text-lg font-medium">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="products.html" class="nav-link">المنتجات</a></li>
+                <li><a href="colors.html" class="nav-link text-[#C6A962]">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="nav-link">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="nav-link">اطلب الآن</a></li>
+                <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-[#1C1C1C] mb-6" data-aos="fade-up">
+                مكتبة الألوان
+            </h1>
+            <p class="text-2xl max-w-3xl mx-auto text-[#1C1C1C]" data-aos="fade-up" data-aos-delay="100">
+                أكثر من 950 لون متاح • مطابقة Pantone دقيقة • ألوان حية وثابتة لا تبهت
+            </p>
+            <p class="mt-4 text-lg text-[#1C1C1C]" data-aos="fade-up" data-aos-delay="200">
+                اختر لونك واطلب عينة مجانية الآن
+            </p>
+        </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8" id="color-grid"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-white/80 backdrop-blur-md text-center">
+        <div class="max-w-2xl mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-6">مش لاقي اللون اللي عايزه؟</h2>
+            <p class="text-xl mb-8">ارفع ملف التصميم أو قولنا Pantone رقم معين ونعملك مطابقة دقيقة</p>
+            <a href="order.html" 
+               class="inline-flex bg-[#C6A962] hover:bg-[#b89a55] text-[#1C1C1C] px-12 py-5 rounded-3xl font-bold text-xl items-center gap-3 hover:scale-105 transition">
+                <i class="fas fa-palette icon-anim"></i>
+                اطلب مطابقة لون مخصص
+            </a>
+        </div>
+    </section>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/201553404414" target="_blank"
+       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
+        <i class="fab fa-whatsapp text-4xl icon-anim"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-[#1C1C1C] text-[#F5EFE6] py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.png" class="h-10 mb-4 logo">
+                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="products.html" class="hover:text-[#C6A962]">المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#C6A962]">مكتبة الألوان</a></li>
+                        <li><a href="why.html" class="hover:text-[#C6A962]">ليه إنكوفا؟</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تواصل</h4>
+                    <p class="text-sm">
+                        واتساب: 
+                        <a href="https://wa.me/201553404414" class="hover:text-[#C6A962]">
+                            01553404414
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تابعنا</h4>
+                    <div class="flex gap-4 text-2xl">
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank">
+                            <i class="fab fa-facebook icon-anim"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank">
+                            <i class="fab fa-instagram icon-anim"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center text-xs mt-12 border-t border-[#F5EFE6]/30 pt-6">
+                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
+                تم إنشاؤه بواسطة دكتور عمر عرفه
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        const colors = [
+            { name: "Pantone 185 C", hex: "#E30613", desc: "أحمر حيوي" },
+            { name: "Pantone 286 C", hex: "#0033A0", desc: "أزرق كوبالت" },
+            { name: "Pantone 355 C", hex: "#009639", desc: "أخضر طبيعي" },
+            { name: "Pantone 109 C", hex: "#FFD100", desc: "أصفر ذهبي" },
+            { name: "Pantone 021 C", hex: "#FF4500", desc: "برتقالي" },
+            { name: "Pantone 2725 C", hex: "#4C2C9B", desc: "بنفسجي غامق" },
+            { name: "Pantone 877 C", hex: "#8A8D8F", desc: "فضي" },
+            { name: "Pantone 871 C", hex: "#B38B5E", desc: "ذهبي" },
+            { name: "Pantone Black C", hex: "#2C2C2C", desc: "أسود عميق" },
+            { name: "Pantone 1235 C", hex: "#FFCC00", desc: "أصفر براق" }
+        ];
+
+        const grid = document.getElementById('color-grid');
+
+        colors.forEach((color) => {
+            const div = document.createElement('div');
+            div.className = `color-swatch bg-white rounded-3xl overflow-hidden shadow-xl cursor-pointer`;
+            div.innerHTML = `
+                <div style="background-color: ${color.hex}; height: 180px;" class="flex items-end justify-center pb-4">
+                    <span class="pantone-name opacity-0 transform translate-y-4 bg-black/70 text-white text-xs px-4 py-1 rounded-full transition-all">
+                        ${color.name}
+                    </span>
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="font-bold text-[#1C1C1C]">${color.desc}</h3>
+                    <p class="text-sm text-gray-500 mt-1">${color.name}</p>
+                    <a href="https://wa.me/201553404414?text=أريد%20عينة%20من%20${encodeURIComponent(color.name)}" 
+                       target="_blank"
+                       class="mt-4 block bg-[#1C1C1C] hover:bg-[#C6A962] hover:text-[#1C1C1C] text-white py-3 rounded-2xl text-sm font-medium transition">
+                        اطلب عينة مجانية
+                    </a>
+                </div>
+            `;
+            grid.appendChild(div);
+        });
+
+        tailwind.config = { theme: { extend: {} } };
+    </script>
+</body>
+</html>

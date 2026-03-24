@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ليه إنكوفا؟ - إنكوفا فليكسو</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .animated-bg {
+            background: linear-gradient(270deg, #f5ede3, #d4af77, #3c2f2f, #555555, #e8d9c8, #a67b5b, #4a4a4a);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .problem-card {
+            transition: all 0.4s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15);
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d4af77;
+            transform: scale(1.05);
+        }
+
+        /* Logo hover animation */
+        .logo-hover {
+            transition: transform 0.5s ease;
+        }
+        .logo-hover:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Icon hover animation (scale + rotate + glow) */
+        .icon-hover {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .icon-hover:hover {
+            transform: scale(1.2) rotate(15deg);
+            filter: drop-shadow(0 0 10px rgba(212, 175, 119, 0.8));
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in-up.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="animated-bg min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-[#3c2f2f] text-[#f5ede3] shadow-xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 logo-hover">
+                <img src="logo.png" alt="Inkova Logo" class="h-11 w-auto">
+                <div>
+                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
+                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+                </div>
+            </a>
+
+            <ul class="flex items-center gap-8 text-lg font-medium">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="products.html" class="nav-link">المنتجات</a></li>
+                <li><a href="colors.html" class="nav-link">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="nav-link text-[#d4af77]">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="nav-link">اطلب الآن</a></li>
+                <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-28 pb-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-[#3c2f2f] mb-6" data-aos="fade-up">
+                ليه تختار حبر إنكوفا فليكسو؟
+            </h1>
+            <p class="text-2xl text-[#3c2f2f] max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                لأننا نحل مشاكل الطباعة اللي بتواجهها كل يوم في المصانع
+            </p>
+        </div>
+    </section>
+
+    <!-- المشاكل الشائعة وحلولنا -->
+    <section class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- مشكلة + حل 1 -->
+            <div class="problem-card bg-white rounded-3xl p-10 shadow-xl fade-in-up" data-aos="fade-right">
+                <div class="flex items-start gap-6">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                        ❌
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#3c2f2f] mb-3">مشكلة: بهتان اللون بعد أيام قليلة</h3>
+                        <p class="text-gray-600 mb-6">الألوان بتفقد حيويتها بسرعة، خاصة على الكرتون والبلاستيك.</p>
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                                ✅
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-[#3c2f2f]">حل إنكوفا:</h4>
+                                <p class="text-gray-700">ثبات لون أعلى بنسبة ٤٠٪ + ألوان حية تدوم طويلاً حتى تحت أشعة الشمس.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مشكلة + حل 2 -->
+            <div class="problem-card bg-white rounded-3xl p-10 shadow-xl fade-in-up" data-aos="fade-left">
+                <div class="flex items-start gap-6">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                        ❌
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#3c2f2f] mb-3">مشكلة: الحبر بيجف في الماكينة ويوقف الإنتاج</h3>
+                        <p class="text-gray-600 mb-6">الحبر العادي بيسبب انسداد الرؤوس وتوقف متكرر.</p>
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                                ✅
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-[#3c2f2f]">حل إنكوفا:</h4>
+                                <p class="text-gray-700">حبر جاهز للتشغيل المباشر • جفاف محكوم • لا يسبب انسداد أبدًا.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مشكلة + حل 3 -->
+            <div class="problem-card bg-white rounded-3xl p-10 shadow-xl fade-in-up" data-aos="fade-right" data-aos-delay="100">
+                <div class="flex items-start gap-6">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                        ❌
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#3c2f2f] mb-3">مشكلة: السعر مرتفع والجودة مش مستقرة</h3>
+                        <p class="text-gray-600 mb-6">بتدفع فلوس كتير ومازال بتواجه مشاكل في الطباعة.</p>
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                                ✅
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-[#3c2f2f]">حل إنكوفا:</h4>
+                                <p class="text-gray-700">سعر أرخص بنسبة تصل لـ ٢٥٪ • جودة أعلى وثبات مضمون.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مشكلة + حل 4 -->
+            <div class="problem-card bg-white rounded-3xl p-10 shadow-xl fade-in-up" data-aos="fade-left" data-aos-delay="100">
+                <div class="flex items-start gap-6">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                        ❌
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#3c2f2f] mb-3">مشكلة: الحبر مش صديق للبيئة</h3>
+                        <p class="text-gray-600 mb-6">السلطات والعملاء بقوا بيطلبوا حبر مائي خالي من المواد الضارة.</p>
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 icon-hover">
+                                ✅
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2 text-[#3c2f2f]">حل إنكوفا:</h4>
+                                <p class="text-gray-700">حبر مائي Water-Based • صديق للبيئة • آمن على العمال والماكينات.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- مميزات إضافية -->
+    <section class="py-20 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-[#3c2f2f]" data-aos="fade-up">مميزات إنكوفا اللي مش هتلاقيها عند غيرنا</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center icon-hover" data-aos="zoom-in">
+                    <i class="fas fa-truck text-6xl text-[#d4af77] mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">تسليم سريع في مصر</h3>
+                    <p class="text-gray-600">نوصلك الحبر خلال ٢٤-٤٨ ساعة في أي مكان في الجمهورية.</p>
+                </div>
+                <div class="text-center icon-hover" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-flask text-6xl text-[#d4af77] mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">اختبار جودة قبل الشحن</h3>
+                    <p class="text-gray-600">كل دفعة بنختبرها على ماكينات فليكسو حقيقية.</p>
+                </div>
+                <div class="text-center icon-hover" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-headset text-6xl text-[#d4af77] mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">دعم فني مجاني</h3>
+                    <p class="text-gray-600">مهندسينا جاهزين يساعدوك في أي مشكلة في الطباعة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 text-center">
+        <div data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-6 text-[#3c2f2f]">جاهز تجرب الفرق بنفسك؟</h2>
+            <a href="order.html" 
+               class="inline-flex bg-[#d4af77] hover:bg-[#c9a66b] text-[#3c2f2f] px-14 py-6 rounded-3xl font-bold text-2xl items-center gap-4 hover:scale-110 transition">
+                <i class="fas fa-arrow-left"></i>
+                اطلب عينة مجانية الآن
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201553404414" target="_blank"
+       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-[#3c2f2f] text-[#f5ede3] py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.png" alt="Inkova" class="h-10 mb-4 logo-hover">
+                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-[#d4af77]">الرئيسية</a></li>
+                        <li><a href="products.html" class="hover:text-[#d4af77]">المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#d4af77]">مكتبة الألوان</a></li>
+                        <li><a href="why.html" class="hover:text-[#d4af77]">ليه إنكوفا؟</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تواصل</h4>
+                    <p class="text-sm">واتساب: <a href="https://wa.me/201553404414" class="hover:text-[#d4af77]">01553404414</a></p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تابعنا</h4>
+                    <div class="flex gap-4 text-2xl">
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank"><i class="fab fa-facebook icon-hover"></i></a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank"><i class="fab fa-instagram icon-hover"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-xs mt-12 border-t border-[#f5ede3]/30 pt-6">
+                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
+                تم إنشاؤه بواسطة دكتور عمر عرفه
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنكوفا فليكسو | حبر فليكسو جاهز للتشغيل</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .animated-bg {
+            background: linear-gradient(270deg, #f5ede3, #d4af77, #3c2f2f, #555555, #e8d9c8, #a67b5b, #4a4a4a);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d4af77;
+            transform: scale(1.05);
+        }
+
+        /* 🔥 لوجو أنيميشن */
+        .logo {
+            transition: all 0.4s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1) rotate(8deg);
+        }
+
+        /* 🔥 أيقونات أنيميشن */
+        .icon-anim {
+            transition: all 0.3s ease;
+        }
+        .icon-anim:hover {
+            transform: scale(1.2) rotate(10deg);
+            text-shadow: 0 0 10px #d4af77;
+        }
+        
+        .feature-card:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="animated-bg">
+
+    <!-- Navbar -->
+    <nav class="bg-[#3c2f2f] text-[#f5ede3] shadow-xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Inkova Logo" class="h-12 w-auto logo">
+                <div>
+                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
+                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+                </div>
+            </a>
+
+            <ul class="flex items-center gap-8 text-lg font-medium">
+                <li><a href="index.html" class="nav-link text-[#d4af77]">الرئيسية</a></li>
+                <li><a href="products.html" class="nav-link">المنتجات</a></li>
+                <li><a href="colors.html" class="nav-link">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="nav-link">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="nav-link">اطلب الآن</a></li>
+                <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" class="space-y-6">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight text-[#3c2f2f]">
+                    حبر فليكسو جاهز للتشغيل بجودة عالية وسعر ينافس السوق
+                </h1>
+                <p class="text-2xl text-[#3c2f2f]">سعر أرخص • جودة أعلى • صديق للبيئة • ألوان أقوى</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="order.html" 
+                       class="bg-[#d4af77] hover:bg-[#c9a66b] text-[#3c2f2f] px-10 py-4 rounded-2xl font-bold text-lg flex items-center gap-2 hover:scale-105 transition">
+                        <i class="fas fa-shopping-cart icon-anim"></i>
+                        اطلب الآن
+                    </a>
+                    <a href="https://wa.me/201553404414" target="_blank"
+                       class="border-2 border-[#3c2f2f] hover:bg-[#3c2f2f] hover:text-[#f5ede3] px-10 py-4 rounded-2xl font-bold text-lg flex items-center gap-2 hover:scale-105 transition">
+                        <i class="fab fa-whatsapp text-2xl icon-anim"></i>
+                        واتساب
+                    </a>
+                </div>
+            </div>
+
+            <div data-aos="fade-left">
+                <img src="logoinkova.png" 
+                     alt="ماكينة طباعة فليكسو - إنكوفا" 
+                     class="rounded-3xl shadow-2xl w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- مميزات -->
+    <section class="py-20 max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#3c2f2f]" data-aos="fade-up">مميزات حبر إنكوفا فليكسو</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-tag text-5xl text-[#d4af77] mb-4 icon-anim"></i>
+                <h3 class="text-2xl font-bold mb-2">سعر أرخص</h3>
+                <p class="text-gray-600">أقل تكلفة في السوق مع جودة أعلى</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-medal text-5xl text-[#d4af77] mb-4 icon-anim"></i>
+                <h3 class="text-2xl font-bold mb-2">جودة أعلى</h3>
+                <p class="text-gray-600">منتج جاهز يشتغل مباشرة على الماكينة</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-leaf text-5xl text-[#d4af77] mb-4 icon-anim"></i>
+                <h3 class="text-2xl font-bold mb-2">صديق للبيئة</h3>
+                <p class="text-gray-600">حبر مائي Water-Based خالي من المواد الضارة</p>
+            </div>
+            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-palette text-5xl text-[#d4af77] mb-4 icon-anim"></i>
+                <h3 class="text-2xl font-bold mb-2">ألوان أقوى</h3>
+                <p class="text-gray-600">ثبات لون عالي وألوان حية لا تبهت</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201553404414" target="_blank"
+       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
+        <i class="fab fa-whatsapp text-4xl icon-anim"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-[#3c2f2f] text-[#f5ede3] py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.png" alt="Inkova" class="h-10 mb-4 logo">
+                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="products.html" class="hover:text-[#d4af77]">المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#d4af77]">مكتبة الألوان</a></li>
+                        <li><a href="why.html" class="hover:text-[#d4af77]">ليه إنكوفا؟</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تواصل</h4>
+                    <p class="text-sm">واتساب: <a href="https://wa.me/201553404414" class="hover:text-[#d4af77]">01553404414</a></p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تابعنا</h4>
+                    <div class="flex gap-4 text-2xl">
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank">
+                            <i class="fab fa-facebook icon-anim"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank">
+                            <i class="fab fa-instagram icon-anim"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-xs mt-12 border-t border-[#f5ede3]/30 pt-6">
+                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
+                تم إنشاؤه بواسطة دكتور عمر عرفه
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#f5ede3',
+                        brown: '#3c2f2f',
+                        gold: '#d4af77'
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

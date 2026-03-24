@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات - إنكوفا فليكسو</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .animated-bg {
+            background: linear-gradient(270deg, #f5ede3, #d4af77, #3c2f2f, #555555, #e8d9c8, #a67b5b, #4a4a4a);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: scale(1.08) translateY(-15px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d4af77;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="animated-bg min-h-screen">
+
+    <!-- Navbar نفس اللي في الصفحة الرئيسية -->
+    <nav class="bg-[#3c2f2f] text-[#f5ede3] shadow-xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Inkova Logo" class="h-11 w-auto">
+                <div>
+                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
+                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+                </div>
+            </a>
+
+            <ul class="flex items-center gap-8 text-lg font-medium">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="products.html" class="nav-link text-[#d4af77]">المنتجات</a></li>
+                <li><a href="colors.html" class="nav-link">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="nav-link">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="nav-link">اطلب الآن</a></li>
+                <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section لصفحة المنتجات -->
+    <section class="pt-28 pb-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-[#3c2f2f] mb-4" data-aos="fade-up">
+                منتجاتنا من حبر الفليكسو
+            </h1>
+            <p class="text-2xl text-[#3c2f2f] max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Water-Based Flexo Inks • جاهزة للتشغيل مباشرة على الماكينة
+            </p>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات الرئيسي -->
+    <section class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- منتج 1: حبر للكرتون -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl" data-aos="fade-up">
+                <div class="h-64 bg-[#f5ede3] flex items-center justify-center">
+                    <img src="https://picsum.photos/id/201/600/400" 
+                         alt="حبر فليكسو للكرتون" 
+                         class="h-full w-full object-cover">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-[#3c2f2f] mb-2">حبر فليكسو للكرتون والكرتون المقوى</h3>
+                    <p class="text-gray-600 mb-6">Water-Based Flexo Ink مثالي لطباعة الكرتون بثبات لون عالي وجفاف سريع.</p>
+                    
+                    <ul class="space-y-2 text-sm mb-8">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> ثبات لون ممتاز</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> جفاف سريع على الماكينة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> مناسب للطباعة عالية السرعة</li>
+                    </ul>
+                    
+                    <a href="order.html" 
+                       class="block text-center bg-[#3c2f2f] hover:bg-[#d4af77] hover:text-[#3c2f2f] text-white py-4 rounded-2xl font-bold transition">
+                        اطلب هذا المنتج
+                    </a>
+                </div>
+            </div>
+
+            <!-- منتج 2: حبر للبلاستيك -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-64 bg-[#f5ede3] flex items-center justify-center">
+                    <img src="https://picsum.photos/id/237/600/400" 
+                         alt="حبر فليكسو للبلاستيك" 
+                         class="h-full w-full object-cover">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-[#3c2f2f] mb-2">حبر فليكسو للأفلام البلاستيكية</h3>
+                    <p class="text-gray-600 mb-6">مصمم خصيصًا لطباعة الأكياس والأفلام البلاستيكية بألوان حيوية وثبات عالي.</p>
+                    
+                    <ul class="space-y-2 text-sm mb-8">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> التصاق ممتاز على البلاستيك</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> مقاوم للماء والاحتكاك</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> ألوان غنية ولامعة</li>
+                    </ul>
+                    
+                    <a href="order.html" 
+                       class="block text-center bg-[#3c2f2f] hover:bg-[#d4af77] hover:text-[#3c2f2f] text-white py-4 rounded-2xl font-bold transition">
+                        اطلب هذا المنتج
+                    </a>
+                </div>
+            </div>
+
+            <!-- منتج 3: حبر للورق -->
+            <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-64 bg-[#f5ede3] flex items-center justify-center">
+                    <img src="https://picsum.photos/id/180/600/400" 
+                         alt="حبر فليكسو للورق" 
+                         class="h-full w-full object-cover">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-[#3c2f2f] mb-2">حبر فليكسو للورق والليبلز</h3>
+                    <p class="text-gray-600 mb-6">حبر عالي الجودة لطباعة الورق، الليبلز، والتغليف الورقي بدقة ووضوح عالي.</p>
+                    
+                    <ul class="space-y-2 text-sm mb-8">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> طباعة حادة وواضحة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> مناسب للطباعة على الورق المقوى</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-[#d4af77]"></i> صديق للبيئة</li>
+                    </ul>
+                    
+                    <a href="order.html" 
+                       class="block text-center bg-[#3c2f2f] hover:bg-[#d4af77] hover:text-[#3c2f2f] text-white py-4 rounded-2xl font-bold transition">
+                        اطلب هذا المنتج
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- قسم إضافي: حسب الاستخدام -->
+    <section class="py-20 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#3c2f2f]" data-aos="fade-up">حبر فليكسو حسب نوع الاستخدام</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow" data-aos="fade-up">
+                    <h3 class="font-bold text-xl mb-4">للكرتون والصناديق</h3>
+                    <p class="text-gray-600">ثبات عالي وجفاف سريع يناسب الإنتاج الكبير.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-bold text-xl mb-4">للأكياس والأفلام البلاستيكية</h3>
+                    <p class="text-gray-600">التصاق قوي ومقاومة للرطوبة.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-bold text-xl mb-4">لليبلز والتغليف الورقي</h3>
+                    <p class="text-gray-600">ألوان حيوية ودقة طباعة عالية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/20123456789" target="_blank"
+       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-[#3c2f2f] text-[#f5ede3] py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.png" alt="Inkova" class="h-10 mb-4">
+                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-[#d4af77]">الرئيسية</a></li>
+                        <li><a href="products.html" class="hover:text-[#d4af77]">المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#d4af77]">مكتبة الألوان</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تواصل</h4>
+                    <!-- تعديل الرقم فقط -->
+                    <p class="text-sm">واتساب: 
+                        <a href="https://wa.me/201553404414" class="hover:text-[#d4af77]">
+                            01553404414
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تابعنا</h4>
+                    <div class="flex gap-4 text-2xl">
+                        <!-- إضافة روابط + أنيميشن -->
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank">
+                            <i class="fab fa-facebook icon-anim"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank">
+                            <i class="fab fa-instagram icon-anim"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-xs mt-12 border-t border-[#f5ede3]/30 pt-6">
+                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
+                تم إنشاؤه بواسطة دكتور عمر عرفه
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

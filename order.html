@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اطلب الآن - إنكوفا فليكسو</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* 🔥 PREMIUM BACKGROUND */
+        .animated-bg {
+            background: linear-gradient(270deg, #F5EFE6, #C6A962, #1C1C1C, #C0C0C0, #FFFFFF);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #C6A962;
+            transform: scale(1.05);
+        }
+        
+        input, select, textarea {
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #C6A962;
+            box-shadow: 0 0 0 3px rgba(198, 169, 98, 0.2);
+        }
+
+        /* 🔥 LOGO ANIMATION */
+        .logo {
+            transition: 0.4s;
+        }
+        .logo:hover {
+            transform: scale(1.1) rotate(8deg);
+        }
+
+        /* 🔥 ICON ANIMATION */
+        .icon-anim {
+            transition: 0.3s;
+        }
+        .icon-anim:hover {
+            transform: scale(1.2) rotate(10deg);
+            text-shadow: 0 0 10px #C6A962;
+        }
+    </style>
+</head>
+<body class="animated-bg min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-[#1C1C1C] text-[#F5EFE6] shadow-xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Inkova Logo" class="h-11 w-auto logo">
+                <div>
+                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
+                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+                </div>
+            </a>
+
+            <ul class="flex items-center gap-8 text-lg font-medium">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="products.html" class="nav-link">المنتجات</a></li>
+                <li><a href="colors.html" class="nav-link">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="nav-link">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="nav-link text-[#C6A962]">اطلب الآن</a></li>
+                <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-[#1C1C1C] mb-6" data-aos="fade-up">
+                اطلب حبرك الآن
+            </h1>
+            <p class="text-2xl text-[#1C1C1C]" data-aos="fade-up" data-aos-delay="100">
+                املأ النموذج وهنتواصل معاك فورًا عبر الواتساب
+            </p>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section class="max-w-3xl mx-auto px-6 pb-24">
+        <div class="bg-white rounded-3xl shadow-2xl p-10" data-aos="fade-up">
+            <form id="orderForm" class="space-y-8">
+
+                <!-- اختيار المنتج -->
+                <div>
+                    <label class="block text-lg font-medium mb-3 text-[#1C1C1C]">اختر المنتج</label>
+                    <select id="product" required
+                            class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg focus:outline-none">
+                        <option value="">-- اختر المنتج --</option>
+                        <option value="حبر فليكسو للكرتون والكرتون المقوى">حبر فليكسو للكرتون والكرتون المقوى</option>
+                        <option value="حبر فليكسو للأفلام البلاستيكية">حبر فليكسو للأفلام البلاستيكية</option>
+                        <option value="حبر فليكسو للورق والليبلز">حبر فليكسو للورق والليبلز</option>
+                        <option value="لون مخصص (Pantone)">لون مخصص (Pantone)</option>
+                    </select>
+                </div>
+
+                <!-- الكمية -->
+                <div>
+                    <label class="block text-lg font-medium mb-3 text-[#1C1C1C]">الكمية (بالكيلو)</label>
+                    <input type="number" id="quantity" min="1" value="50" required
+                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg focus:outline-none">
+                </div>
+
+                <!-- اللون -->
+                <div>
+                    <label class="block text-lg font-medium mb-3 text-[#1C1C1C]">اللون المطلوب (اختياري)</label>
+                    <input type="text" id="color" placeholder="مثال: Pantone 185 C أو أحمر حيوي"
+                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg focus:outline-none">
+                </div>
+
+                <!-- رفع ملف -->
+                <div>
+                    <label class="block text-lg font-medium mb-3 text-[#1C1C1C]">ارفع ملف التصميم أو الـ Artwork (اختياري)</label>
+                    <input type="file" id="file" accept=".pdf,.ai,.eps,.jpg,.png"
+                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg">
+                </div>
+
+                <!-- اسم العميل -->
+                <div>
+                    <label class="block text-lg font-medium mb-3 text-[#1C1C1C]">اسمك / اسم الشركة</label>
+                    <input type="text" id="name" required placeholder="مثال: مصنع الدلتا للكرتون"
+                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg focus:outline-none">
+                </div>
+
+                <!-- رقم الواتساب -->
+                <div>
+                    <label class="block text-lg font-medium mb-3 text-[#1C1C1C]">رقم الواتساب</label>
+                    <input type="tel" id="phone" required placeholder="01553404414"
+                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg focus:outline-none">
+                </div>
+
+                <!-- زر الإرسال -->
+                <button type="submit"
+                        class="w-full bg-[#C6A962] hover:bg-[#b89a55] text-[#1C1C1C] py-6 rounded-3xl font-bold text-2xl flex items-center justify-center gap-3 hover:scale-105 transition">
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                    أرسل الطلب عبر الواتساب
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201553404414" target="_blank"
+       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
+        <i class="fab fa-whatsapp text-4xl icon-anim"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-[#1C1C1C] text-[#F5EFE6] py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="logo.png" alt="Inkova" class="h-10 mb-4 logo">
+                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="products.html" class="hover:text-[#C6A962]">المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#C6A962]">مكتبة الألوان</a></li>
+                        <li><a href="why.html" class="hover:text-[#C6A962]">ليه إنكوفا؟</a></li>
+                        <li><a href="order.html" class="hover:text-[#C6A962]">اطلب الآن</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تواصل</h4>
+                    <p class="text-sm">واتساب: <a href="https://wa.me/201553404414" class="hover:text-[#C6A962]">01553404414</a></p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">تابعنا</h4>
+                    <div class="flex gap-4 text-2xl">
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank">
+                            <i class="fab fa-facebook icon-anim"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank">
+                            <i class="fab fa-instagram icon-anim"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center text-xs mt-12 border-t border-[#F5EFE6]/30 pt-6">
+                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
+                تم إنشاؤه بواسطة دكتور عمر عرفه
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const product = document.getElementById('product').value || "منتج غير محدد";
+            const quantity = document.getElementById('quantity').value;
+            const color = document.getElementById('color').value || "غير محدد";
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            const message = `مرحبا إنكوفا فليكسو 👋%0A%0A`
+                + `اسمي: ${name}%0A`
+                + `رقمي: ${phone}%0A%0A`
+                + `المنتج: ${product}%0A`
+                + `الكمية: ${quantity} كيلو%0A`
+                + `اللون: ${color}%0A%0A`
+                + `أريد طلب الحبر، برجاء التواصل معي فورًا.`;
+
+            const whatsappURL = `https://wa.me/201553404414?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>

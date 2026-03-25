@@ -3,208 +3,904 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنكوفا فليكسو | حبر فليكسو جاهز للتشغيل</title>
+    <meta name="description" content="إنكوفا فليكسو - حبر فليكسو جاهز للتشغيل بأعلى جودة واحترافية في مصر">
+    <title>إنكوفا فليكسو | حبر فليكسو جاهز للتشغيل - جودة عالمية وسعر منافس</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/png">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
-        
+        :root {
+            --ink-blue: #0b2b5e;
+            --ink-cyan: #00e5ff;
+            --ink-gold: #f5c518;
+            --dark-bg: #050505;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--dark-bg);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ✅ الخلفية المتحركة بشكل صحيح - isolated في pseudo-element بدون z-index سالب */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(135deg, #050505 0%, #0b2b5e 40%, #050505 100%),
+                radial-gradient(circle at 30% 20%, rgba(0, 229, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(245, 197, 24, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        /* ✅ كل section مرئية دائمًا */
+        section {
+            position: relative;
+            z-index: 1;
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+            scroll-margin-top: 90px;
+        }
+
+        nav {
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(0, 229, 255, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0;
+            height: 2.5px;
+            background: var(--ink-cyan);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-image {
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 25px 50px -12px rgb(0 229 255 / 0.3);
+        }
+        .hero-image:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 40px 80px -20px rgb(0 229 255 / 0.5);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--ink-cyan), var(--ink-gold));
+            bottom: -12px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 9999px;
+        }
+
+        .feature-card, .expansion-card, .product-card {
+            background: rgba(11, 43, 94, 0.15);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .feature-card:hover, .expansion-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--ink-cyan);
+            box-shadow: 0 30px 60px -15px rgba(0, 229, 255, 0.35);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--ink-cyan);
+            box-shadow: 0 25px 50px -12px rgba(0, 229, 255, 0.35);
+        }
+
+        .feature-card .icon-wrapper {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .feature-card:hover .icon-wrapper {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .ink-btn {
+            position: relative;
+            overflow: hidden;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        .ink-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 400%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: rotate(25deg);
+            opacity: 0;
+            transition: none;
+        }
+        .ink-btn:hover::before {
+            animation: inkSplash 0.9s ease forwards;
+        }
+        @keyframes inkSplash {
+            0% { left: -60%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 150%; opacity: 0; }
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--ink-gold);
             font-family: 'Cairo', sans-serif;
         }
-        
-        .animated-bg {
-            background: linear-gradient(270deg, #f5ede3, #d4af77, #3c2f2f, #555555, #e8d9c8, #a67b5b, #4a4a4a);
-            background-size: 400% 400%;
-            animation: gradientShift 25s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #d4af77;
-            transform: scale(1.05);
+
+        .glow-cyan {
+            text-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
         }
 
-        /* 🔥 لوجو أنيميشن */
-        .logo {
-            transition: all 0.4s ease;
+        /* ✅ إصلاح ink-drop - بدون z-index سالب */
+        .ink-drop {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.1;
+            animation: dropFall linear infinite;
+            z-index: 0;
+            pointer-events: none;
         }
-        .logo:hover {
-            transform: scale(1.1) rotate(8deg);
+        @keyframes dropFall {
+            0% { transform: translateY(-150px); }
+            100% { transform: translateY(100vh); }
         }
 
-        /* 🔥 أيقونات أنيميشن */
-        .icon-anim {
+        /* Hero section content فوق الـ drops */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* FAQ Styling */
+        details {
+            background: rgba(11, 43, 94, 0.2);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            border-radius: 1.5rem;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
-        .icon-anim:hover {
-            transform: scale(1.2) rotate(10deg);
-            text-shadow: 0 0 10px #d4af77;
+        details[open] {
+            border-color: rgba(0, 229, 255, 0.4);
         }
-        
-        .feature-card:hover {
-            transform: scale(1.08) translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        details summary {
+            padding: 1.5rem 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
         }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: var(--ink-cyan);
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            margin-right: auto;
+            margin-left: 1rem;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        details p {
+            padding: 0 2rem 1.5rem;
+            color: #9ca3af;
+            margin: 0;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(0,229,255,0.2);
+        }
+
+        /* Section alternating backgrounds */
+        .bg-dark-section {
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* Animate on scroll - safe version */
+        .fade-in {
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-delay-1 { animation-delay: 0.1s; }
+        .fade-delay-2 { animation-delay: 0.2s; }
+        .fade-delay-3 { animation-delay: 0.3s; }
+        .fade-delay-4 { animation-delay: 0.4s; }
+
+        /* Mobile menu */
+        #mobileMenu {
+            display: none;
+        }
+        #mobileMenu.open {
+            display: block;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: var(--ink-blue); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--ink-cyan); }
     </style>
 </head>
-<body class="animated-bg">
+<body>
 
-    <!-- Navbar -->
-    <nav class="bg-[#3c2f2f] text-[#f5ede3] shadow-xl fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="Inkova Logo" class="h-12 w-auto logo">
-                <div>
-                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
-                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+                <img src="logo.png" alt="Inkova Logo" class="h-12 w-auto">
+                <div class="leading-none">
+                    <span class="text-3xl font-black tracking-[3px] text-white">INKOVA</span>
+                    <span class="text-sm font-medium text-[#00e5ff] block -mt-1">FLEXO</span>
                 </div>
             </a>
 
-            <ul class="flex items-center gap-8 text-lg font-medium">
-                <li><a href="index.html" class="nav-link text-[#d4af77]">الرئيسية</a></li>
-                <li><a href="products.html" class="nav-link">المنتجات</a></li>
-                <li><a href="colors.html" class="nav-link">مكتبة الألوان</a></li>
-                <li><a href="why.html" class="nav-link">ليه إنكوفا؟</a></li>
-                <li><a href="order.html" class="nav-link">اطلب الآن</a></li>
-                <li><a href="contact.html" class="nav-link">تواصل معنا</a></li>
+            <ul class="hidden md:flex items-center gap-7 text-base font-medium text-white">
+                <li><a href="index.html" class="nav-link text-[#f5c518]">الرئيسية</a></li>
+                <li><a href="products.html" class="nav-link hover:text-[#00e5ff]">المنتجات</a></li>
+                <li><a href="colors.html" class="nav-link hover:text-[#00e5ff]">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="nav-link hover:text-[#00e5ff]">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="nav-link hover:text-[#00e5ff]">اطلب الآن</a></li>
+                <li><a href="contact.html" class="nav-link hover:text-[#00e5ff]">تواصل معنا</a></li>
+            </ul>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLanguage()" 
+                        class="flex items-center gap-2 px-5 py-2.5 bg-[#00e5ff]/10 hover:bg-[#00e5ff]/25 border border-[#00e5ff] rounded-full text-[#00e5ff] font-medium text-sm uppercase tracking-widest transition-all">
+                    <i class="fas fa-globe text-sm"></i>
+                    <span id="langText">EN</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-white p-2">
+                    <i class="fas fa-bars" id="hamburgerIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden bg-[#050505] border-t border-[#00e5ff]/20 py-6 px-6">
+            <ul class="flex flex-col gap-4 text-lg text-white font-medium">
+                <li><a href="index.html" class="block py-2 text-[#f5c518]">الرئيسية</a></li>
+                <li><a href="products.html" class="block py-2 hover:text-[#00e5ff]">المنتجات</a></li>
+                <li><a href="colors.html" class="block py-2 hover:text-[#00e5ff]">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="block py-2 hover:text-[#00e5ff]">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="block py-2 hover:text-[#00e5ff]">اطلب الآن</a></li>
+                <li><a href="contact.html" class="block py-2 hover:text-[#00e5ff]">تواصل معنا</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right" class="space-y-6">
-                <h1 class="text-5xl md:text-6xl font-bold leading-tight text-[#3c2f2f]">
-                    حبر فليكسو جاهز للتشغيل بجودة عالية وسعر ينافس السوق
+    <!-- ==================== HERO ==================== -->
+    <section class="min-h-screen flex items-center pt-28 pb-16 relative overflow-hidden">
+        <!-- Decorative drops (z-index 0, won't block content) -->
+        <div class="ink-drop" style="left: 12%; animation-duration: 8s; top: 0;">💧</div>
+        <div class="ink-drop" style="left: 28%; animation-duration: 11s; top: 0; color: #f5c518;">💧</div>
+        <div class="ink-drop" style="left: 45%; animation-duration: 7s; top: 0;">💧</div>
+        <div class="ink-drop" style="left: 65%; animation-duration: 13s; top: 0; color: #f5c518;">💧</div>
+        <div class="ink-drop" style="left: 82%; animation-duration: 9s; top: 0;">💧</div>
+
+        <div class="hero-content max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            <div class="lg:col-span-7 fade-in">
+                <div class="inline-flex items-center gap-2 bg-[#0b2b5e]/80 text-[#00e5ff] text-sm font-bold px-5 py-2 rounded-full mb-6 border border-[#00e5ff]/30">
+                    <i class="fas fa-certificate text-xs"></i>
+                    جودة أوروبية • صنع في مصر
+                </div>
+                <h1 id="heroTitle" class="text-5xl md:text-6xl lg:text-7xl leading-tight font-black text-white glow-cyan">
+                    حبر فليكسو جاهز<br>للتشغيل الفوري
                 </h1>
-                <p class="text-2xl text-[#3c2f2f]">سعر أرخص • جودة أعلى • صديق للبيئة • ألوان أقوى</p>
+                <p id="heroDesc" class="mt-6 text-xl md:text-2xl text-gray-300 max-w-lg">
+                    سعر أرخص • جودة عالمية • ألوان ثابتة • صديق للبيئة
+                </p>
                 
-                <div class="flex flex-wrap gap-4">
-                    <a href="order.html" 
-                       class="bg-[#d4af77] hover:bg-[#c9a66b] text-[#3c2f2f] px-10 py-4 rounded-2xl font-bold text-lg flex items-center gap-2 hover:scale-105 transition">
-                        <i class="fas fa-shopping-cart icon-anim"></i>
-                        اطلب الآن
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="order.html" class="ink-btn bg-[#f5c518] hover:bg-[#ffd700] text-[#0b2b5e] px-8 py-5 text-xl font-black shadow-2xl gap-3">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="btnOrder">اطلب عينة الآن</span>
                     </a>
-                    <a href="https://wa.me/201553404414" target="_blank"
-                       class="border-2 border-[#3c2f2f] hover:bg-[#3c2f2f] hover:text-[#f5ede3] px-10 py-4 rounded-2xl font-bold text-lg flex items-center gap-2 hover:scale-105 transition">
-                        <i class="fab fa-whatsapp text-2xl icon-anim"></i>
-                        واتساب
+                    <a href="https://wa.me/201553404414" target="_blank" class="ink-btn border-2 border-[#00e5ff] hover:bg-[#00e5ff] hover:text-black text-white px-8 py-5 text-xl font-bold gap-3 transition-all">
+                        <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+                        <span id="btnWhatsapp">واتساب مباشر</span>
                     </a>
+                </div>
+
+                <div class="mt-10 flex flex-wrap items-center gap-6 text-sm text-gray-300">
+                    <div class="flex items-center gap-2"><i class="fas fa-truck text-[#00e5ff]"></i><span>توصيل خلال 48 ساعة</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-shield-alt text-[#00e5ff]"></i><span>ضمان 100% على الثبات</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-leaf text-[#00e5ff]"></i><span>خالي من المعادن الثقيلة</span></div>
                 </div>
             </div>
 
-            <div data-aos="fade-left">
-                <img src="logoinkova.png" 
-                     alt="ماكينة طباعة فليكسو - إنكوفا" 
-                     class="rounded-3xl shadow-2xl w-full">
+            <div class="lg:col-span-5 relative fade-in fade-delay-2">
+                <img src="logoinkova.png" alt="حبر إنكوفا فليكسو" class="hero-image w-full rounded-3xl">
+                <div class="absolute -bottom-4 -right-4 bg-black/80 text-white text-sm font-bold px-6 py-3 rounded-2xl flex items-center gap-2 shadow-xl border border-green-500/30">
+                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    جاهز للتشغيل الآن
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- مميزات -->
-    <section class="py-20 max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-12 text-[#3c2f2f]" data-aos="fade-up">مميزات حبر إنكوفا فليكسو</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-tag text-5xl text-[#d4af77] mb-4 icon-anim"></i>
-                <h3 class="text-2xl font-bold mb-2">سعر أرخص</h3>
-                <p class="text-gray-600">أقل تكلفة في السوق مع جودة أعلى</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-medal text-5xl text-[#d4af77] mb-4 icon-anim"></i>
-                <h3 class="text-2xl font-bold mb-2">جودة أعلى</h3>
-                <p class="text-gray-600">منتج جاهز يشتغل مباشرة على الماكينة</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-leaf text-5xl text-[#d4af77] mb-4 icon-anim"></i>
-                <h3 class="text-2xl font-bold mb-2">صديق للبيئة</h3>
-                <p class="text-gray-600">حبر مائي Water-Based خالي من المواد الضارة</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-3xl text-center shadow-xl" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-palette text-5xl text-[#d4af77] mb-4 icon-anim"></i>
-                <h3 class="text-2xl font-bold mb-2">ألوان أقوى</h3>
-                <p class="text-gray-600">ثبات لون عالي وألوان حية لا تبهت</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/201553404414" target="_blank"
-       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
-        <i class="fab fa-whatsapp text-4xl icon-anim"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-[#3c2f2f] text-[#f5ede3] py-12">
+    <!-- ==================== ABOUT US ==================== -->
+    <section id="about" class="py-24 bg-dark-section">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="logo.png" alt="Inkova" class="h-10 mb-4 logo">
-                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5">
+                    <span class="text-[#00e5ff] text-sm font-bold tracking-widest uppercase">من 2018</span>
+                    <h2 id="aboutTitle" class="section-title text-4xl md:text-5xl text-white mt-3 mb-6">إنكوفا فليكسو<br><span class="text-[#f5c518]">شركة مصرية 100%</span></h2>
+                    <p id="aboutText" class="mt-10 text-lg text-gray-300 leading-relaxed">
+                        نحن متخصصون في إنتاج وتطوير أحبار الفليكسو المائية الجاهزة للتشغيل. 
+                        نجمع بين التقنية الأوروبية والخبرة المحلية لنقدم لك حبر يجمع بين الجودة العالية والسعر التنافسي.
+                    </p>
+                    <div class="mt-10 flex gap-8">
+                        <div class="text-center">
+                            <div class="stat-number" data-count="8500">0+</div>
+                            <p class="text-sm text-gray-400 mt-1">لتر مباع شهريًا</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stat-number" data-count="142">0</div>
+                            <p class="text-sm text-gray-400 mt-1">عميل نشط</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stat-number" data-count="24">0</div>
+                            <p class="text-sm text-gray-400 mt-1">لون متاح</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold mb-4">روابط سريعة</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="products.html" class="hover:text-[#d4af77]">المنتجات</a></li>
-                        <li><a href="colors.html" class="hover:text-[#d4af77]">مكتبة الألوان</a></li>
-                        <li><a href="why.html" class="hover:text-[#d4af77]">ليه إنكوفا؟</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">تواصل</h4>
-                    <p class="text-sm">واتساب: <a href="https://wa.me/201553404414" class="hover:text-[#d4af77]">01553404414</a></p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">تابعنا</h4>
-                    <div class="flex gap-4 text-2xl">
-                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank">
-                            <i class="fab fa-facebook icon-anim"></i>
-                        </a>
-                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank">
-                            <i class="fab fa-instagram icon-anim"></i>
-                        </a>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-[#0b2b5e]/25 p-8 rounded-3xl border border-[#00e5ff]/10 grid grid-cols-2 gap-6">
+                        <div class="flex flex-col justify-center items-center text-center border border-[#00e5ff]/20 rounded-2xl py-10 px-6 hover:border-[#00e5ff]/50 transition-all hover:bg-[#0b2b5e]/30">
+                            <i class="fas fa-industry text-5xl text-[#f5c518]"></i>
+                            <h4 class="text-xl font-bold mt-5 text-white">مصنع حديث</h4>
+                            <p class="text-gray-400 mt-2 text-sm">مساحة 3200 م²</p>
+                        </div>
+                        <div class="flex flex-col justify-center items-center text-center border border-[#00e5ff]/20 rounded-2xl py-10 px-6 hover:border-[#00e5ff]/50 transition-all hover:bg-[#0b2b5e]/30">
+                            <i class="fas fa-flask text-5xl text-[#00e5ff]"></i>
+                            <h4 class="text-xl font-bold mt-5 text-white">معمل تحاليل</h4>
+                            <p class="text-gray-400 mt-2 text-sm">اختبار يومي</p>
+                        </div>
+                        <div class="flex flex-col justify-center items-center text-center border border-[#00e5ff]/20 rounded-2xl py-10 px-6 hover:border-[#00e5ff]/50 transition-all hover:bg-[#0b2b5e]/30">
+                            <i class="fas fa-certificate text-5xl text-[#f5c518]"></i>
+                            <h4 class="text-xl font-bold mt-5 text-white">شهادات جودة</h4>
+                            <p class="text-gray-400 mt-2 text-sm">معايير أوروبية</p>
+                        </div>
+                        <div class="flex flex-col justify-center items-center text-center border border-[#00e5ff]/20 rounded-2xl py-10 px-6 hover:border-[#00e5ff]/50 transition-all hover:bg-[#0b2b5e]/30">
+                            <i class="fas fa-users text-5xl text-[#00e5ff]"></i>
+                            <h4 class="text-xl font-bold mt-5 text-white">فريق متخصص</h4>
+                            <p class="text-gray-400 mt-2 text-sm">خبرة +15 سنة</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-xs mt-12 border-t border-[#f5ede3]/30 pt-6">
-                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
-                تم إنشاؤه بواسطة دكتور عمر عرفه
+        </div>
+    </section>
+
+    <!-- ==================== مميزات مع أيقونات ==================== -->
+    <section id="features" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl md:text-5xl text-white inline-block">مميزات حبر إنكوفا فليكسو</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                <div class="feature-card p-10 rounded-3xl text-center">
+                    <div class="icon-wrapper mx-auto w-24 h-24 flex items-center justify-center rounded-2xl mb-6 bg-[#f5c518]/10">
+                        <i class="fas fa-tag text-5xl text-[#f5c518]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">سعر أرخص ٢٥٪</h3>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">نفس الجودة بأقل سعر في السوق المصري</p>
+                </div>
+                <div class="feature-card p-10 rounded-3xl text-center">
+                    <div class="icon-wrapper mx-auto w-24 h-24 flex items-center justify-center rounded-2xl mb-6 bg-[#f5c518]/10">
+                        <i class="fas fa-medal text-5xl text-[#f5c518]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">جاهز للتشغيل</h3>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">لا تحتاج لأي خلط أو تعديل</p>
+                </div>
+                <div class="feature-card p-10 rounded-3xl text-center">
+                    <div class="icon-wrapper mx-auto w-24 h-24 flex items-center justify-center rounded-2xl mb-6 bg-[#00e5ff]/10">
+                        <i class="fas fa-leaf text-5xl text-[#00e5ff]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">مائي ١٠٠٪</h3>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">صديق للبيئة وآمن على الصحة</p>
+                </div>
+                <div class="feature-card p-10 rounded-3xl text-center">
+                    <div class="icon-wrapper mx-auto w-24 h-24 flex items-center justify-center rounded-2xl mb-6 bg-[#00e5ff]/10">
+                        <i class="fas fa-palette text-5xl text-[#00e5ff]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">ثبات لون ٩٨٪</h3>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">لا يبهت تحت الشمس أو الرطوبة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== فرص التوسع ==================== -->
+    <section id="expansion" class="py-24 bg-dark-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl md:text-5xl text-white inline-block">فرص التوسع مع إنكوفا</h2>
+            </div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="expansion-card p-12 rounded-3xl">
+                    <div class="text-[#f5c518] text-5xl font-black mb-6 font-mono">01</div>
+                    <h3 class="text-2xl font-bold text-white">زيادة الإنتاج اليومي</h3>
+                    <p class="mt-6 text-gray-400 leading-relaxed">الحبر الجاهز يوفر لك ٣٠٪ من وقت التحضير ويزيد من عدد الطباعات اليومية بشكل كبير.</p>
+                </div>
+                <div class="expansion-card p-12 rounded-3xl">
+                    <div class="text-[#f5c518] text-5xl font-black mb-6 font-mono">02</div>
+                    <h3 class="text-2xl font-bold text-white">فتح أسواق التصدير</h3>
+                    <p class="mt-6 text-gray-400 leading-relaxed">جودتنا تتوافق مع المعايير الأوروبية مما يفتح أمامك أسواق الخليج وأوروبا.</p>
+                </div>
+                <div class="expansion-card p-12 rounded-3xl">
+                    <div class="text-[#f5c518] text-5xl font-black mb-6 font-mono">03</div>
+                    <h3 class="text-2xl font-bold text-white">توفير تكاليف الطباعة</h3>
+                    <p class="mt-6 text-gray-400 leading-relaxed">قلل من الخسائر الناتجة عن تغيير اللون أو إعادة الطباعة بنسبة تصل إلى ٤٠٪.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== منتجاتنا الرئيسية ==================== -->
+    <section id="products" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl md:text-5xl text-white inline-block">منتجاتنا الرئيسية</h2>
+            </div>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="product-card rounded-3xl overflow-hidden border border-[#00e5ff]/15">
+                    <div class="h-48 bg-gradient-to-br from-[#8b0000] to-[#0b2b5e] flex items-center justify-center">
+                        <i class="fas fa-circle text-red-500 text-7xl opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-bold text-xl text-white">حبر أحمر فليكسو</h4>
+                        <p class="text-sm text-gray-400 mt-2">ثبات عالي • مثالي للتغليف الغذائي</p>
+                        <a href="products.html" class="mt-6 inline-flex items-center gap-2 text-[#00e5ff] font-medium text-sm hover:gap-4 transition-all">تفاصيل المنتج <i class="fas fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+                <div class="product-card rounded-3xl overflow-hidden border border-[#00e5ff]/15">
+                    <div class="h-48 bg-gradient-to-br from-[#003087] to-[#0b2b5e] flex items-center justify-center">
+                        <i class="fas fa-circle text-blue-500 text-7xl opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-bold text-xl text-white">حبر أزرق فليكسو</h4>
+                        <p class="text-sm text-gray-400 mt-2">ألوان حية • مناسب للكرتون والأكياس</p>
+                        <a href="products.html" class="mt-6 inline-flex items-center gap-2 text-[#00e5ff] font-medium text-sm hover:gap-4 transition-all">تفاصيل المنتج <i class="fas fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+                <div class="product-card rounded-3xl overflow-hidden border border-[#00e5ff]/15">
+                    <div class="h-48 bg-gradient-to-br from-[#1a1a1a] to-[#0b2b5e] flex items-center justify-center">
+                        <i class="fas fa-circle text-gray-700 text-7xl opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-bold text-xl text-white">حبر أسود فليكسو</h4>
+                        <p class="text-sm text-gray-400 mt-2">غطاء كامل • أعلى كثافة في السوق</p>
+                        <a href="products.html" class="mt-6 inline-flex items-center gap-2 text-[#00e5ff] font-medium text-sm hover:gap-4 transition-all">تفاصيل المنتج <i class="fas fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+                <div class="product-card rounded-3xl overflow-hidden border border-[#00e5ff]/15">
+                    <div class="h-48 bg-gradient-to-br from-[#806000] to-[#0b2b5e] flex items-center justify-center">
+                        <i class="fas fa-circle text-yellow-400 text-7xl opacity-80"></i>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-bold text-xl text-white">حبر أصفر فليكسو</h4>
+                        <p class="text-sm text-gray-400 mt-2">لمعان فائق • مقاوم للرطوبة</p>
+                        <a href="products.html" class="mt-6 inline-flex items-center gap-2 text-[#00e5ff] font-medium text-sm hover:gap-4 transition-all">تفاصيل المنتج <i class="fas fa-arrow-left text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== آراء العملاء ==================== -->
+    <section id="testimonials" class="py-24 bg-dark-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 id="testimonialsTitle" class="section-title text-4xl md:text-5xl text-white inline-block">آراء عملائنا</h2>
+            </div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex mb-4 gap-1">
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                    </div>
+                    <p class="text-lg italic text-gray-300 leading-relaxed">"الحبر ده غيّر شغلنا تمامًا. ثبات اللون ممتاز وسعره أرخص بكتير."</p>
+                    <div class="mt-6 flex items-center gap-4 border-t border-white/10 pt-5">
+                        <div class="w-12 h-12 bg-[#0b2b5e] rounded-2xl flex items-center justify-center text-[#00e5ff] font-bold">أش</div>
+                        <div>
+                            <p class="font-bold text-white">أحمد الشريف</p>
+                            <p class="text-sm text-gray-400">مصنع طباعة - المنوفية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex mb-4 gap-1">
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                    </div>
+                    <p class="text-lg italic text-gray-300 leading-relaxed">"خدمة ما بعد البيع ممتازة. الحبر بيشتغل بدون أي مشاكل على ماكيناتنا."</p>
+                    <div class="mt-6 flex items-center gap-4 border-t border-white/10 pt-5">
+                        <div class="w-12 h-12 bg-[#0b2b5e] rounded-2xl flex items-center justify-center text-[#00e5ff] font-bold">مر</div>
+                        <div>
+                            <p class="font-bold text-white">محمد رمضان</p>
+                            <p class="text-sm text-gray-400">شركة فليكسو برنت - الإسكندرية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex mb-4 gap-1">
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                        <i class="fas fa-star text-[#f5c518] text-sm"></i>
+                    </div>
+                    <p class="text-lg italic text-gray-300 leading-relaxed">"أفضل قرار اشترينا من إنكوفا. جودة وسرعة وأسعار منافسة."</p>
+                    <div class="mt-6 flex items-center gap-4 border-t border-white/10 pt-5">
+                        <div class="w-12 h-12 bg-[#0b2b5e] rounded-2xl flex items-center justify-center text-[#00e5ff] font-bold">نح</div>
+                        <div>
+                            <p class="font-bold text-white">نورا حسين</p>
+                            <p class="text-sm text-gray-400">مصنع تغليف غذائي - القاهرة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TECHNOLOGY & HOW IT WORKS ==================== -->
+    <section id="technology" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl md:text-5xl text-white inline-block">كيف يعمل حبر إنكوفا؟</h2>
+            </div>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center group">
+                    <div class="mx-auto w-28 h-28 bg-[#0b2b5e]/60 border border-[#00e5ff]/20 rounded-3xl flex items-center justify-center text-5xl mb-8 group-hover:border-[#00e5ff] group-hover:bg-[#0b2b5e] transition-all duration-300 group-hover:scale-110">
+                        🧪
+                    </div>
+                    <div class="text-[#f5c518] font-bold text-sm mb-2 tracking-widest">الخطوة الأولى</div>
+                    <h4 class="text-2xl font-bold text-white">تصنيع متقدم</h4>
+                    <p class="mt-4 text-gray-400 leading-relaxed">باستخدام أحدث التقنيات الأوروبية داخل مصر لضمان أعلى مستوى جودة</p>
+                </div>
+                <div class="text-center group">
+                    <div class="mx-auto w-28 h-28 bg-[#0b2b5e]/60 border border-[#00e5ff]/20 rounded-3xl flex items-center justify-center text-5xl mb-8 group-hover:border-[#00e5ff] group-hover:bg-[#0b2b5e] transition-all duration-300 group-hover:scale-110">
+                        🔬
+                    </div>
+                    <div class="text-[#f5c518] font-bold text-sm mb-2 tracking-widest">الخطوة الثانية</div>
+                    <h4 class="text-2xl font-bold text-white">اختبار يومي</h4>
+                    <p class="mt-4 text-gray-400 leading-relaxed">معمل تحاليل متكامل يضمن جودة كل لتر قبل الشحن للعميل</p>
+                </div>
+                <div class="text-center group">
+                    <div class="mx-auto w-28 h-28 bg-[#0b2b5e]/60 border border-[#00e5ff]/20 rounded-3xl flex items-center justify-center text-5xl mb-8 group-hover:border-[#00e5ff] group-hover:bg-[#0b2b5e] transition-all duration-300 group-hover:scale-110">
+                        🚚
+                    </div>
+                    <div class="text-[#f5c518] font-bold text-sm mb-2 tracking-widest">الخطوة الثالثة</div>
+                    <h4 class="text-2xl font-bold text-white">شحن سريع</h4>
+                    <p class="mt-4 text-gray-400 leading-relaxed">توصيل خلال ٤٨ ساعة لكل محافظات مصر مع ضمان سلامة المنتج</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section id="faq" class="py-24 bg-dark-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl md:text-5xl text-white inline-block">أسئلة شائعة</h2>
+            </div>
+            <div class="mt-8 max-w-3xl mx-auto space-y-4">
+                <details>
+                    <summary>هل الحبر مناسب للطباعة الغذائية؟</summary>
+                    <p>نعم، جميع أحبارنا معتمدة وخالية من المعادن الثقيلة وآمنة للاستخدام الغذائي وتتوافق مع معايير السلامة الأوروبية.</p>
+                </details>
+                <details>
+                    <summary>ما هي مدة صلاحية الحبر؟</summary>
+                    <p>١٨ شهر من تاريخ الإنتاج في ظروف التخزين العادية بعيدًا عن الحرارة الشديدة والرطوبة.</p>
+                </details>
+                <details>
+                    <summary>هل يعمل على كل أنواع الماكينات؟</summary>
+                    <p>نعم، مصمم خصيصًا لجميع ماكينات الفليكسو المصرية والمستوردة. فريقنا الفني يساعدك في ضبط الإعدادات المناسبة.</p>
+                </details>
+                <details>
+                    <summary>هل تقدمون عينات مجانية؟</summary>
+                    <p>نعم! نقدم عينة مجانية لأول طلب حتى تتأكد من الجودة بنفسك قبل الطلب الكبير.</p>
+                </details>
+                <details>
+                    <summary>ما الحد الأدنى للطلب؟</summary>
+                    <p>الحد الأدنى للطلب هو ٢٠ لتر للطلبات العادية، مع إمكانية الطلب بكميات أقل للعينات والاختبار.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section id="cta" class="py-28" style="background: linear-gradient(135deg, #0b2b5e 0%, #050505 50%, #0b2b5e 100%);">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-[#f5c518]/15 text-[#f5c518] text-sm font-bold px-5 py-2 rounded-full mb-8 border border-[#f5c518]/30">
+                <i class="fas fa-fire text-xs"></i>
+                عرض محدود - عينة مجانية
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                جاهز تبدأ رحلة<br><span class="text-[#f5c518]">الطباعة المثالية؟</span>
+            </h2>
+            <p class="text-xl text-gray-300 mt-6 max-w-2xl mx-auto">اطلب عينة مجانية اليوم وشوف الفرق بنفسك. بدون أي التزام.</p>
+            
+            <div class="mt-12 flex flex-wrap justify-center gap-5">
+                <a href="order.html" class="ink-btn bg-[#f5c518] hover:bg-[#ffd700] text-[#0b2b5e] text-xl font-black px-12 py-6 rounded-full gap-3 shadow-2xl">
+                    <i class="fas fa-arrow-left"></i>
+                    <span id="finalCta">اطلب عينة مجانية الآن</span>
+                </a>
+                <a href="https://wa.me/201553404414" target="_blank" class="ink-btn border-2 border-white/30 hover:border-[#00e5ff] text-white hover:text-[#00e5ff] text-xl font-bold px-12 py-6 rounded-full gap-3 transition-all">
+                    <i class="fab fa-whatsapp text-green-400 text-2xl"></i>
+                    تواصل معنا
+                </a>
+            </div>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-400 text-xs"></i> توصيل مجاني للطلب الأول</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-400 text-xs"></i> ضمان استرداد كامل</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-400 text-xs"></i> دعم فني مجاني</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP ==================== -->
+    <a href="https://wa.me/201553404414" target="_blank" 
+       class="fixed bottom-8 right-8 z-[9999] bg-green-600 hover:bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-3xl text-white transition-all hover:scale-110"
+       title="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="logo.png" alt="Inkova" class="h-12 w-auto">
+                        <div>
+                            <div class="text-2xl font-black tracking-widest text-white">INKOVA</div>
+                            <div class="text-sm text-[#00e5ff] -mt-1">FLEXO</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 max-w-xs text-sm leading-relaxed">حبر فليكسو جاهز للتشغيل • أعلى جودة • أفضل سعر • صنع في مصر بتقنية أوروبية</p>
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank" 
+                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-[#00e5ff]/20 border border-[#00e5ff]/20 hover:border-[#00e5ff] rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-[#00e5ff] transition-all">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank"
+                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-[#00e5ff]/20 border border-[#00e5ff]/20 hover:border-[#00e5ff] rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-[#00e5ff] transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/201553404414" target="_blank"
+                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-green-900/40 border border-[#00e5ff]/20 hover:border-green-500 rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-green-400 transition-all">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="font-bold text-base mb-5 text-white">روابط سريعة</h5>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>الرئيسية</a></li>
+                        <li><a href="products.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>مكتبة الألوان</a></li>
+                        <li><a href="why.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>ليه إنكوفا؟</a></li>
+                        <li><a href="order.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>اطلب الآن</a></li>
+                        <li><a href="contact.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h5 class="font-bold text-base mb-5 text-white">خدماتنا</h5>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>توريد حبر فليكسو</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>استشارات طباعة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>اختبار مجاني</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>تدريب فريق الطباعة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>دعم فني مستمر</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h5 class="font-bold text-base mb-5 text-white">تواصل معنا</h5>
+                    <div class="space-y-4 text-sm">
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fab fa-whatsapp text-green-400 mt-0.5"></i>
+                            <a href="https://wa.me/201553404414" class="text-[#f5c518] hover:text-[#ffd700] transition-colors">01553404414</a>
+                        </p>
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fas fa-envelope text-[#00e5ff] mt-0.5"></i>
+                            <span>info@inkova-flexo.com</span>
+                        </p>
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-[#00e5ff] mt-0.5 mt-1"></i>
+                            <span>المنطقة الصناعية - المنوفية، مصر</span>
+                        </p>
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fas fa-clock text-[#00e5ff] mt-0.5"></i>
+                            <span>السبت - الخميس: 9 ص - 6 م</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>© 2026 Inkova Flexo - جميع الحقوق محفوظة</p>
+                <p>تم تطويره بواسطة <span class="text-[#f5c518] font-medium">دكتور عمر عرفه</span></p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('hamburgerIcon');
+            menu.classList.toggle('open');
+            if (menu.classList.contains('open')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+
+        // Counter Animation
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-count'));
+            const isThousands = target >= 1000;
+            let count = 0;
+            const duration = 1800;
+            const steps = 60;
+            const increment = target / steps;
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    count = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.round(count).toLocaleString('ar-EG') + (isThousands ? '+' : '');
+            }, duration / steps);
+        }
+
+        // Intersection Observer for counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            counterObserver.observe(el);
         });
 
+        // Language Toggle
+        let isArabic = true;
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const langText = document.getElementById('langText');
+            if (isArabic) {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                langText.textContent = 'EN';
+                document.getElementById('heroTitle').innerHTML = 'حبر فليكسو جاهز<br>للتشغيل الفوري';
+                document.getElementById('heroDesc').textContent = 'سعر أرخص • جودة عالمية • ألوان ثابتة • صديق للبيئة';
+                document.getElementById('btnOrder').textContent = 'اطلب عينة الآن';
+                document.getElementById('btnWhatsapp').textContent = 'واتساب مباشر';
+                document.getElementById('aboutTitle').innerHTML = 'إنكوفا فليكسو<br><span class="text-[#f5c518]">شركة مصرية 100%</span>';
+                document.getElementById('finalCta').textContent = 'اطلب عينة مجانية الآن';
+            } else {
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                langText.textContent = 'عربي';
+                document.getElementById('heroTitle').innerHTML = 'Flexo Ink Ready<br>For Instant Operation';
+                document.getElementById('heroDesc').textContent = 'Cheaper Price • World Quality • Stable Colors • Eco-Friendly';
+                document.getElementById('btnOrder').textContent = 'Request Sample Now';
+                document.getElementById('btnWhatsapp').textContent = 'Chat on WhatsApp';
+                document.getElementById('aboutTitle').innerHTML = 'Inkova Flexo<br><span class="text-[#f5c518]">100% Egyptian Company</span>';
+                document.getElementById('finalCta').textContent = 'Request Free Sample Now';
+            }
+        }
+
+        // Tailwind config
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cream: '#f5ede3',
-                        brown: '#3c2f2f',
-                        gold: '#d4af77'
+                        ink: '#0b2b5e',
+                        cyan: '#00e5ff',
+                        gold: '#f5c518'
                     }
                 }
             }
-        }
+        };
     </script>
 </body>
 </html>

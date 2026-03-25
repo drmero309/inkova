@@ -165,24 +165,46 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        const colorsDB = [
-            { id: 1, name: "Pantone 185 C", hex: "#E30613", rgb: "227, 6, 19", category: "red", desc: "أحمر حيوي قوي" },
-            { id: 2, name: "Pantone 186 C", hex: "#C8102E", rgb: "200, 16, 46", category: "red", desc: "أحمر كلاسيكي" },
-            { id: 3, name: "Pantone 286 C", hex: "#0033A0", rgb: "0, 51, 160", category: "blue", desc: "أزرق كوبالت" },
-            { id: 4, name: "Pantone 300 C", hex: "#0066CC", rgb: "0, 102, 204", category: "blue", desc: "أزرق سماوي" },
-            { id: 5, name: "Pantone 355 C", hex: "#009639", rgb: "0, 150, 57", category: "green", desc: "أخضر طبيعي" },
-            { id: 6, name: "Pantone 7484 C", hex: "#006B3F", rgb: "0, 107, 63", category: "green", desc: "أخضر غامق" },
-            { id: 7, name: "Pantone 109 C", hex: "#FFD100", rgb: "255, 209, 0", category: "yellow", desc: "أصفر ذهبي" },
-            { id: 8, name: "Pantone 1235 C", hex: "#FFCC00", rgb: "255, 204, 0", category: "yellow", desc: "أصفر براق" },
-            { id: 9, name: "Pantone 021 C", hex: "#FF4500", rgb: "255, 69, 0", category: "yellow", desc: "برتقالي نار" },
-            { id: 10, name: "Pantone 2725 C", hex: "#4C2C9B", rgb: "76, 44, 155", category: "purple", desc: "بنفسجي غامق" },
-            { id: 11, name: "Pantone Black C", hex: "#2C2C2C", rgb: "44, 44, 44", category: "black", desc: "أسود عميق" },
-            { id: 12, name: "Pantone 877 C", hex: "#8A8D8F", rgb: "138, 141, 143", category: "metallic", desc: "فضي معدني" },
-            { id: 13, name: "Pantone 871 C", hex: "#B38B5E", rgb: "179, 139, 94", category: "metallic", desc: "ذهبي معدني" },
-            { id: 14, name: "Pantone 485 C", hex: "#DA291C", rgb: "218, 41, 28", category: "red", desc: "أحمر فيراري" },
-            { id: 15, name: "Pantone 661 C", hex: "#003399", rgb: "0, 51, 153", category: "blue", desc: "أزرق ملكي" }
-        ];
+ <script>
+const colorsDB = [
+{ id: 1, name: "Pantone 185 C", hex: "#E30613", rgb: "227,6,19", category: "red", desc: "أحمر حيوي" },
+{ id: 2, name: "Pantone 186 C", hex: "#C8102E", rgb: "200,16,46", category: "red", desc: "أحمر كلاسيكي" },
+{ id: 3, name: "Pantone 485 C", hex: "#DA291C", rgb: "218,41,28", category: "red", desc: "أحمر قوي" },
+{ id: 4, name: "Pantone 200 C", hex: "#BA0C2F", rgb: "186,12,47", category: "red", desc: "أحمر غامق" },
+
+{ id: 5, name: "Pantone 286 C", hex: "#0033A0", rgb: "0,51,160", category: "blue", desc: "أزرق كوبالت" },
+{ id: 6, name: "Pantone 300 C", hex: "#0066CC", rgb: "0,102,204", category: "blue", desc: "أزرق سماوي" },
+{ id: 7, name: "Pantone 661 C", hex: "#003399", rgb: "0,51,153", category: "blue", desc: "أزرق ملكي" },
+{ id: 8, name: "Pantone 7687 C", hex: "#005EB8", rgb: "0,94,184", category: "blue", desc: "أزرق بارد" },
+
+{ id: 9, name: "Pantone 355 C", hex: "#009639", rgb: "0,150,57", category: "green", desc: "أخضر طبيعي" },
+{ id: 10, name: "Pantone 7484 C", hex: "#006B3F", rgb: "0,107,63", category: "green", desc: "أخضر غامق" },
+{ id: 11, name: "Pantone 347 C", hex: "#009A44", rgb: "0,154,68", category: "green", desc: "أخضر زاهي" },
+{ id: 12, name: "Pantone 7731 C", hex: "#007A33", rgb: "0,122,51", category: "green", desc: "أخضر زيتوني" },
+
+{ id: 13, name: "Pantone 109 C", hex: "#FFD100", rgb: "255,209,0", category: "yellow", desc: "أصفر ذهبي" },
+{ id: 14, name: "Pantone 1235 C", hex: "#FFCC00", rgb: "255,204,0", category: "yellow", desc: "أصفر براق" },
+{ id: 15, name: "Pantone 021 C", hex: "#FF4500", rgb: "255,69,0", category: "yellow", desc: "برتقالي نار" },
+{ id: 16, name: "Pantone 158 C", hex: "#FF8200", rgb: "255,130,0", category: "yellow", desc: "برتقالي مشرق" },
+
+{ id: 17, name: "Pantone 2725 C", hex: "#4C2C9B", rgb: "76,44,155", category: "purple", desc: "بنفسجي غامق" },
+{ id: 18, name: "Pantone 2597 C", hex: "#5F259F", rgb: "95,37,159", category: "purple", desc: "بنفسجي ملكي" },
+{ id: 19, name: "Pantone 7655 C", hex: "#A05EB5", rgb: "160,94,181", category: "purple", desc: "لافندر" },
+
+{ id: 20, name: "Pantone Black C", hex: "#2C2C2C", rgb: "44,44,44", category: "black", desc: "أسود عميق" },
+{ id: 21, name: "Pantone Cool Gray 11", hex: "#53565A", rgb: "83,86,90", category: "black", desc: "رمادي غامق" },
+{ id: 22, name: "Pantone Cool Gray 5", hex: "#B1B3B3", rgb: "177,179,179", category: "black", desc: "رمادي فاتح" },
+
+{ id: 23, name: "Pantone 871 C", hex: "#B38B5E", rgb: "179,139,94", category: "metallic", desc: "ذهبي معدني" },
+{ id: 24, name: "Pantone 872 C", hex: "#A97142", rgb: "169,113,66", category: "metallic", desc: "برونزي" },
+{ id: 25, name: "Pantone 877 C", hex: "#8A8D8F", rgb: "138,141,143", category: "metallic", desc: "فضي معدني" },
+{ id: 26, name: "Pantone 8001 C", hex: "#6E6E6E", rgb: "110,110,110", category: "metallic", desc: "رصاصي" },
+
+{ id: 27, name: "Pantone Pink C", hex: "#FF6EB4", rgb: "255,110,180", category: "red", desc: "بينك" },
+{ id: 28, name: "Pantone Magenta", hex: "#D5006D", rgb: "213,0,109", category: "red", desc: "ماجينتا" },
+{ id: 29, name: "Pantone Sky", hex: "#87CEEB", rgb: "135,206,235", category: "blue", desc: "سماوي فاتح" },
+{ id: 30, name: "Pantone Mint", hex: "#98FF98", rgb: "152,255,152", category: "green", desc: "مينت" }
+];
 
         function renderColors(filteredColors) {
             const grid = document.getElementById('colorGrid');

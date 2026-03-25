@@ -3,237 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تواصل مع إنكوفا فليكسو - واتساب، عنوان المصنع، دعم فني">
     <title>تواصل معنا - إنكوفا فليكسو</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
-        
+        :root {
+            --ink-blue: #0b2b5e;
+            --ink-cyan: #00e5ff;
+            --ink-gold: #f5c518;
+            --dark-bg: #050505;
+        }
+
         body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--dark-bg);
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
             font-family: 'Cairo', sans-serif;
+            font-weight: 900;
         }
-        
-        .animated-bg {
-            background: linear-gradient(270deg, #f5ede3, #d4af77, #3c2f2f, #555555, #e8d9c8, #a67b5b, #4a4a4a);
-            background-size: 400% 400%;
-            animation: gradientShift 25s ease infinite;
+
+        /* أنيميشنات */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
-        .nav-link {
-            transition: all 0.3s ease;
+
+        .contact-card {
+            background: rgba(11, 43, 94, 0.18);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-link:hover {
-            color: #d4af77;
-            transform: scale(1.05);
+        .contact-card:hover {
+            border-color: var(--ink-cyan);
+            transform: translateY(-18px);
+            box-shadow: 0 30px 70px -15px rgba(0, 229, 255, 0.45);
         }
-        
-        .info-card {
+
+        .input-field {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(0, 229, 255, 0.3);
             transition: all 0.4s ease;
         }
-        .info-card:hover {
-            transform: translateY(-8px);
+        .input-field:focus {
+            border-color: var(--ink-cyan);
+            box-shadow: 0 0 0 5px rgba(0, 229, 255, 0.2);
+            outline: none;
         }
 
-        /* Logo hover animation */
-        .logo-hover {
-            transition: transform 0.5s ease;
+        .submit-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .logo-hover:hover {
-            transform: scale(1.1) rotate(5deg);
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 40%;
+            height: 300%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(25deg);
         }
-
-        /* Icon hover animation (scale + rotate + glow) */
-        .icon-hover {
-            transition: transform 0.3s ease, filter 0.3s ease;
+        .submit-btn:hover::before {
+            left: 150%;
         }
-        .icon-hover:hover {
-            transform: scale(1.2) rotate(15deg);
-            filter: drop-shadow(0 0 10px rgba(212, 175, 119, 0.8));
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-color: var(--ink-gold);
+            color: #0b2b5e;
         }
     </style>
 </head>
-<body class="animated-bg min-h-screen">
+<body>
 
-    <!-- Navbar -->
-    <nav class="bg-[#3c2f2f] text-[#f5ede3] shadow-xl fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 logo-hover">
-                <img src="logo.png" alt="Inkova Logo" class="h-11 w-auto">
-                <div>
-                    <span class="text-3xl font-bold tracking-wider">INKOVA</span>
-                    <span class="text-sm font-medium block -mt-1">FLEXO</span>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 py-4 bg-[#050505]/95 backdrop-blur-lg border-b border-[#00e5ff]/20">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Inkova" class="h-12 w-auto">
+                <div class="leading-none">
+                    <span class="text-3xl font-black tracking-[3px] text-white">INKOVA</span>
+                    <span class="text-sm font-medium text-[#00e5ff] block -mt-1">FLEXO</span>
                 </div>
             </a>
 
-            <ul class="flex items-center gap-8 text-lg font-medium">
-                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
-                <li><a href="products.html" class="nav-link">المنتجات</a></li>
-                <li><a href="colors.html" class="nav-link">مكتبة الألوان</a></li>
-                <li><a href="why.html" class="nav-link">ليه إنكوفا؟</a></li>
-                <li><a href="order.html" class="nav-link">اطلب الآن</a></li>
-                <li><a href="contact.html" class="nav-link text-[#d4af77]">تواصل معنا</a></li>
+            <ul class="hidden md:flex items-center gap-8 text-base font-medium">
+                <li><a href="index.html" class="hover:text-[#00e5ff]">الرئيسية</a></li>
+                <li><a href="products.html" class="hover:text-[#00e5ff]">المنتجات</a></li>
+                <li><a href="colors.html" class="hover:text-[#00e5ff]">مكتبة الألوان</a></li>
+                <li><a href="why.html" class="hover:text-[#00e5ff]">ليه إنكوفا؟</a></li>
+                <li><a href="order.html" class="hover:text-[#00e5ff]">اطلب الآن</a></li>
+                <li><a href="contact.html" class="text-[#f5c518]">تواصل معنا</a></li>
             </ul>
+
+            <div class="flex items-center gap-6">
+                <a href="cart.html" class="relative text-white hover:text-[#00e5ff]">
+                    <i class="fas fa-shopping-cart text-2xl"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <button onclick="toggleLanguage()" class="px-5 py-2.5 bg-[#00e5ff]/10 hover:bg-[#00e5ff]/25 border border-[#00e5ff] rounded-full text-[#00e5ff] text-sm font-medium">
+                    <i class="fas fa-globe"></i> <span id="langText">EN</span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="pt-28 pb-16">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-[#3c2f2f] mb-6" data-aos="fade-up">
-                تواصل مع إنكوفا فليكسو
-            </h1>
-            <p class="text-2xl text-[#3c2f2f]" data-aos="fade-up" data-aos-delay="100">
-                نحن جاهزون لخدمتك في أي وقت
-            </p>
-        </div>
-    </section>
+    <main class="pt-28 pb-20">
+        <!-- Hero -->
+        <section class="bg-gradient-to-b from-[#0b2b5e] to-transparent py-24">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h1 class="text-6xl md:text-7xl font-black text-white mb-6 fade-in">تواصل معنا</h1>
+                <p class="text-2xl text-gray-300 max-w-3xl mx-auto fade-in" style="animation-delay: 200ms;">
+                    فريق إنكوفا جاهز لخدمتك في أي وقت
+                </p>
+            </div>
+        </section>
 
-    <div class="max-w-7xl mx-auto px-6 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-        <!-- معلومات التواصل -->
-        <div class="space-y-10" data-aos="fade-right">
-            <div class="info-card bg-white rounded-3xl p-10 shadow-xl icon-hover">
-                <div class="flex items-center gap-6 mb-8">
-                    <div class="w-16 h-16 bg-[#d4af77] text-[#3c2f2f] rounded-2xl flex items-center justify-center text-4xl">
-                        <i class="fab fa-whatsapp"></i>
+            <!-- معلومات التواصل -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="contact-card rounded-3xl p-10 fade-in">
+                    <div class="flex items-center gap-8">
+                        <div class="w-24 h-24 bg-green-600/10 text-green-500 rounded-3xl flex items-center justify-center text-6xl">📱</div>
+                        <div>
+                            <h3 class="text-4xl font-bold text-white">واتساب مباشر</h3>
+                            <a href="https://wa.me/201553404414" target="_blank" 
+                               class="block text-5xl font-medium text-[#f5c518] hover:text-[#ffd700] mt-3">01553404414</a>
+                            <p class="text-gray-400 mt-4">رد فوري خلال دقايق</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">واتساب</h3>
-                        <a href="https://wa.me/201553404414" target="_blank" 
-                           class="text-3xl font-medium text-[#3c2f2f] hover:text-[#d4af77] transition">01553404414</a>
+                </div>
+
+                <div class="contact-card rounded-3xl p-10 fade-in" style="animation-delay: 150ms">
+                    <div class="flex items-center gap-8">
+                        <div class="w-24 h-24 bg-[#f5c518]/10 text-[#f5c518] rounded-3xl flex items-center justify-center text-6xl">📍</div>
+                        <div>
+                            <h3 class="text-4xl font-bold text-white">عنوان المصنع</h3>
+                            <p class="text-xl text-gray-300 mt-6">المنطقة الصناعية الجديدة<br>الدلتا - الغربية - مصر</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card rounded-3xl p-10 fade-in" style="animation-delay: 300ms">
+                    <div class="flex items-center gap-8">
+                        <div class="w-24 h-24 bg-[#00e5ff]/10 text-[#00e5ff] rounded-3xl flex items-center justify-center text-6xl">⏰</div>
+                        <div>
+                            <h3 class="text-4xl font-bold text-white">ساعات العمل</h3>
+                            <p class="text-xl text-gray-300 mt-6">السبت - الخميس: 9:00 ص - 6:00 م</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="info-card bg-white rounded-3xl p-10 shadow-xl icon-hover">
-                <div class="flex items-center gap-6 mb-8">
-                    <div class="w-16 h-16 bg-[#3c2f2f] text-white rounded-2xl flex items-center justify-center text-4xl">
-                        📍
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">عنوان المصنع</h3>
-                        <p class="text-xl text-gray-700">الدلتا الصناعية - الغربية - مصر</p>
-                    </div>
-                </div>
-            </div>
+            <!-- النموذج -->
+            <div class="lg:col-span-7">
+                <div class="bg-[#050505] border border-[#00e5ff]/20 rounded-3xl p-12 fade-in">
+                    <h2 class="text-5xl font-black text-white mb-10">أرسل رسالتك</h2>
+                    
+                    <form id="contactForm" class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-3">الاسم الكامل</label>
+                                <input type="text" id="name" required
+                                       class="input-field w-full px-7 py-6 rounded-3xl text-white text-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-3">رقم الواتساب</label>
+                                <input type="tel" id="phone" required
+                                       class="input-field w-full px-7 py-6 rounded-3xl text-white text-lg">
+                            </div>
+                        </div>
 
-            <div class="info-card bg-white rounded-3xl p-10 shadow-xl icon-hover">
-                <div class="flex items-center gap-6">
-                    <div class="w-16 h-16 bg-[#3c2f2f] text-white rounded-2xl flex items-center justify-center text-4xl">
-                        ⏰
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">ساعات العمل</h3>
-                        <p class="text-xl text-gray-700">من السبت للخميس: ٩ صباحاً - ٦ مساءً</p>
-                    </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-3">البريد الإلكتروني (اختياري)</label>
+                            <input type="email" id="email"
+                                   class="input-field w-full px-7 py-6 rounded-3xl text-white text-lg">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-3">الرسالة أو الاستفسار</label>
+                            <textarea id="message" rows="7" required placeholder="اكتب رسالتك هنا..."
+                                      class="input-field w-full px-7 py-6 rounded-3xl text-white text-lg resize-y"></textarea>
+                        </div>
+
+                        <button type="submit"
+                                class="submit-btn w-full py-8 rounded-3xl font-black text-2xl flex items-center justify-center gap-4">
+                            <i class="fab fa-whatsapp text-3xl"></i>
+                            أرسل الرسالة عبر الواتساب
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
+    </main>
 
-        <!-- نموذج التواصل -->
-        <div class="bg-white rounded-3xl shadow-2xl p-10" data-aos="fade-left">
-            <h2 class="text-3xl font-bold mb-8 text-[#3c2f2f]">أرسل رسالة</h2>
-            
-            <form id="contactForm" class="space-y-6">
-                <div>
-                    <label class="block text-lg font-medium mb-2">الاسم</label>
-                    <input type="text" id="c_name" required
-                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg">
-                </div>
-                
-                <div>
-                    <label class="block text-lg font-medium mb-2">رقم الواتساب أو التليفون</label>
-                    <input type="tel" id="c_phone" required
-                           class="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg">
-                </div>
-                
-                <div>
-                    <label class="block text-lg font-medium mb-2">الرسالة</label>
-                    <textarea id="c_message" rows="6" required placeholder="اكتب رسالتك هنا..."
-                              class="w-full px-6 py-4 border border-gray-300 rounded-3xl text-lg resize-y"></textarea>
-                </div>
-                
-                <button type="submit"
-                        class="w-full bg-[#3c2f2f] hover:bg-[#d4af77] hover:text-[#3c2f2f] text-white py-6 rounded-3xl font-bold text-xl flex items-center justify-center gap-3 transition">
-                    <i class="fab fa-whatsapp text-3xl"></i>
-                    أرسل الرسالة عبر الواتساب
-                </button>
-            </form>
-        </div>
-    </div>
+    <script>
+        // Fade-in Animation
+        function handleScroll() {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.classList.add('visible');
+                }
+            });
+        }
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/201553404414" target="_blank"
-       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-125 transition z-50">
-        <i class="fab fa-whatsapp text-4xl"></i>
-    </a>
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
 
-    <!-- Footer -->
-    <footer class="bg-[#3c2f2f] text-[#f5ede3] py-12">
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let text = `مرحبا إنكوفا فليكسو 👋%0A%0A`;
+            text += `الاسم: ${name}%0A`;
+            text += `الرقم: ${phone}%0A`;
+            if (email) text += `الإيميل: ${email}%0A`;
+            text += `%0Aالرسالة:%0A${message}%0A%0A`;
+            text += `برجاء الرد في أسرع وقت ممكن 🙏`;
+
+            const url = `https://wa.me/201553404414?text=${text}`;
+            window.open(url, '_blank');
+        });
+
+        function toggleLanguage() {
+            const lang = document.getElementById('langText');
+            lang.textContent = lang.textContent === 'EN' ? 'عربي' : 'EN';
+        }
+    </script>
+</body>
+</html>
+ <!-- ==================== FOOTER ==================== -->
+    <footer class="py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="logo.png" alt="Inkova" class="h-10 mb-4 logo-hover">
-                    <p class="text-sm">حبر فليكسو جاهز • مصر</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="logo.png" alt="Inkova" class="h-12 w-auto">
+                        <div>
+                            <div class="text-2xl font-black tracking-widest text-white">INKOVA</div>
+                            <div class="text-sm text-[#00e5ff] -mt-1">FLEXO</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 max-w-xs text-sm leading-relaxed">حبر فليكسو جاهز للتشغيل • أعلى جودة • أفضل سعر • صنع في مصر بتقنية أوروبية</p>
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank" 
+                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-[#00e5ff]/20 border border-[#00e5ff]/20 hover:border-[#00e5ff] rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-[#00e5ff] transition-all">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank"
+                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-[#00e5ff]/20 border border-[#00e5ff]/20 hover:border-[#00e5ff] rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-[#00e5ff] transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/201553404414" target="_blank"
+                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-green-900/40 border border-[#00e5ff]/20 hover:border-green-500 rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-green-400 transition-all">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div>
-                    <h4 class="font-bold mb-4">روابط سريعة</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="hover:text-[#d4af77]">الرئيسية</a></li>
-                        <li><a href="products.html" class="hover:text-[#d4af77]">المنتجات</a></li>
-                        <li><a href="colors.html" class="hover:text-[#d4af77]">مكتبة الألوان</a></li>
-                        <li><a href="why.html" class="hover:text-[#d4af77]">ليه إنكوفا؟</a></li>
-                        <li><a href="order.html" class="hover:text-[#d4af77]">اطلب الآن</a></li>
+                    <h5 class="font-bold text-base mb-5 text-white">روابط سريعة</h5>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>الرئيسية</a></li>
+                        <li><a href="products.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>المنتجات</a></li>
+                        <li><a href="colors.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>مكتبة الألوان</a></li>
+                        <li><a href="why.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>ليه إنكوفا؟</a></li>
+                        <li><a href="order.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>اطلب الآن</a></li>
+                        <li><a href="contact.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>تواصل معنا</a></li>
                     </ul>
                 </div>
+
+                <!-- Services -->
                 <div>
-                    <h4 class="font-bold mb-4">تواصل</h4>
-                    <p class="text-sm">واتساب: <a href="https://wa.me/201553404414" class="hover:text-[#d4af77]">01553404414</a></p>
+                    <h5 class="font-bold text-base mb-5 text-white">خدماتنا</h5>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>توريد حبر فليكسو</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>استشارات طباعة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>اختبار مجاني</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>تدريب فريق الطباعة</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>دعم فني مستمر</li>
+                    </ul>
                 </div>
+
+                <!-- Contact -->
                 <div>
-                    <h4 class="font-bold mb-4">تابعنا</h4>
-                    <div class="flex gap-4 text-2xl">
-                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank" class="icon-hover"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank" class="icon-hover"><i class="fab fa-instagram"></i></a>
+                    <h5 class="font-bold text-base mb-5 text-white">تواصل معنا</h5>
+                    <div class="space-y-4 text-sm">
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fab fa-whatsapp text-green-400 mt-0.5"></i>
+                            <a href="https://wa.me/201553404414" class="text-[#f5c518] hover:text-[#ffd700] transition-colors">01553404414</a>
+                        </p>
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fas fa-envelope text-[#00e5ff] mt-0.5"></i>
+                            <span>info@inkova-flexo.com</span>
+                        </p>
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-[#00e5ff] mt-0.5 mt-1"></i>
+                            <span>المنطقة الصناعية - المنوفية، مصر</span>
+                        </p>
+                        <p class="text-gray-400 flex items-start gap-3">
+                            <i class="fas fa-clock text-[#00e5ff] mt-0.5"></i>
+                            <span>السبت - الخميس: 9 ص - 6 م</span>
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-xs mt-12 border-t border-[#f5ede3]/30 pt-6">
-                © 2026 Inkova Flexo - جميع الحقوق محفوظة<br>
-                تم إنشاؤه بواسطة دكتور عمر عرفه
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>© 2026 Inkova Flexo - جميع الحقوق محفوظة</p>
+                <p>تم عمله و تطويره بواسطة <span class="text-[#f5c518] font-medium">دكتور عمر عرفه</span></p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('hamburgerIcon');
+            menu.classList.toggle('open');
+            if (menu.classList.contains('open')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Counter Animation
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-count'));
+            const isThousands = target >= 1000;
+            let count = 0;
+            const duration = 1800;
+            const steps = 60;
+            const increment = target / steps;
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    count = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.round(count).toLocaleString('ar-EG') + (isThousands ? '+' : '');
+            }, duration / steps);
+        }
 
-            const name = document.getElementById('c_name').value;
-            const phone = document.getElementById('c_phone').value;
-            const message = document.getElementById('c_message').value;
+        // Intersection Observer for counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
 
-            const text = `مرحبا إنكوفا فليكسو 👋%0A%0A`
-                + `الاسم: ${name}%0A`
-                + `الرقم: ${phone}%0A%0A`
-                + `الرسالة: ${message}%0A%0A`
-                + `برجاء الرد عليّ فورًا.`;
-
-            const whatsappURL = `https://wa.me/201553404414?text=${text}`;
-            window.open(whatsappURL, '_blank');
+        document.querySelectorAll('.stat-number').forEach(el => {
+            counterObserver.observe(el);
         });
+
+        // Language Toggle
+        let isArabic = true;
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const langText = document.getElementById('langText');
+            if (isArabic) {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                langText.textContent = 'EN';
+                document.getElementById('heroTitle').innerHTML = 'حبر فليكسو جاهز<br>للتشغيل الفوري';
+                document.getElementById('heroDesc').textContent = 'سعر أرخص • جودة عالمية • ألوان ثابتة • صديق للبيئة';
+                document.getElementById('btnOrder').textContent = 'اطلب عينة الآن';
+                document.getElementById('btnWhatsapp').textContent = 'واتساب مباشر';
+                document.getElementById('aboutTitle').innerHTML = 'إنكوفا فليكسو<br><span class="text-[#f5c518]">شركة مصرية 100%</span>';
+                document.getElementById('finalCta').textContent = 'اطلب عينة مجانية الآن';
+            } else {
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                langText.textContent = 'عربي';
+                document.getElementById('heroTitle').innerHTML = 'Flexo Ink Ready<br>For Instant Operation';
+                document.getElementById('heroDesc').textContent = 'Cheaper Price • World Quality • Stable Colors • Eco-Friendly';
+                document.getElementById('btnOrder').textContent = 'Request Sample Now';
+                document.getElementById('btnWhatsapp').textContent = 'Chat on WhatsApp';
+                document.getElementById('aboutTitle').innerHTML = 'Inkova Flexo<br><span class="text-[#f5c518]">100% Egyptian Company</span>';
+                document.getElementById('finalCta').textContent = 'Request Free Sample Now';
+            }
+        }
+
+        // Tailwind config
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#0b2b5e',
+                        cyan: '#00e5ff',
+                        gold: '#f5c518'
+                    }
+                }
+            }
+        };
     </script>
 </body>
 </html>

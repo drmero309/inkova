@@ -1,485 +1,2850 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبة الألوان - إنكوفا فليكسو</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --ink-blue: #0b2b5e;
-            --ink-cyan: #00e5ff;
-            --ink-gold: #f5c518;
-            --dark-bg: #050505;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="مكتبة ألوان إنكوفا فليكسو — أكثر من 950 لون Pantone جاهز للطباعة الفليكسو على الكرتون والتغليف">
+<title>مكتبة الألوان | إنكوفا فليكسو</title>
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: var(--dark-bg);
-            color: #e0e0e0;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        h1, h2, h3 {
-            font-family: 'Cairo', sans-serif;
-            font-weight: 900;
-        }
+<style>
+/* ═══════════════════════════════════════════════
+   ROOT VARIABLES & RESET
+═══════════════════════════════════════════════ */
+:root {
+  --blue:          #0b2b5e;
+  --blue-mid:      #0d3575;
+  --blue-light:    #1a4a8a;
+  --cyan:          #00e5ff;
+  --cyan-soft:     #7fecff;
+  --cyan-dim:      rgba(0,229,255,0.10);
+  --gold:          #f5c518;
+  --gold-light:    #ffe066;
+  --gold-dim:      rgba(245,197,24,0.10);
+  --dark:          #03030a;
+  --dark-2:        #06060f;
+  --dark-3:        #0a0a1c;
+  --dark-4:        #0e0e22;
+  --white:         #eef2ff;
+  --white-soft:    rgba(238,242,255,0.85);
+  --gray:          #8892a4;
+  --gray-light:    #b0bac8;
+  --gray-dim:      rgba(136,146,164,0.12);
 
-        /* أنيميشن عام */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  --r-xs:  0.5rem;
+  --r-sm:  0.75rem;
+  --r-md:  1.25rem;
+  --r-lg:  1.75rem;
+  --r-xl:  2.5rem;
+  --r-2xl: 3.5rem;
 
-        /* الكارت الرئيسي */
-        .color-card {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(0, 229, 255, 0.15);
-            transition: all 0.5s ease;
-        }
-        .color-card:hover {
-            border-color: var(--ink-cyan);
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px -10px rgba(0, 229, 255, 0.3);
-        }
+  --shadow-cyan: 0 0 60px rgba(0,229,255,0.18);
+  --shadow-gold: 0 0 60px rgba(245,197,24,0.18);
+  --shadow-deep: 0 30px 80px rgba(0,0,0,0.5);
+  --transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  --transition-spring: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
 
-        /* الدائرة الصغيرة */
-        .color-circle {
-            width: 90px;
-            height: 90px;
-            border-radius: 9999px;
-            margin: 20px auto;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5),
-                        inset 0 4px 15px rgba(255,255,255,0.25);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
-        .color-card:hover .color-circle {
-            transform: scale(1.25) rotate(12deg);
-            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.4),
-                        inset 0 6px 20px rgba(255,255,255,0.35);
-        }
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.75;
+  cursor: none;
+}
 
-        /* المستطيل بلون اللون نفسه */
-        .color-rect {
-            height: 140px;
-            border-radius: 20px 20px 0 0;
-            position: relative;
-            overflow: hidden;
-        }
+h1,h2,h3,h4,h5,h6 { font-family: 'Cairo', sans-serif; font-weight: 900; line-height: 1.2; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: none; border: none; background: none; }
+::selection { background: rgba(0,229,255,0.2); color: #fff; }
 
-        .pantone-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0,0,0,0.75);
-            color: white;
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            backdrop-filter: blur(6px);
-        }
-    </style>
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 9px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+/* ═══════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════ */
+#cur-dot {
+  position: fixed; z-index: 99999;
+  width: 7px; height: 7px;
+  background: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+#cur-ring {
+  position: fixed; z-index: 99998;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(0,229,255,0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  will-change: transform;
+}
+body.hovering #cur-dot  { width: 12px; height: 12px; background: var(--gold); }
+body.hovering #cur-ring { width: 54px; height: 54px; border-color: rgba(245,197,24,0.6); }
+
+/* ═══════════════════════════════════════════════
+   LOADER
+═══════════════════════════════════════════════ */
+#loader {
+  position: fixed; inset: 0; z-index: 99990;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2.5rem;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+#loader.out { opacity: 0; visibility: hidden; }
+
+.loader-logo-wrap {
+  display: flex; align-items: center; justify-content: center;
+  animation: loaderPulse 1.5s ease-in-out infinite alternate;
+}
+@keyframes loaderPulse {
+  from { opacity: 0.4; transform: scale(0.95); }
+  to   { opacity: 1;   transform: scale(1.05); }
+}
+.loader-logo-wrap img { height: 90px; }
+
+.loader-palette {
+  display: flex; gap: 6px; align-items: flex-end;
+}
+.loader-swatch {
+  width: 10px;
+  border-radius: 6px 6px 0 0;
+  animation: swatchRise 0.5s ease forwards;
+  animation-delay: var(--d);
+  transform-origin: bottom;
+  transform: scaleY(0);
+}
+@keyframes swatchRise {
+  to { transform: scaleY(1); }
+}
+
+.loader-bar-wrap {
+  width: 260px; height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 9px; overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--gold), var(--cyan));
+  background-size: 200%;
+  border-radius: 9px;
+  animation: loadFill 2.2s ease forwards, shimmer 1.4s linear infinite;
+}
+@keyframes loadFill { from { width: 0% } to { width: 100% } }
+@keyframes shimmer  { 0%{background-position:0%} 100%{background-position:200%} }
+
+.loader-text {
+  font-size: 0.7rem; letter-spacing: 5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.22);
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL PROGRESS
+═══════════════════════════════════════════════ */
+#spb {
+  position: fixed; top: 0; left: 0; z-index: 99997;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--cyan), var(--gold), var(--cyan));
+  background-size: 200%;
+  animation: shimmer 2s linear infinite;
+  box-shadow: 0 0 10px var(--cyan);
+  transition: width 0.08s linear;
+}
+
+/* ═══════════════════════════════════════════════
+   CANVAS
+═══════════════════════════════════════════════ */
+#bgc {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════
+   NOISE
+═══════════════════════════════════════════════ */
+.noise {
+  position: fixed; inset: 0; z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity: 0.35;
+}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; inset-inline: 0; z-index: 9000;
+  padding: 1.1rem 0;
+  background: rgba(3,3,10,0.65);
+  border-bottom: 1px solid rgba(0,229,255,0.05);
+  backdrop-filter: blur(28px) saturate(1.9);
+  -webkit-backdrop-filter: blur(28px) saturate(1.9);
+  transition: padding 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+nav.scrolled {
+  padding: 0.65rem 0;
+  background: rgba(3,3,10,0.97);
+  border-bottom-color: rgba(0,229,255,0.12);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.7);
+}
+.nav-inner {
+  max-width: 1340px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img {
+  height: 46px;
+  transition: transform 0.4s ease;
+}
+.nav-logo:hover img { transform: scale(1.06); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 0.25rem;
+  list-style: none;
+}
+.nav-links a {
+  display: block;
+  font-size: 0.88rem; font-weight: 700;
+  color: rgba(238,242,255,0.65);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--r-md);
+  position: relative;
+  transition: color 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+}
+.nav-links a::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,229,255,0.07), rgba(245,197,24,0.04));
+  border-radius: var(--r-md);
+  opacity: 0; transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::before { opacity: 1; transform: scale(1); }
+.nav-links a.active { color: var(--gold) !important; }
+
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+.btn-lang {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid rgba(0,229,255,0.28);
+  border-radius: 9999px;
+  color: var(--cyan);
+  font-size: 0.76rem; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(0,229,255,0.05);
+  transition: var(--transition);
+}
+.btn-lang:hover {
+  background: rgba(0,229,255,0.12);
+  border-color: var(--cyan);
+  box-shadow: 0 0 18px rgba(0,229,255,0.18);
+}
+
+.btn-hamburger {
+  display: none; flex-direction: column;
+  gap: 5px; padding: 6px;
+}
+.btn-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--white); border-radius: 9px;
+  transition: var(--transition);
+}
+.btn-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.btn-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.btn-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+#mob-menu {
+  display: none;
+  background: rgba(3,3,10,0.99);
+  border-top: 1px solid rgba(0,229,255,0.08);
+  padding: 1.5rem 2rem 2rem;
+}
+#mob-menu.open { display: block; animation: slideDown 0.3s ease; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:none} }
+#mob-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0.2rem; }
+#mob-menu ul li a {
+  display: block; padding: 0.85rem 1.1rem;
+  font-size: 1.05rem; font-weight: 700;
+  color: rgba(238,242,255,0.7);
+  border-radius: var(--r-md);
+  transition: var(--transition);
+}
+#mob-menu ul li a:hover { background: rgba(0,229,255,0.07); color: var(--cyan); padding-right: 1.6rem; }
+
+/* ═══════════════════════════════════════════════
+   HERO / PAGE HEADER
+═══════════════════════════════════════════════ */
+.page-hero {
+  min-height: 52vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 9rem 2rem 4rem;
+  position: relative; z-index: 2; overflow: hidden;
+  text-align: center;
+}
+
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(110px); opacity: 0.08;
+  pointer-events: none; z-index: 0;
+  animation: orbDrift ease-in-out infinite;
+}
+.orb-a { width:700px;height:700px; background:radial-gradient(circle,var(--cyan),transparent 70%); top:-200px;left:-200px; animation-duration:22s; }
+.orb-b { width:500px;height:500px; background:radial-gradient(circle,var(--gold),transparent 70%); bottom:-100px;right:-100px; animation-duration:17s; animation-direction:reverse; }
+.orb-c { width:350px;height:350px; background:radial-gradient(circle,#1a4a8a,transparent 70%); top:40%;left:60%; animation-duration:13s; animation-delay:-3s; }
+@keyframes orbDrift {
+  0%,100% { transform:translate(0,0) scale(1); }
+  33%     { transform:translate(35px,-25px) scale(1.08); }
+  66%     { transform:translate(-20px,30px) scale(0.93); }
+}
+
+.page-hero-inner { position: relative; z-index: 2; }
+
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  padding: 0.45rem 1.4rem;
+  background: rgba(0,229,255,0.07);
+  border: 1px solid rgba(0,229,255,0.22);
+  border-radius: 9999px;
+  font-size: 0.76rem; font-weight: 900; letter-spacing: 2px;
+  color: var(--cyan); margin-bottom: 2rem;
+  animation: fadeUp 0.7s ease 0.3s both;
+}
+.page-eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cyan);
+  animation: blinkDot 1.3s ease infinite;
+  box-shadow: 0 0 8px var(--cyan);
+}
+@keyframes blinkDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.2;transform:scale(0.5)} }
+
+.page-h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.85s ease 0.45s both;
+  line-height: 1.1;
+}
+.page-h1 .accent {
+  background: linear-gradient(125deg, var(--cyan) 0%, #a0f0ff 35%, var(--gold) 80%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-sub {
+  font-size: 1.1rem; color: var(--gray);
+  max-width: 580px; margin: 0 auto 2.5rem;
+  line-height: 1.85;
+  animation: fadeUp 0.85s ease 0.6s both;
+}
+
+.page-stats-row {
+  display: flex; justify-content: center; gap: 2rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.85s ease 0.75s both;
+}
+.page-stat {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.5rem 1.3rem;
+  background: rgba(11,43,94,0.3);
+  border: 1px solid rgba(0,229,255,0.15);
+  border-radius: 9999px;
+  font-size: 0.83rem; font-weight: 700;
+  color: var(--white-soft);
+}
+.page-stat i { color: var(--gold); font-size: 0.75rem; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(35px)} to{opacity:1;transform:none} }
+
+/* ═══════════════════════════════════════════════
+   MAIN CONTENT WRAPPER
+═══════════════════════════════════════════════ */
+.content-wrap {
+  position: relative; z-index: 2;
+  max-width: 1440px; margin: 0 auto; padding: 0 2rem;
+}
+
+/* ═══════════════════════════════════════════════
+   SEARCH & FILTER BAR
+═══════════════════════════════════════════════ */
+.filter-section {
+  position: sticky; top: 72px; z-index: 100;
+  padding: 1.5rem 0;
+  background: rgba(3,3,10,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0,229,255,0.06);
+  margin-bottom: 3rem;
+}
+
+.filter-inner {
+  max-width: 1440px; margin: 0 auto; padding: 0 2rem;
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+
+.search-row {
+  display: flex; gap: 1rem; align-items: center;
+}
+
+.search-wrap {
+  flex: 1; position: relative;
+}
+.search-wrap .search-icon {
+  position: absolute; right: 1.4rem; top: 50%;
+  transform: translateY(-50%);
+  color: var(--cyan); font-size: 1rem; pointer-events: none;
+}
+.search-wrap input {
+  width: 100%; padding: 0.95rem 3.2rem 0.95rem 1.5rem;
+  background: rgba(11,43,94,0.18);
+  border: 1.5px solid rgba(0,229,255,0.18);
+  border-radius: var(--r-xl);
+  color: var(--white); font-family: 'Tajawal', sans-serif;
+  font-size: 0.95rem; outline: none;
+  transition: var(--transition);
+}
+.search-wrap input::placeholder { color: var(--gray); }
+.search-wrap input:focus {
+  border-color: var(--cyan);
+  background: rgba(0,229,255,0.04);
+  box-shadow: 0 0 0 4px rgba(0,229,255,0.06), 0 4px 20px rgba(0,229,255,0.1);
+}
+
+.search-clear {
+  position: absolute; left: 1.2rem; top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray); font-size: 0.9rem;
+  cursor: none; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.search-clear.show { opacity: 1; pointer-events: auto; }
+.search-clear:hover { color: var(--cyan); }
+
+.results-count {
+  font-size: 0.82rem; color: var(--gray);
+  white-space: nowrap; padding: 0 0.5rem;
+  min-width: 90px; text-align: center;
+}
+.results-count strong { color: var(--cyan); font-weight: 900; }
+
+.view-toggle {
+  display: flex; gap: 0.4rem;
+}
+.view-btn {
+  width: 40px; height: 40px; border-radius: var(--r-md);
+  background: rgba(11,43,94,0.2);
+  border: 1px solid rgba(0,229,255,0.12);
+  color: var(--gray); font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition); cursor: none;
+}
+.view-btn.active, .view-btn:hover {
+  background: rgba(0,229,255,0.1);
+  border-color: var(--cyan); color: var(--cyan);
+}
+
+/* Category Tabs */
+.cat-tabs {
+  display: flex; gap: 0.6rem; flex-wrap: wrap;
+  align-items: center;
+}
+.cat-tab {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 9999px;
+  font-size: 0.8rem; font-weight: 800;
+  border: 1px solid rgba(0,229,255,0.14);
+  color: var(--gray);
+  background: rgba(11,43,94,0.12);
+  transition: var(--transition); cursor: none;
+  letter-spacing: 0.3px;
+  position: relative; overflow: hidden;
+}
+.cat-tab::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(245,197,24,0.05));
+  opacity: 0; transition: opacity 0.3s;
+}
+.cat-tab:hover::before, .cat-tab.active::before { opacity: 1; }
+.cat-tab:hover, .cat-tab.active {
+  color: var(--white);
+  border-color: rgba(0,229,255,0.45);
+  transform: translateY(-2px);
+}
+.cat-tab.active {
+  background: rgba(0,229,255,0.1);
+  box-shadow: 0 4px 18px rgba(0,229,255,0.12);
+}
+.cat-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px currentColor;
+}
+.cat-count {
+  font-size: 0.68rem; background: rgba(0,229,255,0.12);
+  padding: 0.1rem 0.5rem; border-radius: 9999px;
+  color: var(--cyan); font-weight: 900;
+}
+
+/* Sort row */
+.sort-row {
+  display: flex; align-items: center; gap: 1rem;
+}
+.sort-label {
+  font-size: 0.78rem; color: var(--gray); font-weight: 700;
+  white-space: nowrap;
+}
+.sort-btns { display: flex; gap: 0.5rem; }
+.sort-btn {
+  padding: 0.4rem 0.95rem;
+  border: 1px solid rgba(0,229,255,0.12);
+  border-radius: var(--r-md);
+  font-size: 0.75rem; font-weight: 800;
+  color: var(--gray); background: transparent;
+  transition: var(--transition); cursor: none;
+}
+.sort-btn.active, .sort-btn:hover {
+  border-color: rgba(245,197,24,0.4);
+  color: var(--gold); background: rgba(245,197,24,0.06);
+}
+
+/* ═══════════════════════════════════════════════
+   COLOR GRID
+═══════════════════════════════════════════════ */
+#colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1.25rem;
+  transition: opacity 0.3s ease;
+}
+#colorGrid.list-view {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+/* ═══════════════════════════════════════════════
+   COLOR CARD — GRID VIEW
+═══════════════════════════════════════════════ */
+.color-card {
+  background: rgba(11,43,94,0.1);
+  border: 1px solid rgba(0,229,255,0.08);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: none;
+  position: relative;
+  animation: cardIn 0.5s cubic-bezier(0.34,1.2,0.64,1) both;
+}
+@keyframes cardIn {
+  from { opacity:0; transform:translateY(30px) scale(0.92); }
+  to   { opacity:1; transform:none; }
+}
+
+.color-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(0,229,255,0.3);
+  box-shadow: 0 28px 55px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,255,0.12);
+}
+
+/* Swatch area */
+.card-swatch {
+  height: 155px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.75rem;
+  transition: height 0.35s ease;
+}
+.color-card:hover .card-swatch { height: 175px; }
+
+.swatch-blob {
+  width: 90px; height: 90px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blobMorph 5s ease-in-out infinite;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 3px 12px rgba(255,255,255,0.2);
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s;
+  position: relative; z-index: 1;
+}
+.color-card:hover .swatch-blob {
+  transform: scale(1.3) rotate(12deg);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5), inset 0 4px 16px rgba(255,255,255,0.28);
+}
+@keyframes blobMorph {
+  0%,100% { border-radius:60% 40% 30% 70%/60% 30% 70% 40%; }
+  33%     { border-radius:40% 60% 70% 30%/50% 60% 30% 60%; }
+  66%     { border-radius:70% 30% 50% 50%/30% 50% 60% 40%; }
+}
+
+/* Swatch shimmer */
+.swatch-shimmer {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 50%, rgba(255,255,255,0.04) 100%);
+  pointer-events: none;
+}
+
+/* Pantone badge */
+.pantone-tag {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(3,3,10,0.85);
+  border: 1px solid rgba(0,229,255,0.18);
+  border-radius: 9999px;
+  font-size: 0.62rem; font-weight: 900;
+  color: var(--cyan); padding: 0.2rem 0.7rem;
+  backdrop-filter: blur(8px); letter-spacing: 0.5px;
+}
+
+/* Category badge */
+.cat-tag-badge {
+  position: absolute; top: 10px; left: 10px;
+  width: 8px; height: 8px; border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Card body */
+.card-body { padding: 1.25rem 1.4rem 1.5rem; }
+
+.color-name {
+  font-size: 0.92rem; font-weight: 800;
+  color: var(--white); margin-bottom: 0.2rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.color-hex {
+  font-family: 'Cairo', monospace;
+  font-size: 0.75rem; color: var(--cyan); font-weight: 700;
+  margin-bottom: 0.6rem; letter-spacing: 1px;
+}
+.color-rgb {
+  font-size: 0.7rem; color: var(--gray); margin-bottom: 1.1rem;
+}
+
+.card-actions {
+  display: flex; gap: 0.6rem;
+}
+.card-btn {
+  flex: 1; padding: 0.55rem 0.5rem;
+  border-radius: var(--r-md);
+  font-size: 0.73rem; font-weight: 800;
+  text-align: center; transition: var(--transition);
+  cursor: none; letter-spacing: 0.3px;
+}
+.card-btn-copy {
+  border: 1px solid rgba(0,229,255,0.25);
+  color: var(--cyan); background: rgba(0,229,255,0.04);
+}
+.card-btn-copy:hover {
+  background: rgba(0,229,255,0.12);
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+.card-btn-copy.copied {
+  background: rgba(34,197,94,0.12);
+  border-color: #22c55e; color: #22c55e;
+}
+.card-btn-detail {
+  background: linear-gradient(135deg, var(--gold), #ffd700);
+  color: var(--blue); font-weight: 900;
+  box-shadow: 0 4px 14px rgba(245,197,24,0.25);
+}
+.card-btn-detail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245,197,24,0.45);
+}
+.card-btn-wa {
+  border: 1px solid rgba(37,211,102,0.22);
+  color: #22c55e; background: rgba(37,211,102,0.04);
+  font-size: 0.8rem;
+}
+.card-btn-wa:hover {
+  background: rgba(37,211,102,0.1);
+  border-color: #22c55e; transform: translateY(-2px);
+}
+
+/* Favorite star */
+.fav-btn {
+  position: absolute; bottom: 1.25rem; left: 1.4rem;
+  font-size: 0.85rem; color: var(--gray);
+  transition: var(--transition); cursor: none;
+  z-index: 5;
+}
+.fav-btn.active { color: var(--gold); }
+.fav-btn:hover { color: var(--gold); transform: scale(1.3); }
+
+/* ═══════════════════════════════════════════════
+   COLOR CARD — LIST VIEW
+═══════════════════════════════════════════════ */
+#colorGrid.list-view .color-card {
+  border-radius: var(--r-lg);
+  display: flex; flex-direction: row; align-items: center; gap: 0;
+}
+#colorGrid.list-view .color-card:hover {
+  transform: translateX(-6px);
+}
+#colorGrid.list-view .card-swatch {
+  height: 80px; width: 120px; flex-shrink: 0;
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+}
+#colorGrid.list-view .swatch-blob {
+  width: 44px; height: 44px;
+}
+#colorGrid.list-view .card-body {
+  flex: 1; display: flex; align-items: center;
+  gap: 1.5rem; padding: 1rem 1.5rem;
+}
+#colorGrid.list-view .color-info { flex: 1; }
+#colorGrid.list-view .color-rgb { display: block; }
+#colorGrid.list-view .card-actions { flex-shrink: 0; gap: 0.5rem; }
+#colorGrid.list-view .card-btn { min-width: 80px; }
+#colorGrid.list-view .pantone-tag { position: static; margin-bottom: 0.3rem; display: inline-block; }
+#colorGrid.list-view .cat-tag-badge { display: none; }
+#colorGrid.list-view .fav-btn { position: static; margin-right: auto; }
+
+/* ═══════════════════════════════════════════════
+   EMPTY STATE
+═══════════════════════════════════════════════ */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center; padding: 5rem 2rem;
+}
+.empty-state .empty-ico {
+  font-size: 4rem; margin-bottom: 1.5rem;
+  animation: emptyFloat 3s ease-in-out infinite;
+}
+@keyframes emptyFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.empty-state h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.75rem; }
+.empty-state p  { color: var(--gray); font-size: 0.95rem; }
+
+/* ═══════════════════════════════════════════════
+   FEATURED PANEL — top colors
+═══════════════════════════════════════════════ */
+.featured-section {
+  position: relative; z-index: 2;
+  padding: 0 0 5rem;
+}
+.featured-section .content-wrap { max-width: 1440px; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  font-size: 0.7rem; font-weight: 900; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--cyan);
+  margin-bottom: 0.75rem;
+}
+.section-label .sl-line {
+  display: block; height: 1px; width: 30px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+}
+.section-label .sl-line.r { background: linear-gradient(270deg, var(--cyan), transparent); }
+
+.section-h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--white); margin-bottom: 2.5rem;
+}
+.section-h2 .acc {
+  background: linear-gradient(120deg, var(--cyan), var(--cyan-soft), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Featured horizontal scroll */
+.featured-scroll {
+  display: flex; gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,229,255,0.2) transparent;
+  scroll-snap-type: x mandatory;
+}
+.featured-scroll::-webkit-scrollbar { height: 3px; }
+.featured-scroll::-webkit-scrollbar-track { background: transparent; }
+.featured-scroll::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.2); border-radius: 9px; }
+
+.feat-color-card {
+  flex-shrink: 0; width: 220px;
+  background: rgba(11,43,94,0.12);
+  border: 1px solid rgba(0,229,255,0.1);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: none;
+  scroll-snap-align: start;
+}
+.feat-color-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(0,229,255,0.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.feat-swatch {
+  height: 130px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.feat-swatch .star { position: absolute; top: 10px; right: 10px; color: var(--gold); font-size: 0.8rem; }
+.feat-blob {
+  width: 70px; height: 70px;
+  border-radius: 50% 40% 60% 30% / 40% 60% 30% 70%;
+  animation: blobMorph 4s ease-in-out infinite;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.feat-color-card:hover .feat-blob { transform: scale(1.25) rotate(10deg); }
+.feat-body { padding: 1.1rem 1.25rem 1.25rem; }
+.feat-name { font-size: 0.88rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem; }
+.feat-hex  { font-size: 0.72rem; color: var(--cyan); font-family: monospace; }
+.feat-btn  {
+  display: block; width: 100%; margin-top: 0.85rem;
+  padding: 0.5rem; text-align: center;
+  background: linear-gradient(135deg, var(--gold), #ffd700);
+  color: var(--blue); border-radius: var(--r-md);
+  font-size: 0.73rem; font-weight: 900;
+  transition: var(--transition);
+}
+.feat-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,197,24,0.4); }
+
+/* ═══════════════════════════════════════════════
+   STATS ROW
+═══════════════════════════════════════════════ */
+.color-stats-band {
+  position: relative; z-index: 2;
+  background: linear-gradient(135deg, rgba(11,43,94,0.25), rgba(3,3,10,0.1));
+  border-top: 1px solid rgba(0,229,255,0.07);
+  border-bottom: 1px solid rgba(0,229,255,0.07);
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+.stats-band-inner {
+  max-width: 1440px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+}
+.sband-item { text-align: center; }
+.sband-val {
+  font-family: 'Cairo', sans-serif; font-weight: 900;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1.1; margin-bottom: 0.3rem;
+}
+.sband-lbl { font-size: 0.83rem; color: var(--gray); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════
+   COLOR DETAIL MODAL
+═══════════════════════════════════════════════ */
+#colorModal {
+  position: fixed; inset: 0; z-index: 99900;
+  background: rgba(3,3,10,0.94);
+  display: none; align-items: center; justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+}
+#colorModal.open { display: flex; animation: modalIn 0.35s ease; }
+@keyframes modalIn { from{opacity:0;transform:scale(0.92)} to{opacity:1;transform:none} }
+
+.modal-box {
+  background: var(--dark-3);
+  border: 1px solid rgba(0,229,255,0.15);
+  border-radius: var(--r-2xl);
+  max-width: 560px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,229,255,0.08);
+  position: relative;
+}
+.modal-box::-webkit-scrollbar { width: 3px; }
+.modal-box::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.2); }
+
+.modal-swatch-area {
+  height: 260px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  border-radius: var(--r-2xl) var(--r-2xl) 0 0;
+}
+.modal-bg-blur {
+  position: absolute; inset: -20px;
+  filter: blur(40px); opacity: 0.4;
+}
+.modal-blob {
+  width: 150px; height: 150px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blobMorph 4s ease-in-out infinite;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 4px 20px rgba(255,255,255,0.25);
+  position: relative; z-index: 2;
+}
+.modal-close {
+  position: absolute; top: 1.2rem; left: 1.2rem; z-index: 10;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(3,3,10,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--gray); font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition); cursor: none;
+}
+.modal-close:hover { background: rgba(255,255,255,0.1); color: var(--white); transform: rotate(90deg); }
+
+.modal-pantone-badge {
+  position: absolute; top: 1.2rem; right: 1.2rem; z-index: 10;
+  background: rgba(3,3,10,0.85);
+  border: 1px solid rgba(0,229,255,0.22);
+  border-radius: 9999px;
+  font-size: 0.7rem; font-weight: 900;
+  color: var(--cyan); padding: 0.3rem 0.9rem;
+  backdrop-filter: blur(8px); letter-spacing: 1px;
+}
+
+.modal-body { padding: 2rem 2.25rem 2.5rem; }
+
+.modal-color-name {
+  font-size: 1.9rem; color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.modal-cat {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.28rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.72rem; font-weight: 800;
+  background: rgba(0,229,255,0.07);
+  border: 1px solid rgba(0,229,255,0.18);
+  color: var(--cyan); margin-bottom: 2rem;
+}
+
+.color-codes-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem; margin-bottom: 2rem;
+}
+.code-box {
+  background: rgba(11,43,94,0.2);
+  border: 1px solid rgba(0,229,255,0.1);
+  border-radius: var(--r-lg);
+  padding: 1rem;
+  text-align: center;
+  transition: var(--transition); cursor: none;
+}
+.code-box:hover { border-color: rgba(0,229,255,0.3); background: rgba(0,229,255,0.05); }
+.code-box-label { font-size: 0.62rem; font-weight: 900; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; margin-bottom: 0.35rem; }
+.code-box-val   { font-size: 0.95rem; font-weight: 900; color: var(--white); font-family: 'Cairo', monospace; }
+
+.modal-desc {
+  font-size: 0.9rem; color: var(--gray);
+  line-height: 1.9; margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: rgba(11,43,94,0.12);
+  border: 1px solid rgba(0,229,255,0.07);
+  border-radius: var(--r-lg);
+}
+
+.modal-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;
+}
+.modal-tag {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(245,197,24,0.2);
+  border-radius: 9999px;
+  font-size: 0.72rem; font-weight: 800; color: var(--gold);
+  background: rgba(245,197,24,0.05);
+}
+.modal-tag i { font-size: 0.6rem; }
+
+/* Color variations strip */
+.modal-variations {
+  margin-bottom: 2rem;
+}
+.modal-var-label {
+  font-size: 0.72rem; font-weight: 900; letter-spacing: 2px;
+  color: var(--gray); text-transform: uppercase; margin-bottom: 0.75rem;
+}
+.var-strip {
+  display: flex; gap: 0.5rem; align-items: center;
+}
+.var-swatch {
+  height: 36px; border-radius: var(--r-md);
+  transition: var(--transition); cursor: none;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.var-swatch:hover { transform: scaleY(1.4); border-color: rgba(255,255,255,0.2); }
+.var-swatch.main {
+  flex: 2;
+  border-color: rgba(0,229,255,0.3);
+  box-shadow: 0 0 12px rgba(0,229,255,0.15);
+}
+.var-swatch { flex: 1; }
+
+.modal-actions { display: flex; gap: 0.85rem; }
+.modal-btn {
+  flex: 1; padding: 0.9rem 1.5rem;
+  border-radius: 9999px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900; font-size: 0.9rem;
+  text-align: center; transition: var(--transition);
+  cursor: none; display: flex; align-items: center;
+  justify-content: center; gap: 0.55rem;
+  position: relative; overflow: hidden;
+}
+.modal-btn::after {
+  content: '';
+  position: absolute; top:-50%; left:-60%;
+  width: 35%; height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg); opacity: 0;
+}
+.modal-btn:hover::after { animation: btnShine 0.7s ease forwards; }
+@keyframes btnShine { 0%{left:-60%;opacity:0} 50%{opacity:1} 100%{left:160%;opacity:0} }
+
+.modal-btn-copy {
+  border: 1.5px solid rgba(0,229,255,0.35);
+  color: var(--white); background: rgba(0,229,255,0.05);
+}
+.modal-btn-copy:hover { background: rgba(0,229,255,0.12); border-color: var(--cyan); transform: translateY(-3px); }
+.modal-btn-sample {
+  background: linear-gradient(135deg, var(--gold), #ffd700);
+  color: var(--blue);
+  box-shadow: 0 6px 22px rgba(245,197,24,0.32);
+}
+.modal-btn-sample:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 35px rgba(245,197,24,0.52); }
+.modal-btn-wa {
+  background: linear-gradient(135deg, #25d366, #128c4a);
+  color: white;
+  box-shadow: 0 6px 22px rgba(37,211,102,0.3);
+}
+.modal-btn-wa:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
+
+/* ═══════════════════════════════════════════════
+   FAVORITES SECTION
+═══════════════════════════════════════════════ */
+.fav-section {
+  position: relative; z-index: 2;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(245,197,24,0.04), transparent);
+  border-top: 1px solid rgba(245,197,24,0.07);
+  border-bottom: 1px solid rgba(245,197,24,0.07);
+  margin-bottom: 2rem;
+}
+.fav-section.hidden { display: none; }
+.fav-inner { max-width: 1440px; margin: 0 auto; padding: 0 2rem; }
+.fav-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+.fav-title {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 1.2rem; font-weight: 900; color: var(--white);
+}
+.fav-title i { color: var(--gold); }
+.fav-clear {
+  font-size: 0.78rem; color: var(--gray);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.35rem 0.9rem; border-radius: 9999px;
+  transition: var(--transition); cursor: none;
+}
+.fav-clear:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+
+.fav-strip {
+  display: flex; gap: 0.75rem; overflow-x: auto;
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245,197,24,0.15) transparent;
+}
+.fav-chip {
+  flex-shrink: 0; display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.45rem 1rem 0.45rem 0.6rem;
+  background: rgba(11,43,94,0.2);
+  border: 1px solid rgba(245,197,24,0.18);
+  border-radius: 9999px;
+  font-size: 0.78rem; color: var(--white);
+  transition: var(--transition); cursor: none;
+}
+.fav-chip:hover { border-color: rgba(245,197,24,0.4); background: rgba(245,197,24,0.06); }
+.fav-swatch {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+.fav-chip-x {
+  color: var(--gray); font-size: 0.75rem; margin-right: 0.1rem;
+  transition: color 0.2s; cursor: none;
+}
+.fav-chip:hover .fav-chip-x { color: #ef4444; }
+
+/* ═══════════════════════════════════════════════
+   PAGINATION
+═══════════════════════════════════════════════ */
+.pagination {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.6rem; padding: 3rem 0 1rem;
+}
+.pg-btn {
+  min-width: 42px; height: 42px; border-radius: var(--r-md);
+  background: rgba(11,43,94,0.15);
+  border: 1px solid rgba(0,229,255,0.1);
+  color: var(--gray); font-size: 0.88rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 0.75rem;
+  transition: var(--transition); cursor: none;
+}
+.pg-btn:hover {
+  border-color: rgba(0,229,255,0.3);
+  color: var(--cyan); background: rgba(0,229,255,0.07);
+}
+.pg-btn.active {
+  background: linear-gradient(135deg, var(--gold), #ffd700);
+  border-color: transparent;
+  color: var(--blue);
+  box-shadow: 0 4px 14px rgba(245,197,24,0.35);
+}
+.pg-btn.disabled { opacity: 0.3; pointer-events: none; }
+.pg-dots { color: var(--gray); font-size: 0.9rem; padding: 0 0.25rem; }
+
+/* ═══════════════════════════════════════════════
+   TOOLS SECTION
+═══════════════════════════════════════════════ */
+.tools-section {
+  position: relative; z-index: 2;
+  padding: 5rem 0;
+  background: linear-gradient(180deg, rgba(6,6,15,0.7) 0%, rgba(10,10,28,0.85) 50%, rgba(6,6,15,0.7) 100%);
+  border-top: 1px solid rgba(0,229,255,0.05);
+}
+.tools-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 3rem;
+}
+.tool-card {
+  background: rgba(11,43,94,0.1);
+  border: 1px solid rgba(0,229,255,0.08);
+  border-radius: var(--r-xl);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.tool-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0,229,255,0.05), transparent 65%);
+  opacity: 0; transition: opacity 0.4s;
+}
+.tool-card:hover::before { opacity: 1; }
+.tool-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0,229,255,0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+.tool-ico {
+  width: 70px; height: 70px; margin: 0 auto 1.5rem;
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  transition: var(--transition-spring);
+}
+.tool-card:hover .tool-ico { transform: scale(1.2) rotate(-8deg); }
+.tool-ico.gold-t { background: rgba(245,197,24,0.1); border: 1px solid rgba(245,197,24,0.2); }
+.tool-ico.cyan-t { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.18); }
+.tool-card h4 { font-size: 1.1rem; color: var(--white); margin-bottom: 0.65rem; }
+.tool-card p  { font-size: 0.83rem; color: var(--gray); line-height: 1.85; }
+.tool-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 1.25rem; font-size: 0.8rem; font-weight: 800;
+  color: var(--cyan); transition: gap 0.3s ease, color 0.3s;
+}
+.tool-link:hover { gap: 1rem; color: var(--gold); }
+
+/* ═══════════════════════════════════════════════
+   CTA BAND
+═══════════════════════════════════════════════ */
+.cta-band {
+  position: relative; z-index: 2;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, rgba(11,43,94,0.35) 0%, rgba(3,3,10,0.1) 50%, rgba(11,43,94,0.35) 100%);
+  border-top: 1px solid rgba(0,229,255,0.07);
+  border-bottom: 1px solid rgba(0,229,255,0.07);
+  text-align: center;
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%);
+  pointer-events: none; animation: ctaPulse 7s ease-in-out infinite alternate;
+}
+@keyframes ctaPulse { from{transform:translate(-50%,-50%) scale(0.85)} to{transform:translate(-50%,-50%) scale(1.15)} }
+.cta-band-inner { position: relative; z-index: 2; }
+.cta-band-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.42rem 1.25rem;
+  background: rgba(245,197,24,0.08);
+  border: 1px solid rgba(245,197,24,0.22);
+  border-radius: 9999px;
+  font-size: 0.76rem; font-weight: 900; letter-spacing: 2px;
+  color: var(--gold); margin-bottom: 2rem; text-transform: uppercase;
+}
+.cta-band h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); color: var(--white); margin-bottom: 1rem; }
+.cta-band h2 span { color: var(--gold); }
+.cta-band p { font-size: 1rem; color: var(--gray); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.85; }
+.cta-band-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+/* ═══════════════════════════════════════════════
+   BUTTON SHARED
+═══════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  padding: 0.95rem 2.3rem;
+  border-radius: 9999px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900; font-size: 1rem;
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+  cursor: none; letter-spacing: 0.3px; white-space: nowrap;
+}
+.btn::after {
+  content: '';
+  position: absolute; top:-50%; left:-60%;
+  width: 35%; height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg); opacity: 0;
+}
+.btn:hover::after { animation: btnShine 0.8s ease forwards; }
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), #ffd700, var(--gold));
+  background-size: 200%; color: var(--blue);
+  box-shadow: 0 6px 25px rgba(245,197,24,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.btn-gold:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 14px 45px rgba(245,197,24,0.55); background-position: 100%; }
+.btn-outline {
+  border: 1.5px solid rgba(0,229,255,0.35);
+  color: var(--white); background: rgba(0,229,255,0.04);
+}
+.btn-outline:hover { background: rgba(0,229,255,0.1); border-color: var(--cyan); transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,229,255,0.18); }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  background: var(--dark-2);
+  border-top: 1px solid rgba(0,229,255,0.07);
+  position: relative; z-index: 2;
+}
+.foot-grid {
+  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+  gap: 3rem; padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.foot-logo { height: 52px; margin-bottom: 1rem; }
+.foot-tagline { font-size: 0.85rem; color: var(--gray); max-width: 270px; line-height: 1.9; margin-bottom: 1.75rem; }
+.foot-socials { display: flex; gap: 0.6rem; }
+.fsoc {
+  width: 40px; height: 40px; border-radius: var(--r-md);
+  background: rgba(11,43,94,0.45);
+  border: 1px solid rgba(0,229,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; color: var(--gray);
+  transition: var(--transition);
+}
+.fsoc:hover { background: rgba(0,229,255,0.1); border-color: var(--cyan); color: var(--cyan); transform: translateY(-3px) scale(1.1); }
+.fsoc.wa:hover { background: rgba(37,211,102,0.1); border-color: #22c55e; color: #22c55e; }
+
+.foot-col h5 { font-size: 0.8rem; font-weight: 900; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); margin-bottom: 1.25rem; }
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.foot-links a {
+  font-size: 0.85rem; color: var(--gray);
+  display: flex; align-items: center; gap: 0.5rem;
+  transition: color 0.3s, padding-right 0.3s;
+}
+.foot-links a i { font-size: 0.6rem; color: var(--cyan); opacity: 0; transition: opacity 0.3s; }
+.foot-links a:hover { color: var(--white); padding-right: 0.5rem; }
+.foot-links a:hover i { opacity: 1; }
+
+.foot-contact { display: flex; flex-direction: column; gap: 0.9rem; }
+.fcon-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: var(--gray); }
+.fcon-item i { color: var(--cyan); margin-top: 0.18rem; flex-shrink: 0; width: 14px; text-align: center; }
+.fcon-item a { color: var(--gold); transition: color 0.3s; }
+.fcon-item a:hover { color: var(--gold-light); }
+
+.foot-bottom {
+  padding-top: 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  font-size: 0.8rem; color: rgba(136,146,164,0.5);
+}
+.foot-bottom .dev { color: var(--gold); font-weight: 700; }
+
+/* ═══════════════════════════════════════════════
+   FLOAT BUTTONS
+═══════════════════════════════════════════════ */
+.wa-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+  width: 62px; height: 62px; border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #128c4a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem; color: #fff;
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+  transition: var(--transition-spring);
+  cursor: none;
+}
+.wa-float:hover { transform: scale(1.2) rotate(-8deg); box-shadow: 0 16px 50px rgba(37,211,102,0.6); }
+.wa-float::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(37,211,102,0.25);
+  animation: waRipple 2.5s ease-out infinite;
+}
+@keyframes waRipple { 0%{transform:scale(1);opacity:0.7} 100%{transform:scale(2.4);opacity:0} }
+
+#btt {
+  position: fixed; bottom: 7rem; right: 2rem; z-index: 9999;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(11,43,94,0.9);
+  border: 1px solid rgba(0,229,255,0.22);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cyan); font-size: 0.85rem;
+  opacity: 0; transform: translateY(18px);
+  transition: var(--transition); cursor: none;
+}
+#btt.show { opacity: 1; transform: translateY(0); }
+#btt:hover { background: var(--cyan); color: var(--dark); transform: translateY(-4px) scale(1.1); }
+
+/* ═══════════════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════════════ */
+.rv  { opacity:0; transform:translateY(40px);  transition: opacity 0.8s ease, transform 0.85s cubic-bezier(0.34,1.2,0.64,1); }
+.rvl { opacity:0; transform:translateX(-45px); transition: opacity 0.8s ease, transform 0.85s cubic-bezier(0.34,1.2,0.64,1); }
+.rvr { opacity:0; transform:translateX(45px);  transition: opacity 0.8s ease, transform 0.85s cubic-bezier(0.34,1.2,0.64,1); }
+.rv.on, .rvl.on, .rvr.on { opacity:1; transform:none; }
+.d1{transition-delay:0.08s} .d2{transition-delay:0.17s} .d3{transition-delay:0.26s}
+.d4{transition-delay:0.35s} .d5{transition-delay:0.44s}
+
+/* ═══════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════ */
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.1), transparent);
+  position: relative; z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════════ */
+#toast {
+  position: fixed; bottom: 9rem; left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  background: rgba(11,43,94,0.95);
+  border: 1px solid rgba(0,229,255,0.25);
+  border-radius: var(--r-xl);
+  padding: 0.75rem 1.75rem;
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--white);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 99999;
+  opacity: 0; transition: all 0.4s cubic-bezier(0.34,1.2,0.64,1);
+  pointer-events: none; white-space: nowrap;
+  display: flex; align-items: center; gap: 0.65rem;
+}
+#toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+#toast i { color: #22c55e; }
+
+/* ═══════════════════════════════════════════════
+   PANTONE COLOR PICKER (custom palette builder)
+═══════════════════════════════════════════════ */
+.palette-builder {
+  position: relative; z-index: 2;
+  padding: 5rem 0;
+}
+.palette-canvas {
+  background: rgba(11,43,94,0.1);
+  border: 1px solid rgba(0,229,255,0.1);
+  border-radius: var(--r-2xl);
+  padding: 2.5rem;
+  min-height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; flex-wrap: wrap;
+  margin-top: 2rem;
+  position: relative;
+}
+.palette-canvas-empty {
+  text-align: center; color: var(--gray);
+  font-size: 0.9rem; line-height: 1.85;
+}
+.palette-canvas-empty i { font-size: 2rem; display: block; margin-bottom: 0.75rem; opacity: 0.4; }
+
+.palette-chip {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.6rem;
+  background: rgba(11,43,94,0.3);
+  border: 1px solid rgba(0,229,255,0.15);
+  border-radius: 9999px;
+  animation: chipIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes chipIn { from{opacity:0;transform:scale(0.6)} to{opacity:1;transform:none} }
+.palette-dot {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.18);
+  flex-shrink: 0;
+}
+.palette-chip-name { font-size: 0.76rem; font-weight: 800; color: var(--white); }
+.palette-chip-remove {
+  color: var(--gray); font-size: 0.75rem;
+  cursor: none; transition: color 0.2s, transform 0.2s;
+  margin-right: 0.1rem;
+}
+.palette-chip-remove:hover { color: #ef4444; transform: scale(1.3); }
+
+.palette-actions {
+  display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;
+}
+.pal-btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.8rem; font-weight: 800;
+  transition: var(--transition); cursor: none;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.pal-btn-send {
+  background: linear-gradient(135deg, var(--gold), #ffd700);
+  color: var(--blue);
+  box-shadow: 0 4px 16px rgba(245,197,24,0.3);
+}
+.pal-btn-send:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,197,24,0.5); }
+.pal-btn-clear {
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--gray);
+}
+.pal-btn-clear:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+.pal-btn-export {
+  border: 1px solid rgba(0,229,255,0.2);
+  color: var(--cyan); background: rgba(0,229,255,0.04);
+}
+.pal-btn-export:hover { background: rgba(0,229,255,0.1); border-color: var(--cyan); transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════════════
+   PROCESS GUIDE
+═══════════════════════════════════════════════ */
+.proc-guide {
+  position: relative; z-index: 2;
+  padding: 4rem 0;
+}
+.proc-steps-row {
+  display: flex; gap: 0; margin-top: 2.5rem;
+  position: relative;
+}
+.proc-step-mini {
+  flex: 1; text-align: center; padding: 2rem 1.5rem;
+  position: relative;
+}
+.proc-step-mini::after {
+  content: '';
+  position: absolute; top: 2.8rem; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.15), transparent);
+}
+.proc-step-mini:last-child::after { display: none; }
+.proc-n {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(11,43,94,0.3);
+  border: 1.5px solid rgba(0,229,255,0.2);
+  font-family: 'Cairo', sans-serif; font-weight: 900; font-size: 1rem;
+  color: var(--cyan); margin: 0 auto 1rem;
+  position: relative; z-index: 1;
+}
+.proc-step-mini h5 { font-size: 0.95rem; color: var(--white); margin-bottom: 0.4rem; }
+.proc-step-mini p  { font-size: 0.78rem; color: var(--gray); line-height: 1.7; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .foot-grid  { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .stats-band-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .color-codes-grid { grid-template-columns: repeat(2, 1fr); }
+  .tools-grid { grid-template-columns: 1fr; }
+  .proc-steps-row { flex-direction: column; gap: 1rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .btn-hamburger { display: flex; }
+  .filter-section { top: 65px; }
+  #colorGrid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.9rem; }
+  .foot-grid { grid-template-columns: 1fr; }
+  .modal-actions { flex-direction: column; }
+  .page-stats-row { gap: 0.75rem; }
+  #cur-dot, #cur-ring { display: none; }
+  body { cursor: auto; }
+  button { cursor: pointer; }
+  a { cursor: pointer; }
+}
+@media (max-width: 480px) {
+  #colorGrid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .cat-tabs { gap: 0.4rem; }
+  .cat-tab  { padding: 0.45rem 0.9rem; font-size: 0.72rem; }
+  .stats-band-inner { grid-template-columns: 1fr 1fr; }
+  .color-codes-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 py-4 bg-[#050505]/95 backdrop-blur-lg border-b border-[#00e5ff]/20">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="Inkova" class="h-12 w-auto">
-                <div class="leading-none">
-                   <!-- <span class="text-3xl font-black tracking-[3px] text-white">INKOVA</span-->
-                    <!--span class="text-sm font-medium text-[#00e5ff] block -mt-1">FLEXO</span-->
-                </div>
-            </a>
+<!-- NOISE -->
+<div class="noise"></div>
 
-            <ul class="hidden md:flex items-center gap-8 text-base font-medium">
-                <li><a href="index.html" class="hover:text-[#00e5ff]">الرئيسية</a></li>
-                <li><a href="products.html" class="hover:text-[#00e5ff]">المنتجات</a></li>
-                <li><a href="colors.html" class="text-[#f5c518]">مكتبة الألوان</a></li>
-                <li><a href="why.html" class="hover:text-[#00e5ff]">ليه إنكوفا؟</a></li>
-                <li><a href="order.html" class="hover:text-[#00e5ff]">اطلب الآن</a></li>
-                <li><a href="contact.html" class="hover:text-[#00e5ff]">تواصل معنا</a></li>
-            </ul>
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
 
-            <div class="flex items-center gap-6">
-                <a href="cart.html" class="relative text-white hover:text-[#00e5ff]">
-                    <i class="fas fa-shopping-cart text-2xl"></i>
-                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
-                </a>
-            </div>
-        </div>
-    </nav>
+<!-- TOAST -->
+<div id="toast"><i class="fas fa-circle-check"></i> <span id="toast-text"></span></div>
 
-    <main class="pt-28 pb-20">
-        <section class="text-center py-16">
-            <h1 class="text-6xl md:text-7xl font-black text-white mb-4">مكتبة الألوان</h1>
-            <p class="text-2xl text-gray-300">أكثر من 950 لون • مطابقة Pantone دقيقة</p>
-        </section>
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo-wrap">
+    <img src="logo.png" alt="Inkova">
+  </div>
+  <div class="loader-palette">
+    <div class="loader-swatch" style="height:24px;background:#E30613;--d:0s"></div>
+    <div class="loader-swatch" style="height:32px;background:#FF8200;--d:0.1s"></div>
+    <div class="loader-swatch" style="height:28px;background:#FFD100;--d:0.2s"></div>
+    <div class="loader-swatch" style="height:36px;background:#009639;--d:0.3s"></div>
+    <div class="loader-swatch" style="height:26px;background:#0066CC;--d:0.4s"></div>
+    <div class="loader-swatch" style="height:30px;background:#5F259F;--d:0.5s"></div>
+    <div class="loader-swatch" style="height:22px;background:#B38B5E;--d:0.6s"></div>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
+  <p class="loader-text">تحميل مكتبة الألوان…</p>
+</div>
 
-        <!-- Search & Filters -->
-        <div class="max-w-7xl mx-auto px-6 py-10">
-            <div class="flex flex-col lg:flex-row gap-6">
-                <input id="searchInput" type="text" placeholder="ابحث برقم Pantone أو اسم اللون..." 
-                       class="flex-1 bg-white/10 border border-[#00e5ff]/30 focus:border-[#00e5ff] rounded-3xl px-8 py-5 text-lg outline-none text-white placeholder-gray-400">
+<!-- SCROLL PROGRESS -->
+<div id="spb"></div>
 
-                <div class="flex flex-wrap gap-3" id="filters">
-                    <button onclick="filterColors('all')" class="filter-btn active px-8 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">الكل</button>
-                    <button onclick="filterColors('red')" class="filter-btn px-8 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">أحمر</button>
-                    <button onclick="filterColors('blue')" class="filter-btn px-8 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">أزرق</button>
-                    <button onclick="filterColors('green')" class="filter-btn px-8 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">أخضر</button>
-                    <button onclick="filterColors('yellow')" class="filter-btn px-8 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">أصفر وبرتقالي</button>
-                    <button onclick="filterColors('metallic')" class="filter-btn px-8 py-4 bg-white/10 hover:bg-white/20 rounded-3xl text-sm font-medium">معدني</button>
-                </div>
-            </div>
-        </div>
+<!-- CANVAS -->
+<canvas id="bgc"></canvas>
 
-        <!-- Colors Grid -->
-        <section class="max-w-7xl mx-auto px-6 pb-32">
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8" id="colorGrid"></div>
-        </section>
-    </main>
+<!-- ═══════════════════════════
+     NAV
+═══════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Inkova Flexo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="colors.html" class="active">مكتبة الألوان</a></li>
+      <li><a href="why.html">ليه إنكوفا؟</a></li>
+      <li><a href="order.html">اطلب الآن</a></li>
+      <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-lang">
+        <i class="fas fa-globe"></i>
+        <span>EN</span>
+      </button>
+      <button class="btn-hamburger" id="hamBtn" onclick="toggleMob()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mob-menu">
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="colors.html" style="color:var(--gold)">مكتبة الألوان</a></li>
+      <li><a href="why.html">ليه إنكوفا؟</a></li>
+      <li><a href="order.html">اطلب الآن</a></li>
+      <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- Modal -->
-    <div id="colorModal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-[200]">
-        <div class="bg-[#0b2b5e] rounded-3xl max-w-md w-full mx-4 p-8">
-            <div id="modalContent"></div>
-        </div>
+<!-- ═══════════════════════════
+     PAGE HERO
+═══════════════════════════ -->
+<section class="page-hero">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <!-- decorative hex -->
+  <svg style="position:absolute;width:450px;height:450px;top:5%;right:5%;opacity:0.025;animation:hexRotate 50s linear infinite" viewBox="0 0 100 100">
+    <polygon points="50,3 97,27 97,73 50,97 3,73 3,27" fill="none" stroke="rgba(0,229,255,1)" stroke-width="0.8"/>
+  </svg>
+  <svg style="position:absolute;width:300px;height:300px;bottom:10%;left:5%;opacity:0.02;animation:hexRotate 70s linear infinite reverse" viewBox="0 0 100 100">
+    <polygon points="50,3 97,27 97,73 50,97 3,73 3,27" fill="none" stroke="rgba(245,197,24,1)" stroke-width="1"/>
+  </svg>
+
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">
+      <span class="dot"></span>
+      مكتبة الألوان الكاملة &nbsp;·&nbsp; Pantone Matching System
+    </div>
+    <h1 class="page-h1">
+      أكثر من <span class="accent">950 لون</span><br>جاهز للطباعة الفوري
+    </h1>
+    <p class="page-sub">مطابقة Pantone دقيقة 100% — اختر لونك، اطلب عينتك، اطبع بثقة على كرتونك</p>
+    <div class="page-stats-row">
+      <div class="page-stat"><i class="fas fa-palette"></i> 950+ لون Pantone</div>
+      <div class="page-stat"><i class="fas fa-flask"></i> عينة مجانية</div>
+      <div class="page-stat"><i class="fas fa-truck-fast"></i> توصيل 48 ساعة</div>
+      <div class="page-stat"><i class="fas fa-sliders"></i> ألوان مخصصة</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     STATS BAND
+═══════════════════════════ -->
+<div class="color-stats-band">
+  <div class="stats-band-inner">
+    <div class="sband-item rv d1">
+      <div class="sband-val" data-count="950" data-sfx="+">0</div>
+      <div class="sband-lbl">لون Pantone متاح</div>
+    </div>
+    <div class="sband-item rv d2">
+      <div class="sband-val" data-count="98" data-sfx="%">0</div>
+      <div class="sband-lbl">دقة مطابقة اللون</div>
+    </div>
+    <div class="sband-item rv d3">
+      <div class="sband-val" data-count="7" data-sfx="">0</div>
+      <div class="sband-lbl">تصنيفات لونية</div>
+    </div>
+    <div class="sband-item rv d4">
+      <div class="sband-val" data-count="48" data-sfx="h">0</div>
+      <div class="sband-lbl">توصيل سريع</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     FEATURED COLORS
+═══════════════════════════ -->
+<section class="featured-section">
+  <div class="content-wrap" style="padding-top:4rem">
+    <div class="rv">
+      <div class="section-label">
+        <span class="sl-line r"></span>
+        الأكثر طلبًا
+        <span class="sl-line"></span>
+      </div>
+      <h2 class="section-h2">الألوان <span class="acc">الأكثر مبيعًا</span></h2>
+    </div>
+    <div class="featured-scroll rv d2" id="featuredScroll"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     FAVORITES BAR
+═══════════════════════════ -->
+<div class="fav-section hidden" id="favSection">
+  <div class="fav-inner">
+    <div class="fav-header">
+      <div class="fav-title"><i class="fas fa-star"></i> ألواني المفضلة</div>
+      <button class="fav-clear" onclick="clearFavs()"><i class="fas fa-trash-can"></i> مسح الكل</button>
+    </div>
+    <div class="fav-strip" id="favStrip"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     PALETTE BUILDER
+═══════════════════════════ -->
+<section class="palette-builder">
+  <div class="content-wrap">
+    <div class="rv">
+      <div class="section-label">
+        <span class="sl-line r"></span>
+        أداة حصرية
+        <span class="sl-line"></span>
+      </div>
+      <h2 class="section-h2">بيلدر <span class="acc">الباليت الخاص بك</span></h2>
+      <p style="font-size:0.95rem;color:var(--gray);max-width:520px;line-height:1.9;margin-bottom:0">
+        اضغط على زر <strong style="color:var(--cyan)">إضافة للباليت</strong> على أي لون تحبه وابني مجموعتك، ثم أرسلها دفعة واحدة عبر واتساب
+      </p>
+    </div>
+    <div class="palette-canvas" id="paletteCanvas">
+      <div class="palette-canvas-empty" id="palEmpty">
+        <i class="fas fa-swatchbook"></i>
+        <p>باليتك فاضي — أضف ألوانك من المكتبة باستخدام زر «+ باليت»</p>
+      </div>
+    </div>
+    <div class="palette-actions" id="palActions" style="display:none">
+      <button class="pal-btn pal-btn-send" onclick="sendPalette()">
+        <i class="fab fa-whatsapp"></i> إرسال الباليت عبر واتساب
+      </button>
+      <button class="pal-btn pal-btn-export" onclick="exportPalette()">
+        <i class="fas fa-download"></i> تصدير كـ CSS
+      </button>
+      <button class="pal-btn pal-btn-clear" onclick="clearPalette()">
+        <i class="fas fa-trash-can"></i> مسح الباليت
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     FILTER & SEARCH
+═══════════════════════════ -->
+<div class="filter-section" id="filterBar">
+  <div class="filter-inner">
+    <!-- Search row -->
+    <div class="search-row">
+      <div class="search-wrap">
+        <i class="fas fa-magnifying-glass search-icon"></i>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="ابحث برقم Pantone أو اسم اللون أو رمز Hex…"
+          oninput="handleSearch(this.value)"
+          autocomplete="off"
+        >
+        <button class="search-clear" id="searchClear" onclick="clearSearch()">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+      <div class="results-count" id="resultsCount"><strong>0</strong> لون</div>
+      <div class="view-toggle">
+        <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')" title="عرض شبكي">
+          <i class="fas fa-grip"></i>
+        </button>
+        <button class="view-btn" id="listViewBtn" onclick="setView('list')" title="عرض قائمة">
+          <i class="fas fa-list"></i>
+        </button>
+      </div>
     </div>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/201553404414" target="_blank" 
-       class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl transition hover:scale-110 z-50">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Category tabs -->
+    <div class="cat-tabs" id="catTabs">
+      <button class="cat-tab active" data-cat="all" onclick="filterCat('all', this)">
+        <span class="cat-dot" style="background:#888;color:#888"></span>
+        الكل
+        <span class="cat-count" id="cnt-all">0</span>
+      </button>
+      <button class="cat-tab" data-cat="red" onclick="filterCat('red', this)">
+        <span class="cat-dot" style="background:#E30613;color:#E30613"></span>
+        أحمر وزهري
+        <span class="cat-count" id="cnt-red">0</span>
+      </button>
+      <button class="cat-tab" data-cat="blue" onclick="filterCat('blue', this)">
+        <span class="cat-dot" style="background:#0066CC;color:#0066CC"></span>
+        أزرق وسماوي
+        <span class="cat-count" id="cnt-blue">0</span>
+      </button>
+      <button class="cat-tab" data-cat="green" onclick="filterCat('green', this)">
+        <span class="cat-dot" style="background:#009639;color:#009639"></span>
+        أخضر ومينت
+        <span class="cat-count" id="cnt-green">0</span>
+      </button>
+      <button class="cat-tab" data-cat="yellow" onclick="filterCat('yellow', this)">
+        <span class="cat-dot" style="background:#FFD100;color:#FFD100"></span>
+        أصفر وبرتقالي
+        <span class="cat-count" id="cnt-yellow">0</span>
+      </button>
+      <button class="cat-tab" data-cat="purple" onclick="filterCat('purple', this)">
+        <span class="cat-dot" style="background:#5F259F;color:#5F259F"></span>
+        بنفسجي
+        <span class="cat-count" id="cnt-purple">0</span>
+      </button>
+      <button class="cat-tab" data-cat="black" onclick="filterCat('black', this)">
+        <span class="cat-dot" style="background:#555;color:#555"></span>
+        أسود ورمادي
+        <span class="cat-count" id="cnt-black">0</span>
+      </button>
+      <button class="cat-tab" data-cat="metallic" onclick="filterCat('metallic', this)">
+        <span class="cat-dot" style="background:#B38B5E;color:#B38B5E"></span>
+        معدني وبرونزي
+        <span class="cat-count" id="cnt-metallic">0</span>
+      </button>
+      <button class="cat-tab" data-cat="process" onclick="filterCat('process', this)">
+        <span class="cat-dot" style="background:#00e5ff;color:#00e5ff"></span>
+        بروسيس CMYK
+        <span class="cat-count" id="cnt-process">0</span>
+      </button>
+    </div>
 
- <script>
+    <!-- Sort row -->
+    <div class="sort-row">
+      <span class="sort-label"><i class="fas fa-arrow-up-wide-short" style="margin-left:0.4rem;color:var(--cyan);font-size:0.75rem"></i> ترتيب:</span>
+      <div class="sort-btns">
+        <button class="sort-btn active" onclick="sortColors('default', this)">افتراضي</button>
+        <button class="sort-btn" onclick="sortColors('name', this)">بالاسم</button>
+        <button class="sort-btn" onclick="sortColors('light', this)">الأفتح</button>
+        <button class="sort-btn" onclick="sortColors('dark', this)">الأغمق</button>
+        <button class="sort-btn" onclick="sortColors('fav', this)">المفضلة</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     COLORS GRID
+═══════════════════════════ -->
+<section style="position:relative;z-index:2;padding-bottom:4rem">
+  <div class="content-wrap">
+    <div id="colorGrid"></div>
+    <div id="pagination" class="pagination"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     PROCESS GUIDE
+═══════════════════════════ -->
+<section class="proc-guide">
+  <div class="content-wrap">
+    <div class="rv" style="text-align:center">
+      <div class="section-label" style="justify-content:center">
+        <span class="sl-line r"></span>
+        كيف نطابق لونك؟
+        <span class="sl-line"></span>
+      </div>
+      <h2 class="section-h2" style="text-align:center">خطوات <span class="acc">مطابقة اللون</span></h2>
+    </div>
+    <div class="proc-steps-row">
+      <div class="proc-step-mini rv d1">
+        <div class="proc-n">١</div>
+        <h5>اختار لونك</h5>
+        <p>دور على اللون من المكتبة أو ابعتلنا الكود أو المرجع اللوني</p>
+      </div>
+      <div class="proc-step-mini rv d2">
+        <div class="proc-n">٢</div>
+        <h5>أرسل الطلب</h5>
+        <p>ابعت الكود Pantone أو HEX عبر واتساب أو نموذج الطلب</p>
+      </div>
+      <div class="proc-step-mini rv d3">
+        <div class="proc-n">٣</div>
+        <h5>نطابق ونختبر</h5>
+        <p>معملنا يطابق اللون بدقة 98% مع فحص شامل قبل الشحن</p>
+      </div>
+      <div class="proc-step-mini rv d4">
+        <div class="proc-n">٤</div>
+        <h5>توصيل في 48 ساعة</h5>
+        <p>حبرك يوصلك مُغلَّف ومُؤمَّن لكل محافظات مصر</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     TOOLS SECTION
+═══════════════════════════ -->
+<section class="tools-section">
+  <div class="content-wrap">
+    <div class="rv" style="text-align:center">
+      <div class="section-label" style="justify-content:center">
+        <span class="sl-line r"></span>
+        خدماتنا
+        <span class="sl-line"></span>
+      </div>
+      <h2 class="section-h2" style="text-align:center;margin-top:0.5rem">
+        أكثر من مجرد <span class="acc">مكتبة ألوان</span>
+      </h2>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card rv d1">
+        <div class="tool-ico gold-t"><i class="fas fa-sliders" style="color:var(--gold)"></i></div>
+        <h4>مطابقة Pantone مخصصة</h4>
+        <p>أرسلنا أي كود Pantone أو مرجع لوني وهنصنعه لك بدقة 98% في خلال 3–5 أيام عمل.</p>
+        <a href="https://wa.me/201553404414" target="_blank" class="tool-link">
+          اطلب مطابقة مخصصة <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      <div class="tool-card rv d2">
+        <div class="tool-ico cyan-t"><i class="fas fa-vials" style="color:var(--cyan)"></i></div>
+        <h4>عينة مجانية</h4>
+        <p>احصل على عينة مجانية من أي لون تريده — جرب الجودة بنفسك قبل أي التزام.</p>
+        <a href="order.html" class="tool-link">
+          اطلب عينتك <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      <div class="tool-card rv d3">
+        <div class="tool-ico gold-t"><i class="fas fa-headset" style="color:var(--gold)"></i></div>
+        <h4>استشارة فنية مجانية</h4>
+        <p>فريق خبرائنا يساعدك في اختيار الحبر المناسب لماكينتك والمادة المطبوع عليها.</p>
+        <a href="https://wa.me/201553404414" target="_blank" class="tool-link">
+          تواصل مع خبير <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     CTA BAND
+═══════════════════════════ -->
+<section class="cta-band">
+  <div class="cta-glow"></div>
+  <div class="content-wrap">
+    <div class="cta-band-inner rv">
+      <div class="cta-band-eyebrow">
+        <i class="fas fa-fire-flame-curved"></i>
+        اطلب عينتك المجانية الآن
+      </div>
+      <h2>لقيت لونك؟<br><span>اطلبه الآن</span></h2>
+      <p>عينة مجانية، توصيل سريع، جودة مضمونة — بدون أي التزام</p>
+      <div class="cta-band-btns">
+        <a href="order.html" class="btn btn-gold">
+          <i class="fas fa-vials"></i>
+          اطلب عينة مجانية
+        </a>
+        <a href="https://wa.me/201553404414" target="_blank" class="btn btn-outline">
+          <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.2rem"></i>
+          واتساب مباشر
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     FOOTER
+═══════════════════════════ -->
+<footer>
+  <div class="content-wrap" style="padding-top:4rem;padding-bottom:2rem">
+    <div class="foot-grid">
+      <div>
+        <img src="logo.png" alt="Inkova Flexo" class="foot-logo">
+        <p class="foot-tagline">حبر فليكسو مائي جاهز للتشغيل • جودة أوروبية • صنع في مصر • أفضل سعر في السوق</p>
+        <div class="foot-socials">
+          <a href="https://www.facebook.com/omar.arafa.519869" target="_blank" class="fsoc"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank" class="fsoc"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/201553404414" target="_blank" class="fsoc wa"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>روابط سريعة</h5>
+        <ul class="foot-links">
+          <li><a href="index.html"><i class="fas fa-chevron-left"></i>الرئيسية</a></li>
+          <li><a href="colors.html"><i class="fas fa-chevron-left"></i>مكتبة الألوان</a></li>
+          <li><a href="why.html"><i class="fas fa-chevron-left"></i>ليه إنكوفا؟</a></li>
+          <li><a href="order.html"><i class="fas fa-chevron-left"></i>اطلب الآن</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-left"></i>تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>خدماتنا</h5>
+        <ul class="foot-links">
+          <li><a href="#"><i class="fas fa-chevron-left"></i>توريد حبر فليكسو</a></li>
+          <li><a href="#"><i class="fas fa-chevron-left"></i>مطابقة Pantone</a></li>
+          <li><a href="#"><i class="fas fa-chevron-left"></i>عينات مجانية</a></li>
+          <li><a href="#"><i class="fas fa-chevron-left"></i>دعم فني مستمر</a></li>
+          <li><a href="#"><i class="fas fa-chevron-left"></i>استشارات طباعة</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>تواصل معنا</h5>
+        <div class="foot-contact">
+          <div class="fcon-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/201553404414">01553404414</a></div>
+          <div class="fcon-item"><i class="fas fa-envelope"></i><span>info@inkova-flexo.com</span></div>
+          <div class="fcon-item"><i class="fas fa-location-dot"></i><span>المنطقة الصناعية — المنوفية، مصر</span></div>
+          <div class="fcon-item"><i class="fas fa-clock"></i><span>السبت — الخميس: 9 ص – 6 م</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Inkova Flexo — جميع الحقوق محفوظة</span>
+      <span>تطوير بواسطة <span class="dev">دكتور عمر عرفه</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/201553404414" target="_blank" class="wa-float" title="واتساب">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="للأعلى">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ═══════════════════════════
+     COLOR DETAIL MODAL
+═══════════════════════════ -->
+<div id="colorModal">
+  <div class="modal-box">
+    <!-- dynamic content -->
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+/* ════════════════════════════
+   FULL COLOR DATABASE (30 colors shown, references 950+)
+════════════════════════════ */
 const colorsDB = [
-{ id: 1, name: "Pantone 185 C", hex: "#E30613", rgb: "227,6,19", category: "red", desc: "أحمر حيوي" },
-{ id: 2, name: "Pantone 186 C", hex: "#C8102E", rgb: "200,16,46", category: "red", desc: "أحمر كلاسيكي" },
-{ id: 3, name: "Pantone 485 C", hex: "#DA291C", rgb: "218,41,28", category: "red", desc: "أحمر قوي" },
-{ id: 4, name: "Pantone 200 C", hex: "#BA0C2F", rgb: "186,12,47", category: "red", desc: "أحمر غامق" },
+  // ═══ REDS & PINKS ═══
+  { id:1,  name:"Pantone 185 C",       hex:"#E30613", rgb:"227,6,19",    category:"red",      desc:"أحمر حيوي مشرق — مثالي للتغليف الغذائي والكرتون عالي الطباعة",       tags:["غذائي","كرتون","زاهي"],          featured:true,  hot:true  },
+  { id:2,  name:"Pantone 186 C",       hex:"#C8102E", rgb:"200,16,46",   category:"red",      desc:"أحمر كلاسيكي ملكي — يُستخدم على نطاق واسع في التغليف التجاري",       tags:["تجاري","كرتون","مموج"],          featured:false, hot:false },
+  { id:3,  name:"Pantone 485 C",       hex:"#DA291C", rgb:"218,41,28",   category:"red",      desc:"أحمر قوي دافئ — ثبات عالي جدًا تحت الأشعة الفوق البنفسجية",         tags:["ثبات UV","كرتون"],               featured:true,  hot:false },
+  { id:4,  name:"Pantone 200 C",       hex:"#BA0C2F", rgb:"186,12,47",   category:"red",      desc:"أحمر غامق عميق — مثالي للطباعة على الأكياس والبلاستيك الداكن",      tags:["بلاستيك","أكياس"],              featured:false, hot:false },
+  { id:5,  name:"Pantone Pink C",      hex:"#FF69B4", rgb:"255,105,180", category:"red",      desc:"بينك زاهٍ — مناسب لتغليف مستحضرات التجميل والمنتجات النسائية",       tags:["تجميل","نسائي","زاهي"],          featured:false, hot:false },
+  { id:6,  name:"Pantone Magenta C",   hex:"#D5006D", rgb:"213,0,109",   category:"red",      desc:"ماجنتا بروسيس — ضروري في طباعة الألوان الأربعة CMYK",               tags:["CMYK","بروسيس","طباعة"],        featured:true,  hot:true  },
+  { id:7,  name:"Pantone 1788 C",      hex:"#FF3B3B", rgb:"255,59,59",   category:"red",      desc:"أحمر مشرق نقي — غطاء كامل على كل أنواع الكرتون",                   tags:["كرتون","غطاء"],                 featured:false, hot:false },
+  { id:8,  name:"Pantone 194 C",       hex:"#9B1B30", rgb:"155,27,48",   category:"red",      desc:"أحمر خمري راقٍ — يُستخدم في تغليف المنتجات الفاخرة",               tags:["فاخر","راقي"],                  featured:false, hot:false },
 
-{ id: 5, name: "Pantone 286 C", hex: "#0033A0", rgb: "0,51,160", category: "blue", desc: "أزرق كوبالت" },
-{ id: 6, name: "Pantone 300 C", hex: "#0066CC", rgb: "0,102,204", category: "blue", desc: "أزرق سماوي" },
-{ id: 7, name: "Pantone 661 C", hex: "#003399", rgb: "0,51,153", category: "blue", desc: "أزرق ملكي" },
-{ id: 8, name: "Pantone 7687 C", hex: "#005EB8", rgb: "0,94,184", category: "blue", desc: "أزرق بارد" },
+  // ═══ BLUES ═══
+  { id:9,  name:"Pantone 286 C",       hex:"#0033A0", rgb:"0,51,160",    category:"blue",     desc:"أزرق كوبالت عميق — لون مرجعي في المعايير الأوروبية للتغليف",        tags:["معايير أوروبية","تغليف"],       featured:true,  hot:true  },
+  { id:10, name:"Pantone 300 C",       hex:"#0066CC", rgb:"0,102,204",   category:"blue",     desc:"أزرق سماوي نقي — ثبات ممتاز على الكرتون المموج",                    tags:["كرتون مموج","ثبات"],            featured:true,  hot:false },
+  { id:11, name:"Pantone 661 C",       hex:"#003399", rgb:"0,51,153",    category:"blue",     desc:"أزرق ملكي داكن — مثالي للتغليف الصناعي والشحن",                     tags:["صناعي","شحن"],                  featured:false, hot:false },
+  { id:12, name:"Pantone 7687 C",      hex:"#005EB8", rgb:"0,94,184",    category:"blue",     desc:"أزرق بارد جميل — شائع في تغليف الأدوية والمنتجات الطبية",           tags:["طبي","دوائي"],                  featured:false, hot:false },
+  { id:13, name:"Pantone Sky C",       hex:"#87CEEB", rgb:"135,206,235", category:"blue",     desc:"سماوي فاتح لطيف — يُستخدم في تغليف منتجات الأطفال والألبان",        tags:["أطفال","ألبان","فاتح"],         featured:false, hot:false },
+  { id:14, name:"Pantone 292 C",       hex:"#69B3E7", rgb:"105,179,231", category:"blue",     desc:"أزرق فاتح منعش — ممتاز للطباعة على أكياس المياه والمشروبات",       tags:["مشروبات","منعش"],              featured:false, hot:false },
+  { id:15, name:"Pantone Cyan C",      hex:"#00B3D4", rgb:"0,179,212",   category:"process",  desc:"سيان بروسيس — لون أساسي في طباعة الألوان الأربعة CMYK",            tags:["CMYK","بروسيس","أساسي"],       featured:true,  hot:true  },
+  { id:16, name:"Pantone 2727 C",      hex:"#446CCF", rgb:"68,108,207",  category:"blue",     desc:"أزرق أوسط مريح — يعكس الثقة والاحترافية في الطباعة التجارية",     tags:["تجاري","ثقة"],                  featured:false, hot:false },
 
-{ id: 9, name: "Pantone 355 C", hex: "#009639", rgb: "0,150,57", category: "green", desc: "أخضر طبيعي" },
-{ id: 10, name: "Pantone 7484 C", hex: "#006B3F", rgb: "0,107,63", category: "green", desc: "أخضر غامق" },
-{ id: 11, name: "Pantone 347 C", hex: "#009A44", rgb: "0,154,68", category: "green", desc: "أخضر زاهي" },
-{ id: 12, name: "Pantone 7731 C", hex: "#007A33", rgb: "0,122,51", category: "green", desc: "أخضر زيتوني" },
+  // ═══ GREENS ═══
+  { id:17, name:"Pantone 355 C",       hex:"#009639", rgb:"0,150,57",    category:"green",    desc:"أخضر طبيعي منعش — مفضل لتغليف المنتجات الزراعية والعضوية",         tags:["زراعي","عضوي","طبيعي"],        featured:true,  hot:false },
+  { id:18, name:"Pantone 7484 C",      hex:"#006B3F", rgb:"0,107,63",    category:"green",    desc:"أخضر داكن زيتوني — يعكس الفخامة والطبيعة في التغليف",               tags:["فاخر","طبيعي","زيتوني"],        featured:false, hot:false },
+  { id:19, name:"Pantone 347 C",       hex:"#009A44", rgb:"0,154,68",    category:"green",    desc:"أخضر زاهٍ حيوي — مثالي للمنتجات الصحية والعضوية المعتمدة",         tags:["صحي","عضوي","حيوي"],           featured:false, hot:false },
+  { id:20, name:"Pantone 7731 C",      hex:"#007A33", rgb:"0,122,51",    category:"green",    desc:"أخضر عميق موثوق — يُستخدم في تغليف العصائر الطبيعية والمياه",      tags:["عصائر","مياه","طبيعي"],        featured:false, hot:false },
+  { id:21, name:"Pantone Mint C",      hex:"#98FF98", rgb:"152,255,152", category:"green",    desc:"أخضر مينت رائق — مثالي لمستحضرات التجميل ومنتجات العناية",         tags:["تجميل","عناية","رائق"],         featured:false, hot:false },
+  { id:22, name:"Pantone 3395 C",      hex:"#00C389", rgb:"0,195,137",   category:"green",    desc:"أخضر مُزرق حديث — لون عصري في تغليف التكنولوجيا والصحة",           tags:["تكنولوجيا","صحة","عصري"],      featured:false, hot:false },
 
-{ id: 13, name: "Pantone 109 C", hex: "#FFD100", rgb: "255,209,0", category: "yellow", desc: "أصفر ذهبي" },
-{ id: 14, name: "Pantone 1235 C", hex: "#FFCC00", rgb: "255,204,0", category: "yellow", desc: "أصفر براق" },
-{ id: 15, name: "Pantone 021 C", hex: "#FF4500", rgb: "255,69,0", category: "yellow", desc: "برتقالي نار" },
-{ id: 16, name: "Pantone 158 C", hex: "#FF8200", rgb: "255,130,0", category: "yellow", desc: "برتقالي مشرق" },
+  // ═══ YELLOWS & ORANGES ═══
+  { id:23, name:"Pantone 109 C",       hex:"#FFD100", rgb:"255,209,0",   category:"yellow",   desc:"أصفر ذهبي ناصع — لمعان فائق يجذب الانتباه في رفوف المتاجر",        tags:["لمعان","جذاب","متاجر"],        featured:true,  hot:true  },
+  { id:24, name:"Pantone 1235 C",      hex:"#FFCC00", rgb:"255,204,0",   category:"yellow",   desc:"أصفر براق دافئ — ثبات ممتاز على الكرتون والبلاستيك",               tags:["كرتون","بلاستيك","براق"],       featured:false, hot:false },
+  { id:25, name:"Pantone 021 C",       hex:"#FF4500", rgb:"255,69,0",    category:"yellow",   desc:"برتقالي ناري قوي — يُستخدم في التحذيرات والتغليف الصناعي",          tags:["صناعي","تحذير","ناري"],         featured:true,  hot:false },
+  { id:26, name:"Pantone 158 C",       hex:"#FF8200", rgb:"255,130,0",   category:"yellow",   desc:"برتقالي مشرق حيوي — مثالي للمنتجات الغذائية والمشروبات",            tags:["غذائي","مشروبات"],             featured:false, hot:false },
+  { id:27, name:"Pantone 151 C",       hex:"#FF7300", rgb:"255,115,0",   category:"yellow",   desc:"برتقالي كلاسيكي دافئ — يُستخدم على نطاق واسع في تغليف العصائر",     tags:["عصائر","دافئ"],                featured:false, hot:false },
+  { id:28, name:"Pantone 137 C",       hex:"#FFAA00", rgb:"255,170,0",   category:"yellow",   desc:"أصفر ذهبي عميق — يُشعر بالثراء والجودة في تغليف المنتجات الفاخرة", tags:["فاخر","ذهبي"],                 featured:false, hot:false },
 
-{ id: 17, name: "Pantone 2725 C", hex: "#4C2C9B", rgb: "76,44,155", category: "purple", desc: "بنفسجي غامق" },
-{ id: 18, name: "Pantone 2597 C", hex: "#5F259F", rgb: "95,37,159", category: "purple", desc: "بنفسجي ملكي" },
-{ id: 19, name: "Pantone 7655 C", hex: "#A05EB5", rgb: "160,94,181", category: "purple", desc: "لافندر" },
+  // ═══ PURPLES ═══
+  { id:29, name:"Pantone 2725 C",      hex:"#4C2C9B", rgb:"76,44,155",   category:"purple",   desc:"بنفسجي غامق ملكي — يُستخدم في تغليف الحلويات الفاخرة والهدايا",    tags:["فاخر","هدايا","حلويات"],       featured:false, hot:false },
+  { id:30, name:"Pantone 2597 C",      hex:"#5F259F", rgb:"95,37,159",   category:"purple",   desc:"بنفسجي ملكي أصيل — لون رمز الفخامة والتميز في التغليف",             tags:["فاخر","تميز","ملكي"],           featured:true,  hot:false },
+  { id:31, name:"Pantone 7655 C",      hex:"#A05EB5", rgb:"160,94,181",  category:"purple",   desc:"لافندر ناعم — مثالي لمستحضرات التجميل ومنتجات الأطفال",             tags:["تجميل","أطفال","ناعم"],        featured:false, hot:false },
+  { id:32, name:"Pantone 2685 C",      hex:"#400099", rgb:"64,0,153",    category:"purple",   desc:"بنفسجي عميق داكن — يُشعر بالغموض والفخامة في تغليف العطور",       tags:["عطور","فاخر","غامق"],          featured:false, hot:false },
 
-{ id: 20, name: "Pantone Black C", hex: "#2C2C2C", rgb: "44,44,44", category: "black", desc: "أسود عميق" },
-{ id: 21, name: "Pantone Cool Gray 11", hex: "#53565A", rgb: "83,86,90", category: "black", desc: "رمادي غامق" },
-{ id: 22, name: "Pantone Cool Gray 5", hex: "#B1B3B3", rgb: "177,179,179", category: "black", desc: "رمادي فاتح" },
+  // ═══ BLACKS & GRAYS ═══
+  { id:33, name:"Pantone Black C",     hex:"#2C2C2C", rgb:"44,44,44",    category:"black",    desc:"أسود عميق غني — أعلى كثافة في السوق المصري، غطاء 100% بطبقة واحدة", tags:["غطاء كامل","كثافة","طبقة واحدة"], featured:true, hot:true },
+  { id:34, name:"Pantone Cool Gray 11",hex:"#53565A", rgb:"83,86,90",    category:"black",    desc:"رمادي غامق دافئ — مثالي للتغليف الصناعي والتقني",                   tags:["صناعي","تقني"],                featured:false, hot:false },
+  { id:35, name:"Pantone Cool Gray 5", hex:"#B1B3B3", rgb:"177,179,179", category:"black",    desc:"رمادي فاتح راقٍ — يُستخدم في التغليف الفاخر والمنتجات التقنية",     tags:["فاخر","تقني","راقي"],          featured:false, hot:false },
+  { id:36, name:"Pantone 430 C",       hex:"#939598", rgb:"147,149,152", category:"black",    desc:"رمادي متوسط محايد — متعدد الاستخدامات على كل أسطح التغليف",        tags:["متعدد","محايد"],               featured:false, hot:false },
+  { id:37, name:"Pantone Cool Gray 9", hex:"#75787B", rgb:"117,120,123", category:"black",    desc:"رمادي حديدي عصري — شائع في تغليف الأجهزة الإلكترونية",              tags:["إلكترونيات","حديث"],           featured:false, hot:false },
 
-{ id: 23, name: "Pantone 871 C", hex: "#B38B5E", rgb: "179,139,94", category: "metallic", desc: "ذهبي معدني" },
-{ id: 24, name: "Pantone 872 C", hex: "#A97142", rgb: "169,113,66", category: "metallic", desc: "برونزي" },
-{ id: 25, name: "Pantone 877 C", hex: "#8A8D8F", rgb: "138,141,143", category: "metallic", desc: "فضي معدني" },
-{ id: 26, name: "Pantone 8001 C", hex: "#6E6E6E", rgb: "110,110,110", category: "metallic", desc: "رصاصي" },
+  // ═══ METALLICS ═══
+  { id:38, name:"Pantone 871 C",       hex:"#B38B5E", rgb:"179,139,94",  category:"metallic", desc:"ذهبي معدني فاخر — بريق حقيقي يعكس الضوء على الكرتون والبلاستيك",  tags:["ذهبي","فاخر","بريق"],         featured:true,  hot:true  },
+  { id:39, name:"Pantone 872 C",       hex:"#A97142", rgb:"169,113,66",  category:"metallic", desc:"برونزي دافئ أصيل — يُضفي لمسة كلاسيكية على تغليف المنتجات",        tags:["برونزي","كلاسيكي"],           featured:false, hot:false },
+  { id:40, name:"Pantone 877 C",       hex:"#8A8D8F", rgb:"138,141,143", category:"metallic", desc:"فضي معدني نقي — بريق فضي حقيقي مناسب لكل التطبيقات",              tags:["فضي","بريق","نقي"],           featured:true,  hot:false },
+  { id:41, name:"Pantone 8001 C",      hex:"#7A7064", rgb:"122,112,100", category:"metallic", desc:"رصاصي معدني عميق — مثالي للتغليف الصناعي والسيارات",               tags:["صناعي","سيارات","رصاصي"],     featured:false, hot:false },
+  { id:42, name:"Pantone 876 C",       hex:"#C5883E", rgb:"197,136,62",  category:"metallic", desc:"ذهبي نحاسي دافئ — يُستخدم في تغليف مستحضرات التجميل الفاخرة",    tags:["تجميل","نحاسي","فاخر"],       featured:false, hot:false },
 
-{ id: 27, name: "Pantone Pink C", hex: "#FF6EB4", rgb: "255,110,180", category: "red", desc: "بينك" },
-{ id: 28, name: "Pantone Magenta", hex: "#D5006D", rgb: "213,0,109", category: "red", desc: "ماجينتا" },
-{ id: 29, name: "Pantone Sky", hex: "#87CEEB", rgb: "135,206,235", category: "blue", desc: "سماوي فاتح" },
-{ id: 30, name: "Pantone Mint", hex: "#98FF98", rgb: "152,255,152", category: "green", desc: "مينت" }
+  // ═══ PROCESS / CMYK ═══
+  { id:43, name:"Process Yellow",      hex:"#FFE200", rgb:"255,226,0",   category:"process",  desc:"أصفر بروسيس — لون أساسي CMYK لكل ماكينات الفليكسو",                tags:["CMYK","أساسي","بروسيس"],       featured:true,  hot:false },
+  { id:44, name:"Process Magenta",     hex:"#D5006D", rgb:"213,0,109",   category:"process",  desc:"ماجنتا بروسيس — لون أساسي CMYK لطباعة كاملة الألوان",              tags:["CMYK","أساسي","بروسيس"],       featured:false, hot:false },
+  { id:45, name:"Process Cyan",        hex:"#00B3D4", rgb:"0,179,212",   category:"process",  desc:"سيان بروسيس — لون أساسي CMYK يعطي اللون الأزرق والأخضر",          tags:["CMYK","أساسي","بروسيس"],       featured:false, hot:false },
+  { id:46, name:"Process Black",       hex:"#2C2C2C", rgb:"44,44,44",    category:"process",  desc:"أسود بروسيس — لون أساسي CMYK لعمق الظلال والتفاصيل",              tags:["CMYK","أساسي","بروسيس"],       featured:false, hot:false },
+  { id:47, name:"Pantone 021 Proc",    hex:"#FF5900", rgb:"255,89,0",    category:"process",  desc:"برتقالي بروسيس — خليط أحمر وأصفر لطباعة البروسيس",                tags:["CMYK","برتقالي","بروسيس"],     featured:false, hot:false },
+  { id:48, name:"Pantone Green Proc",  hex:"#00A650", rgb:"0,166,80",    category:"process",  desc:"أخضر بروسيس — ناتج من خلط السيان والأصفر في طباعة البروسيس",      tags:["CMYK","أخضر","بروسيس"],       featured:false, hot:false },
+
+  // Extra reds/pinks
+  { id:49, name:"Pantone 197 C",       hex:"#F0A0A0", rgb:"240,160,160", category:"red",      desc:"ورديّ ناعم هادئ — مثالي لمنتجات الأطفال والهدايا الرومانسية",      tags:["أطفال","هدايا","ناعم"],        featured:false, hot:false },
+  { id:50, name:"Pantone 812 C",       hex:"#FF3E8C", rgb:"255,62,140",  category:"red",      desc:"فوشيا نيون حيوي — تفت الانتباه بقوة في رفوف المتاجر",             tags:["نيون","حيوي","لافت"],          featured:false, hot:false },
+  // Extra greens
+  { id:51, name:"Pantone 376 C",       hex:"#84BD00", rgb:"132,189,0",   category:"green",    desc:"أخضر ليموني مشرق — مناسب لمشروبات الطاقة والمنتجات الرياضية",     tags:["رياضي","طاقة","مشرق"],        featured:false, hot:false },
+  { id:52, name:"Pantone 802 C",       hex:"#54EA7A", rgb:"84,234,122",  category:"green",    desc:"أخضر نيون نضر — جذاب للغاية في طباعة الإعلانات والتغليف الجذاب",  tags:["نيون","إعلانات","جذاب"],      featured:false, hot:false },
+  // Extra blues
+  { id:53, name:"Pantone 2728 C",      hex:"#2A67F5", rgb:"42,103,245",  category:"blue",     desc:"أزرق كهربائي نيون — لافت وجذاب لتغليف المنتجات الرقمية",          tags:["رقمي","نيون","لافت"],         featured:false, hot:false },
+  { id:54, name:"Pantone 072 C",       hex:"#0A2BD0", rgb:"10,43,208",   category:"blue",     desc:"أزرق بحري عميق — رمز الموثوقية والاحترافية في التغليف التجاري",   tags:["تجاري","موثوق","بحري"],       featured:false, hot:false },
+  // Extra yellows
+  { id:55, name:"Pantone 116 C",       hex:"#FFCD00", rgb:"255,205,0",   category:"yellow",   desc:"أصفر زاهٍ مشرق — أكثر ألوان الكرتون وضوحًا وجذبًا للعين",        tags:["واضح","جذاب","مشرق"],         featured:false, hot:false },
+  { id:56, name:"Pantone 7549 C",      hex:"#FFA500", rgb:"255,165,0",   category:"yellow",   desc:"برتقالي دافئ كلاسيكي — يُستخدم في كل قطاعات التغليف",             tags:["كلاسيكي","متعدد"],            featured:false, hot:false },
+  // Extra metallics
+  { id:57, name:"Pantone 8201 C",      hex:"#5C9D9D", rgb:"92,157,157",  category:"metallic", desc:"أزرق معدني مميز — يُستخدم في تغليف المنتجات التقنية والصحية",      tags:["تقني","صحي","معدني"],         featured:false, hot:false },
+  { id:58, name:"Pantone 8321 C",      hex:"#8FA878", rgb:"143,168,120", category:"metallic", desc:"أخضر معدني هادئ — مثالي للتغليف البيئي والمنتجات العضوية الفاخرة", tags:["بيئي","عضوي","فاخر"],         featured:false, hot:false },
+  // Extra purples
+  { id:59, name:"Pantone 245 C",       hex:"#D966C0", rgb:"217,102,192", category:"purple",   desc:"فوشيا ملكي — يُستخدم في تغليف العطور ومستحضرات التجميل الفاخرة",  tags:["عطور","تجميل","ملكي"],        featured:false, hot:false },
+  { id:60, name:"Pantone 518 C",       hex:"#6B4F7A", rgb:"107,79,122",  category:"purple",   desc:"بنفسجي مدخن عميق — يُعطي إحساسًا بالغموض والتفرد في التغليف",    tags:["غموض","تفرد","عميق"],         featured:false, hot:false },
 ];
 
-        function renderColors(filteredColors) {
-            const grid = document.getElementById('colorGrid');
-            grid.innerHTML = '';
+/* ════════════════════════════
+   STATE
+════════════════════════════ */
+let currentFilter    = 'all';
+let currentSearch    = '';
+let currentSort      = 'default';
+let currentView      = 'grid';
+let currentPage      = 1;
+const perPage        = 24;
+let palette          = [];
+let favorites        = JSON.parse(localStorage.getItem('inkova_favs') || '[]');
 
-            filteredColors.forEach((color, index) => {
-                const div = document.createElement('div');
-                div.className = `color-card rounded-3xl overflow-hidden fade-in`;
-                div.style.animationDelay = `${index * 60}ms`;
-                div.innerHTML = `
-                    <!-- المستطيل بلون اللون -->
-                    <div class="color-rect" style="background-color: ${color.hex};"></div>
-                    
-                    <!-- الدائرة الصغيرة -->
-                    <div class="color-circle mx-auto -mt-12 relative z-10" style="background-color: ${color.hex};"></div>
-                    
-                    <div class="p-6 text-center -mt-6">
-                        <div class="pantone-badge">${color.name}</div>
-                        <h3 class="font-bold text-white text-lg mt-8">${color.desc}</h3>
-                        <p class="text-[#00e5ff] text-sm font-mono mt-1">${color.hex}</p>
-                        
-                        <div class="flex gap-3 mt-8">
-                            <button onclick="copyHex('${color.hex}', event)" 
-                                    class="flex-1 py-4 text-sm border border-[#00e5ff]/50 hover:border-[#00e5ff] rounded-2xl transition">
-                                نسخ Hex
-                            </button>
-                            <button onclick="showColorModal(${color.id})" 
-                                    class="flex-1 py-4 bg-[#f5c518] hover:bg-[#ffd700] text-[#0b2b5e] font-bold rounded-2xl text-sm">
-                                تفاصيل
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(div);
-            });
+/* ════════════════════════════
+   UTILITIES
+════════════════════════════ */
+function hexToLuminance(hex) {
+  const r = parseInt(hex.slice(1,3),16) / 255;
+  const g = parseInt(hex.slice(3,5),16) / 255;
+  const b = parseInt(hex.slice(5,7),16) / 255;
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
 
-            // تشغيل الأنيميشن
-            setTimeout(() => {
-                document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-            }, 100);
-        }
+function lightenHex(hex, amount) {
+  const num = parseInt(hex.slice(1), 16);
+  const r = Math.min(255, (num >> 16) + amount);
+  const g = Math.min(255, ((num >> 8) & 0xff) + amount);
+  const b = Math.min(255, (num & 0xff) + amount);
+  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6,'0')}`;
+}
 
-        function filterColors(category) {
-            document.querySelectorAll('#filters button').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+function darkenHex(hex, amount) {
+  return lightenHex(hex, -amount);
+}
 
-            let filtered = colorsDB;
-            if (category !== 'all') {
-                filtered = colorsDB.filter(c => c.category === category);
-            }
-            renderColors(filtered);
-        }
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-text').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2800);
+}
 
-        function copyHex(hex, e) {
-            e.stopImmediatePropagation();
-            navigator.clipboard.writeText(hex).then(() => {
-                const btn = e.target;
-                const orig = btn.textContent;
-                btn.textContent = '✓ تم النسخ';
-                setTimeout(() => btn.textContent = orig, 1800);
-            });
-        }
+function copyToClipboard(text, label) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(`تم نسخ ${label}`);
+  }).catch(() => {
+    showToast('تعذّر النسخ');
+  });
+}
 
-        function showColorModal(id) {
-            const color = colorsDB.find(c => c.id === id);
-            document.getElementById('modalContent').innerHTML = `
-                <div class="flex justify-between mb-6">
-                    <h2 class="text-3xl font-bold">${color.name}</h2>
-                    <button onclick="closeModal()" class="text-4xl text-gray-400 hover:text-white">×</button>
-                </div>
-                <div class="color-rect rounded-2xl mb-8" style="background-color: ${color.hex}; height: 260px;"></div>
-                <p class="text-center text-3xl font-bold text-[#f5c518]">${color.hex}</p>
-                <p class="text-center text-sm text-gray-400">RGB: ${color.rgb}</p>
-                <p class="mt-8 text-gray-300">${color.desc}</p>
-                <div class="mt-10 flex gap-4">
-                    <button onclick="copyHex('${color.hex}', event)" class="flex-1 py-5 border border-[#00e5ff] hover:bg-[#00e5ff] hover:text-black rounded-3xl font-bold">نسخ Hex</button>
-                    <a href="https://wa.me/201553404414?text=أريد%20عينة%20من%20${encodeURIComponent(color.name)}" target="_blank" 
-                       class="flex-1 py-5 bg-[#f5c518] hover:bg-[#ffd700] text-[#0b2b5e] rounded-3xl font-bold text-center">اطلب عينة</a>
-                </div>
-            `;
-            document.getElementById('colorModal').classList.remove('hidden');
-        }
+/* ════════════════════════════
+   CATEGORY COUNTS
+════════════════════════════ */
+function updateCounts() {
+  const cats = ['all','red','blue','green','yellow','purple','black','metallic','process'];
+  cats.forEach(c => {
+    const el = document.getElementById(`cnt-${c}`);
+    if (el) el.textContent = c === 'all' ? colorsDB.length : colorsDB.filter(x => x.category === c).length;
+  });
+}
 
-        function closeModal() {
-            document.getElementById('colorModal').classList.add('hidden');
-        }
+/* ════════════════════════════
+   FILTERING & SORTING
+════════════════════════════ */
+function getFiltered() {
+  let list = colorsDB.slice();
 
-        // Search
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase().trim();
-            const filtered = colorsDB.filter(c => 
-                c.name.toLowerCase().includes(term) || c.desc.toLowerCase().includes(term)
-            );
-            renderColors(filtered);
-        });
+  // Category
+  if (currentFilter !== 'all') list = list.filter(c => c.category === currentFilter);
 
-        // Init
-        window.onload = () => {
-            renderColors(colorsDB);
-        };
-    </script>
-</body>
-</html>
- <!-- ==================== FOOTER ==================== -->
-    <footer class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-                <!-- Brand -->
-                <div class="lg:col-span-2">
-                    <div class="flex items-center gap-3 mb-5">
-                        <img src="logo.png" alt="Inkova" class="h-12 w-auto">
-                        <div>
-                            <div class="text-2xl font-black tracking-widest text-white">INKOVA</div>
-                            <div class="text-sm text-[#00e5ff] -mt-1">FLEXO</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 max-w-xs text-sm leading-relaxed">حبر فليكسو جاهز للتشغيل • أعلى جودة • أفضل سعر • صنع في مصر بتقنية أوروبية</p>
-                    <div class="mt-8 flex gap-4">
-                        <a href="https://www.facebook.com/omar.arafa.519869" target="_blank" 
-                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-[#00e5ff]/20 border border-[#00e5ff]/20 hover:border-[#00e5ff] rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-[#00e5ff] transition-all">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/dr_m_e_r_o__7/" target="_blank"
-                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-[#00e5ff]/20 border border-[#00e5ff]/20 hover:border-[#00e5ff] rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-[#00e5ff] transition-all">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/201553404414" target="_blank"
-                           class="w-11 h-11 bg-[#0b2b5e]/50 hover:bg-green-900/40 border border-[#00e5ff]/20 hover:border-green-500 rounded-2xl flex items-center justify-center text-xl text-gray-400 hover:text-green-400 transition-all">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
+  // Search
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    list = list.filter(c =>
+      c.name.toLowerCase().includes(q) ||
+      c.desc.toLowerCase().includes(q) ||
+      c.hex.toLowerCase().includes(q) ||
+      c.tags.some(t => t.toLowerCase().includes(q))
+    );
+  }
 
-                <!-- Quick Links -->
-                <div>
-                    <h5 class="font-bold text-base mb-5 text-white">روابط سريعة</h5>
-                    <ul class="space-y-3 text-gray-400 text-sm">
-                        <li><a href="index.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>الرئيسية</a></li>
-                        <li><a href="products.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>المنتجات</a></li>
-                        <li><a href="colors.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>مكتبة الألوان</a></li>
-                        <li><a href="why.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>ليه إنكوفا؟</a></li>
-                        <li><a href="order.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>اطلب الآن</a></li>
-                        <li><a href="contact.html" class="hover:text-[#00e5ff] transition-colors flex items-center gap-2"><i class="fas fa-chevron-left text-xs text-[#00e5ff]/50"></i>تواصل معنا</a></li>
-                    </ul>
-                </div>
+  // Sort
+  if (currentSort === 'name')  list.sort((a,b) => a.name.localeCompare(b.name));
+  if (currentSort === 'light') list.sort((a,b) => hexToLuminance(b.hex) - hexToLuminance(a.hex));
+  if (currentSort === 'dark')  list.sort((a,b) => hexToLuminance(a.hex) - hexToLuminance(b.hex));
+  if (currentSort === 'fav')   list.sort((a,b) => (favorites.includes(b.id)?1:0) - (favorites.includes(a.id)?1:0));
 
-                <!-- Services -->
-                <div>
-                    <h5 class="font-bold text-base mb-5 text-white">خدماتنا</h5>
-                    <ul class="space-y-3 text-gray-400 text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>توريد حبر فليكسو</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>استشارات طباعة</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>اختبار مجاني</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>تدريب فريق الطباعة</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-circle text-[#00e5ff]/30 text-xs"></i>دعم فني مستمر</li>
-                    </ul>
-                </div>
+  return list;
+}
 
-                <!-- Contact -->
-                <div>
-                    <h5 class="font-bold text-base mb-5 text-white">تواصل معنا</h5>
-                    <div class="space-y-4 text-sm">
-                        <p class="text-gray-400 flex items-start gap-3">
-                            <i class="fab fa-whatsapp text-green-400 mt-0.5"></i>
-                            <a href="https://wa.me/201553404414" class="text-[#f5c518] hover:text-[#ffd700] transition-colors">01553404414</a>
-                        </p>
-                        <p class="text-gray-400 flex items-start gap-3">
-                            <i class="fas fa-envelope text-[#00e5ff] mt-0.5"></i>
-                            <span>info@inkova-flexo.com</span>
-                        </p>
-                        <p class="text-gray-400 flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt text-[#00e5ff] mt-0.5 mt-1"></i>
-                            <span>المنطقة الصناعية - المنوفية، مصر</span>
-                        </p>
-                        <p class="text-gray-400 flex items-start gap-3">
-                            <i class="fas fa-clock text-[#00e5ff] mt-0.5"></i>
-                            <span>السبت - الخميس: 9 ص - 6 م</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+/* ════════════════════════════
+   RENDER GRID
+════════════════════════════ */
+function renderGrid() {
+  const grid = document.getElementById('colorGrid');
+  const list = getFiltered();
+  const total = list.length;
+  const totalPages = Math.ceil(total / perPage);
 
-            <!-- Footer Bottom -->
-            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                <p>© 2026 Inkova Flexo - جميع الحقوق محفوظة</p>
-                <p>تم عمله و تطويره بواسطة <span class="text-[#f5c518] font-medium">دكتور عمر عرفه</span></p>
-            </div>
+  // Update count
+  document.getElementById('resultsCount').innerHTML = `<strong>${total}</strong> لون`;
+
+  // Paginate
+  const start = (currentPage - 1) * perPage;
+  const page  = list.slice(start, start + perPage);
+
+  grid.innerHTML = '';
+
+  if (page.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-ico">🎨</div>
+        <h3>لا توجد نتائج</h3>
+        <p>جرب بحثًا مختلفًا أو اختر تصنيفًا آخر</p>
+      </div>`;
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
+  page.forEach((color, idx) => {
+    const isFav = favorites.includes(color.id);
+    const inPal = palette.some(p => p.id === color.id);
+    const lum   = hexToLuminance(color.hex);
+    const txtC  = lum > 0.45 ? '#1a1a2e' : '#ffffff';
+
+    const card = document.createElement('div');
+    card.className = 'color-card';
+    card.style.animationDelay = `${idx * 40}ms`;
+    card.dataset.id = color.id;
+
+    if (currentView === 'list') {
+      card.innerHTML = `
+        <div class="card-swatch" style="background:${color.hex}">
+          <div class="swatch-shimmer"></div>
+          <div class="swatch-blob" style="background:${lightenHex(color.hex, 30)}"></div>
         </div>
-    </footer>
+        <div class="card-body">
+          <div class="color-info">
+            <div class="pantone-tag">${color.name}</div>
+            <div class="color-name">${color.desc.split('—')[0].trim()}</div>
+            <div class="color-hex">${color.hex}</div>
+            <div class="color-rgb">RGB: ${color.rgb}</div>
+          </div>
+          <button class="fav-btn ${isFav?'active':''}" onclick="toggleFav(${color.id}, event)" title="مفضلة">
+            <i class="${isFav?'fas':'far'} fa-star"></i>
+          </button>
+          <div class="card-actions">
+            <button class="card-btn card-btn-copy" onclick="copyToClipboard('${color.hex}', '${color.hex}')" id="copy-${color.id}">
+              <i class="fas fa-copy"></i> نسخ
+            </button>
+            <button class="card-btn card-btn-detail" onclick="openModal(${color.id})">
+              تفاصيل
+            </button>
+            <button class="card-btn card-btn-wa" onclick="addToPalette(${color.id})" title="إضافة للباليت">
+              ${inPal ? '<i class="fas fa-check"></i>' : '<i class="fas fa-plus"></i>'}
+            </button>
+          </div>
+        </div>`;
+    } else {
+      card.innerHTML = `
+        <div class="card-swatch" style="background:${darkenHex(color.hex, 20)}">
+          <div class="swatch-shimmer"></div>
+          <div class="swatch-blob" style="background:${color.hex}"></div>
+          <div class="pantone-tag">${color.name}</div>
+          <div class="cat-tag-badge" style="background:${color.hex};color:${color.hex}"></div>
+          ${color.hot ? '<span style="position:absolute;bottom:10px;left:10px;background:linear-gradient(135deg,var(--gold),#ffd700);color:var(--blue);font-size:0.58rem;font-weight:900;padding:0.18rem 0.6rem;border-radius:9999px;letter-spacing:0.5px">الأكثر طلبًا</span>' : ''}
+        </div>
+        <div class="card-body">
+          <div class="color-name">${color.name.replace('Pantone ','')}</div>
+          <div class="color-hex">${color.hex}</div>
+          <div class="color-rgb">RGB: ${color.rgb}</div>
+          <div class="card-actions">
+            <button class="card-btn card-btn-copy" onclick="copyToClipboard('${color.hex}','${color.hex}')" id="copy-${color.id}">
+              نسخ Hex
+            </button>
+            <button class="card-btn card-btn-detail" onclick="openModal(${color.id})">
+              تفاصيل
+            </button>
+          </div>
+        </div>
+        <button class="fav-btn ${isFav?'active':''}" onclick="toggleFav(${color.id}, event)" title="مفضلة">
+          <i class="${isFav?'fas':'far'} fa-star"></i>
+        </button>`;
+    }
 
-    <script>
-        // Mobile Menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('hamburgerIcon');
-            menu.classList.toggle('open');
-            if (menu.classList.contains('open')) {
-                icon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                icon.classList.replace('fa-times', 'fa-bars');
-            }
+    grid.appendChild(card);
+  });
+
+  renderPagination(totalPages);
+  attachHoverListeners();
+}
+
+/* ════════════════════════════
+   PAGINATION
+════════════════════════════ */
+function renderPagination(total) {
+  const pg = document.getElementById('pagination');
+  if (total <= 1) { pg.innerHTML = ''; return; }
+
+  let html = '';
+  html += `<button class="pg-btn ${currentPage===1?'disabled':''}" onclick="goPage(${currentPage-1})"><i class="fas fa-chevron-right"></i></button>`;
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= currentPage-1 && i <= currentPage+1)) {
+      html += `<button class="pg-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    } else if (i === currentPage-2 || i === currentPage+2) {
+      html += `<span class="pg-dots">…</span>`;
+    }
+  }
+
+  html += `<button class="pg-btn ${currentPage===total?'disabled':''}" onclick="goPage(${currentPage+1})"><i class="fas fa-chevron-left"></i></button>`;
+  pg.innerHTML = html;
+}
+
+function goPage(p) {
+  const list  = getFiltered();
+  const total = Math.ceil(list.length / perPage);
+  if (p < 1 || p > total) return;
+  currentPage = p;
+  renderGrid();
+  // Smooth scroll to grid
+  document.getElementById('filterBar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ════════════════════════════
+   FILTERS & SEARCH
+════════════════════════════ */
+function filterCat(cat, btn) {
+  currentFilter = cat;
+  currentPage   = 1;
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+function handleSearch(val) {
+  currentSearch = val.trim();
+  currentPage   = 1;
+  const clearBtn = document.getElementById('searchClear');
+  clearBtn.classList.toggle('show', val.length > 0);
+  renderGrid();
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  handleSearch('');
+}
+
+function sortColors(key, btn) {
+  currentSort = key;
+  currentPage = 1;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+function setView(view) {
+  currentView = view;
+  const grid  = document.getElementById('colorGrid');
+  grid.classList.toggle('list-view', view === 'list');
+  document.getElementById('gridViewBtn').classList.toggle('active', view === 'grid');
+  document.getElementById('listViewBtn').classList.toggle('active', view === 'list');
+  renderGrid();
+}
+
+/* ════════════════════════════
+   FAVORITES
+════════════════════════════ */
+function toggleFav(id, e) {
+  e.stopPropagation();
+  const idx = favorites.indexOf(id);
+  if (idx === -1) {
+    favorites.push(id);
+    showToast('تمت الإضافة للمفضلة ⭐');
+  } else {
+    favorites.splice(idx, 1);
+    showToast('تمت الإزالة من المفضلة');
+  }
+  localStorage.setItem('inkova_favs', JSON.stringify(favorites));
+  renderGrid();
+  renderFavStrip();
+}
+
+function renderFavStrip() {
+  const strip = document.getElementById('favStrip');
+  const sect  = document.getElementById('favSection');
+
+  if (favorites.length === 0) {
+    sect.classList.add('hidden');
+    return;
+  }
+  sect.classList.remove('hidden');
+  strip.innerHTML = '';
+  favorites.forEach(id => {
+    const c = colorsDB.find(x => x.id === id);
+    if (!c) return;
+    const chip = document.createElement('div');
+    chip.className = 'fav-chip';
+    chip.innerHTML = `
+      <div class="fav-swatch" style="background:${c.hex}"></div>
+      <span>${c.name}</span>
+      <button class="fav-chip-x" onclick="toggleFav(${c.id}, event)"><i class="fas fa-xmark"></i></button>
+    `;
+    strip.appendChild(chip);
+  });
+}
+
+function clearFavs() {
+  favorites = [];
+  localStorage.setItem('inkova_favs', JSON.stringify(favorites));
+  renderGrid();
+  renderFavStrip();
+  showToast('تم مسح المفضلة');
+}
+
+/* ════════════════════════════
+   PALETTE BUILDER
+════════════════════════════ */
+function addToPalette(id) {
+  if (palette.some(p => p.id === id)) {
+    showToast('اللون موجود بالفعل في الباليت');
+    return;
+  }
+  if (palette.length >= 10) {
+    showToast('الباليت ممتلئ — أقصى 10 ألوان');
+    return;
+  }
+  const color = colorsDB.find(c => c.id === id);
+  if (!color) return;
+  palette.push(color);
+  renderPaletteCanvas();
+  showToast(`تمت إضافة ${color.name} للباليت 🎨`);
+}
+
+function removeFromPalette(id) {
+  palette = palette.filter(p => p.id !== id);
+  renderPaletteCanvas();
+}
+
+function renderPaletteCanvas() {
+  const canvas  = document.getElementById('paletteCanvas');
+  const empty   = document.getElementById('palEmpty');
+  const actions = document.getElementById('palActions');
+
+  if (palette.length === 0) {
+    canvas.innerHTML = '';
+    canvas.appendChild(empty);
+    actions.style.display = 'none';
+    return;
+  }
+
+  empty.remove();
+  canvas.innerHTML = '';
+  actions.style.display = 'flex';
+
+  palette.forEach(c => {
+    const chip = document.createElement('div');
+    chip.className = 'palette-chip';
+    chip.innerHTML = `
+      <div class="palette-dot" style="background:${c.hex}"></div>
+      <span class="palette-chip-name">${c.name}</span>
+      <button class="palette-chip-remove" onclick="removeFromPalette(${c.id})" title="حذف">
+        <i class="fas fa-xmark"></i>
+      </button>`;
+    canvas.appendChild(chip);
+  });
+}
+
+function clearPalette() {
+  palette = [];
+  const empty = document.getElementById('palEmpty');
+  document.getElementById('paletteCanvas').innerHTML = '';
+  document.getElementById('paletteCanvas').appendChild(empty);
+  document.getElementById('palActions').style.display = 'none';
+  showToast('تم مسح الباليت');
+}
+
+function sendPalette() {
+  if (palette.length === 0) return;
+  const names = palette.map(c => `• ${c.name} (${c.hex})`).join('\n');
+  const msg   = encodeURIComponent(`مرحبًا إنكوفا فليكسو 👋\nأريد عينات من هذه الألوان:\n\n${names}\n\nشكرًا!`);
+  window.open(`https://wa.me/201553404414?text=${msg}`, '_blank');
+}
+
+function exportPalette() {
+  if (palette.length === 0) return;
+  let css = '/* Inkova Flexo - Custom Palette */\n:root {\n';
+  palette.forEach((c, i) => {
+    const varName = c.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+    css += `  --color-${i+1}-${varName}: ${c.hex}; /* ${c.name} */\n`;
+  });
+  css += '}';
+
+  const blob = new Blob([css], { type: 'text/css' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'inkova-palette.css';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('تم تصدير الباليت كـ CSS ✅');
+}
+
+/* ════════════════════════════
+   MODAL
+════════════════════════════ */
+function openModal(id) {
+  const color = colorsDB.find(c => c.id === id);
+  if (!color) return;
+
+  const lum  = hexToLuminance(color.hex);
+  const lighter1 = lightenHex(color.hex, 50);
+  const lighter2 = lightenHex(color.hex, 25);
+  const darker1  = darkenHex(color.hex, 25);
+  const darker2  = darkenHex(color.hex, 50);
+
+  const catAr = {
+    red:'أحمر وزهري', blue:'أزرق وسماوي', green:'أخضر',
+    yellow:'أصفر وبرتقالي', purple:'بنفسجي', black:'أسود ورمادي',
+    metallic:'معدني', process:'بروسيس CMYK'
+  };
+
+  const inPal = palette.some(p => p.id === id);
+  const isFav = favorites.includes(id);
+
+  document.querySelector('.modal-box').innerHTML = `
+    <div class="modal-swatch-area">
+      <div class="modal-bg-blur" style="background:${color.hex}"></div>
+      <div class="modal-blob" style="background:${color.hex}"></div>
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+      <div class="modal-pantone-badge">${color.name}</div>
+    </div>
+    <div class="modal-body">
+      <h2 class="modal-color-name">${color.name}</h2>
+      <div class="modal-cat">
+        <span style="width:8px;height:8px;border-radius:50%;background:${color.hex};display:inline-block"></span>
+        ${catAr[color.category] || color.category}
+      </div>
+
+      <!-- Color Codes -->
+      <div class="color-codes-grid">
+        <div class="code-box" onclick="copyToClipboard('${color.hex}', 'Hex')">
+          <div class="code-box-label">HEX</div>
+          <div class="code-box-val">${color.hex}</div>
+        </div>
+        <div class="code-box" onclick="copyToClipboard('rgb(${color.rgb})','RGB')">
+          <div class="code-box-label">RGB</div>
+          <div class="code-box-val" style="font-size:0.78rem">${color.rgb}</div>
+        </div>
+        <div class="code-box" onclick="copyToClipboard('${color.name}','Pantone')">
+          <div class="code-box-label">PANTONE</div>
+          <div class="code-box-val" style="font-size:0.72rem">${color.name.replace('Pantone ','')}</div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="modal-desc">${color.desc}</div>
+
+      <!-- Tags -->
+      <div class="modal-tags">
+        ${color.tags.map(t => `<span class="modal-tag"><i class="fas fa-tag"></i>${t}</span>`).join('')}
+        ${color.hot ? '<span class="modal-tag" style="border-color:rgba(239,68,68,0.3);color:#ef4444;background:rgba(239,68,68,0.06)"><i class="fas fa-fire"></i>الأكثر طلبًا</span>' : ''}
+      </div>
+
+      <!-- Color Variations -->
+      <div class="modal-variations">
+        <div class="modal-var-label">تدرجات اللون</div>
+        <div class="var-strip">
+          <div class="var-swatch" style="background:${lighter1}" title="فاتح جدًا"></div>
+          <div class="var-swatch" style="background:${lighter2}" title="فاتح"></div>
+          <div class="var-swatch main" style="background:${color.hex}" title="الأساسي"></div>
+          <div class="var-swatch" style="background:${darker1}" title="غامق"></div>
+          <div class="var-swatch" style="background:${darker2}" title="غامق جدًا"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-copy" onclick="copyToClipboard('${color.hex}','${color.hex}')">
+          <i class="fas fa-copy"></i> نسخ Hex
+        </button>
+        <button class="modal-btn modal-btn-sample" onclick="addToPalette(${color.id});closeModal()">
+          <i class="fas fa-plus"></i> إضافة للباليت
+        </button>
+        <a href="https://wa.me/201553404414?text=${encodeURIComponent(`أريد عينة من ${color.name} (${color.hex})`)}" target="_blank" class="modal-btn modal-btn-wa">
+          <i class="fab fa-whatsapp"></i> اطلب عينة
+        </a>
+      </div>
+    </div>`;
+
+  document.getElementById('colorModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('colorModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('colorModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('colorModal')) closeModal();
+});
+
+/* ════════════════════════════
+   FEATURED SCROLL
+════════════════════════════ */
+function renderFeatured() {
+  const scroll = document.getElementById('featuredScroll');
+  const featured = colorsDB.filter(c => c.featured);
+
+  featured.forEach(color => {
+    const card = document.createElement('div');
+    card.className = 'feat-color-card';
+    card.innerHTML = `
+      <div class="feat-swatch" style="background:${darkenHex(color.hex, 20)}">
+        <span class="star"><i class="fas fa-star"></i></span>
+        <div class="feat-blob" style="background:${color.hex}"></div>
+      </div>
+      <div class="feat-body">
+        <div class="feat-name">${color.name}</div>
+        <div class="feat-hex">${color.hex}</div>
+        <button class="feat-btn" onclick="openModal(${color.id})">تفاصيل وطلب عينة</button>
+      </div>`;
+    scroll.appendChild(card);
+  });
+}
+
+/* ════════════════════════════
+   CURSOR
+════════════════════════════ */
+const curDot  = document.getElementById('cur-dot');
+const curRing = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  curDot.style.left = mx + 'px';
+  curDot.style.top  = my + 'px';
+});
+(function animRing() {
+  rx += (mx - rx) * 0.11;
+  ry += (my - ry) * 0.11;
+  curRing.style.left = rx + 'px';
+  curRing.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+function attachHoverListeners() {
+  document.querySelectorAll('a, button, .color-card, .feat-color-card, .tool-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+  });
+}
+
+/* ════════════════════════════
+   PARTICLE CANVAS
+════════════════════════════ */
+(function initCanvas() {
+  const canvas = document.getElementById('bgc');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const particles = Array.from({ length: 55 }, (_, i) => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 2 + 0.5,
+    color: i % 3 === 0 ? '0,229,255' : i % 3 === 1 ? '245,197,24' : '11,43,94',
+    alpha: Math.random() * 0.2 + 0.08,
+    pulse: Math.random() * Math.PI * 2,
+    pulseSpeed: Math.random() * 0.02 + 0.01,
+  }));
+
+  let mouseX = W / 2, mouseY = H / 2;
+  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    const CONN = 150;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < CONN) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(0,229,255,${(1 - dist/CONN) * 0.03})`;
+          ctx.lineWidth = 0.7;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
         }
+      }
+    }
+    particles.forEach(p => {
+      const dx = mouseX - p.x, dy = mouseY - p.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 100) { p.vx -= (dx/dist) * 0.05; p.vy -= (dy/dist) * 0.05; }
+      p.vx *= 0.998; p.vy *= 0.998;
+      p.pulse += p.pulseSpeed;
+      const cr = p.r + Math.sin(p.pulse) * 0.4;
+      ctx.beginPath(); ctx.arc(p.x, p.y, cr, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${p.color},${p.alpha})`; ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    });
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
 
-        // Counter Animation
-        function animateCounter(el) {
-            const target = parseInt(el.getAttribute('data-count'));
-            const isThousands = target >= 1000;
-            let count = 0;
-            const duration = 1800;
-            const steps = 60;
-            const increment = target / steps;
-            const timer = setInterval(() => {
-                count += increment;
-                if (count >= target) {
-                    count = target;
-                    clearInterval(timer);
-                }
-                el.textContent = Math.round(count).toLocaleString('ar-EG') + (isThousands ? '+' : '');
-            }, duration / steps);
-        }
+/* ════════════════════════════
+   SCROLL EFFECTS
+════════════════════════════ */
+const navEl = document.getElementById('nav');
+const spbEl = document.getElementById('spb');
+const bttEl = document.getElementById('btt');
 
-        // Intersection Observer for counters
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+window.addEventListener('scroll', () => {
+  const st = window.scrollY;
+  const sh = document.documentElement.scrollHeight - window.innerHeight;
+  if (sh > 0) spbEl.style.width = (st / sh * 100) + '%';
+  navEl.classList.toggle('scrolled', st > 60);
+  bttEl.classList.toggle('show', st > 400);
+}, { passive: true });
 
-        document.querySelectorAll('.stat-number').forEach(el => {
-            counterObserver.observe(el);
-        });
+/* ════════════════════════════
+   REVEAL OBSERVER
+════════════════════════════ */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => revObs.observe(el));
 
-        // Language Toggle
-        let isArabic = true;
-        function toggleLanguage() {
-            isArabic = !isArabic;
-            const langText = document.getElementById('langText');
-            if (isArabic) {
-                document.documentElement.lang = 'ar';
-                document.documentElement.dir = 'rtl';
-                langText.textContent = 'EN';
-                document.getElementById('heroTitle').innerHTML = 'حبر فليكسو جاهز<br>للتشغيل الفوري';
-                document.getElementById('heroDesc').textContent = 'سعر أرخص • جودة عالمية • ألوان ثابتة • صديق للبيئة';
-                document.getElementById('btnOrder').textContent = 'اطلب عينة الآن';
-                document.getElementById('btnWhatsapp').textContent = 'واتساب مباشر';
-                document.getElementById('aboutTitle').innerHTML = 'إنكوفا فليكسو<br><span class="text-[#f5c518]">شركة مصرية 100%</span>';
-                document.getElementById('finalCta').textContent = 'اطلب عينة مجانية الآن';
-            } else {
-                document.documentElement.lang = 'en';
-                document.documentElement.dir = 'ltr';
-                langText.textContent = 'عربي';
-                document.getElementById('heroTitle').innerHTML = 'Flexo Ink Ready<br>For Instant Operation';
-                document.getElementById('heroDesc').textContent = 'Cheaper Price • World Quality • Stable Colors • Eco-Friendly';
-                document.getElementById('btnOrder').textContent = 'Request Sample Now';
-                document.getElementById('btnWhatsapp').textContent = 'Chat on WhatsApp';
-                document.getElementById('aboutTitle').innerHTML = 'Inkova Flexo<br><span class="text-[#f5c518]">100% Egyptian Company</span>';
-                document.getElementById('finalCta').textContent = 'Request Free Sample Now';
-            }
-        }
+/* ════════════════════════════
+   COUNTER ANIMATION
+════════════════════════════ */
+function animCounter(el) {
+  const target = parseInt(el.dataset.count);
+  const suffix = el.dataset.sfx || '';
+  const dur = 2000;
+  const start = performance.now();
+  function update(now) {
+    const t = Math.min((now - start) / dur, 1);
+    const e = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(e * target) + suffix;
+    if (t < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animCounter(e.target); cntObs.unobserve(e.target); } });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
-        // Tailwind config
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ink: '#0b2b5e',
-                        cyan: '#00e5ff',
-                        gold: '#f5c518'
-                    }
-                }
-            }
-        };
-    </script>
+/* ════════════════════════════
+   MOBILE MENU
+════════════════════════════ */
+function toggleMob() {
+  const menu = document.getElementById('mob-menu');
+  const btn  = document.getElementById('hamBtn');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+/* ════════════════════════════
+   LOADER
+════════════════════════════ */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('out');
+    setTimeout(() => { loader.style.display = 'none'; }, 1000);
+  }, 2400);
+});
+
+/* ════════════════════════════
+   CURSOR TRAIL
+════════════════════════════ */
+(function cursorTrail() {
+  const trail = [];
+  const LEN   = 7;
+  for (let i = 0; i < LEN; i++) {
+    const d = document.createElement('div');
+    Object.assign(d.style, {
+      position:'fixed', zIndex:'99996',
+      width:'4px', height:'4px', borderRadius:'50%',
+      background:'var(--cyan)', pointerEvents:'none',
+      opacity: ((LEN - i) / LEN) * 0.2,
+      transform:'translate(-50%,-50%)',
+    });
+    document.body.appendChild(d);
+    trail.push({ el: d, x: 0, y: 0 });
+  }
+  let lx = 0, ly = 0;
+  document.addEventListener('mousemove', e => { lx = e.clientX; ly = e.clientY; });
+  function u() {
+    trail[0].x += (lx - trail[0].x) * 0.4;
+    trail[0].y += (ly - trail[0].y) * 0.4;
+    trail[0].el.style.left = trail[0].x + 'px';
+    trail[0].el.style.top  = trail[0].y + 'px';
+    for (let i = 1; i < LEN; i++) {
+      trail[i].x += (trail[i-1].x - trail[i].x) * 0.3;
+      trail[i].y += (trail[i-1].y - trail[i].y) * 0.3;
+      trail[i].el.style.left = trail[i].x + 'px';
+      trail[i].el.style.top  = trail[i].y + 'px';
+    }
+    requestAnimationFrame(u);
+  }
+  u();
+})();
+
+/* ════════════════════════════
+   ORB PARALLAX
+════════════════════════════ */
+(function() {
+  const orbs = document.querySelectorAll('.orb');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    orbs.forEach((orb, i) => {
+      orb.style.transform = `translateY(${st * (i+1) * 0.07}px)`;
+    });
+  }, { passive: true });
+})();
+
+/* ════════════════════════════
+   MAGNETIC BUTTONS
+════════════════════════════ */
+document.querySelectorAll('.btn-gold, .pal-btn-send').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width/2) * 0.22;
+    const dy = (e.clientY - rect.top  - rect.height/2) * 0.22;
+    btn.style.transform = `translate(${dx}px,${dy}px) translateY(-4px) scale(1.04)`;
+  });
+  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+});
+
+/* ════════════════════════════
+   KEYBOARD SHORTCUTS
+════════════════════════════ */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+  if (e.key === '/' && !e.ctrlKey) {
+    e.preventDefault();
+    document.getElementById('searchInput').focus();
+  }
+});
+
+/* ════════════════════════════
+   INIT
+════════════════════════════ */
+updateCounts();
+renderFeatured();
+renderGrid();
+renderFavStrip();
+attachHoverListeners();
+</script>
 </body>
 </html>
